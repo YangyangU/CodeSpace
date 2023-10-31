@@ -1,0 +1,9 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.music__head{
+    height: 303px;
+    background-image: url(https://www.auspoll.com.cn/uploads/allimg/190920/1-1Z920144433b8.jpg);
+    background-size: cover;
+}
