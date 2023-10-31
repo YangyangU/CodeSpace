@@ -1,0 +1,33 @@
+let s = 'abcde'
+
+var validPalindrome = function(s) {
+    if(ispalindrome(s)) { return true}
+    else{
+        for(var i = 0; i < s.length; i++) {
+            let arr=s.split('');
+            arr.splice(i, 1);
+            arr=arr.join('');
+            if(ispalindrome(arr)){
+                return true;
+            }
+        }
+        return false;
+    }
+};
+
+var ispalindrome=function (s){
+    const len = s.length
+    for(var i = 0; i < len/2;i++){
+        if(s[i]!==s[len-1-i]){
+            return false;
+        }
+    }
+    return true;
+}
+
+console.log(validPalindrome(s));
+
+
+function validPalindrome(s){
+    
+}

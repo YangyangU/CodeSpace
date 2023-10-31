@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    ul li{
+        list-style: none;
+        width: 200px;
+        height: 100px;
+        float: left;
+    }
+    li:nth-child(1){
+        background: #ef4949;
+    }
+    li:nth-child(2){
+        background: #ffff5f;
+    }
+    li:nth-child(3){
+        background: #59ffde;
+    }
+    .text{
+        width: 100px;
+        height: 150px;
+        background-color: #247b8f;
+        /* clear: both; */
+    }
+    ul{
+        display: flex;
+        /*overflow: auto;把浮动覆盖*/
+        /* height: 100px; */
+    }
+    /* .clear{
+        clear: left;/*清除左浮动
+    } */
+    /* ul::after{
+        content: '';
+        clear: both;
+        display: block;/*本身啥都不是
+    } */
+    /*.clear::after{任何用到浮动的地方，加上这个标签，都会加一个伪元素来清除浮动
+        content: '';
+        clear: both;
+        display: block;本身啥都不是
+    }*/
+</style>
+<body>
+    <div class="container">
+        <ul class="clear">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <!-- <div class="clear"></div> -->
+        </ul>
+
+        <div class="text">Hello World</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+let s = '123321'
+
+var validPalindrome = function(s) {
+    if(ispelindrome(s)) { return true}
+    else{
+        for(var i = 0; i < s.length; i++) {
+            let arr=s.split('')
+            arr.splice(i, 1)
+            arr.join('')
+            if(ispelindrome()){
+                return true;
+            }
+        }
+        return false;
+    }
+};
+
+var ispelindrome = function(s){
+    const stack = []
+    for(let i=0;i<s.length;i++){
+        stack.push(s[i])
+    }
+    for(let i=0;i<s.length;i++){
+        if(stack.pop()!=s[i]){
+            return false
+        }
+    }
+    return true
+}

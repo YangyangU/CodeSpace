@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    background-color: #108ee9;
+    color: #fff;
+    padding: 10px 20px;
+}
+
+.search-bar {
+    display: flex;
+    background-color: #fff;
+    border-radius: 25px;
+    overflow: hidden;
+}
+
+#search-input {
+    border: none;
+    outline: none;
+    padding: 10px;
+    flex: 1;
+}
+
+#search-button {
+    background-color: #108ee9;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+    </style>
+</head>
+<body>
+    <!-- 项目weui  wy  ele  组件复用
+        BEM
+    Block  新的区块  cells
+        状态 modifier
+    -->
+    <!-- <div class="weui-cells">
+        <a href="" class="weui-cell weui-cell_access" href="javascript:;"> -->
+            <!-- 两个盒子 随意 BEM命名规范 
+            Element
+            -->
+            <!-- <span class="weui-cell__bd">
+                <span>cell standard</span>
+            </span>
+            <div class="weui-cell__ft">
+                说明文字
+            </div>
+        </a>
+    </div> -->
+
+
+    <!-- BEM css 命名规范 烦恼 
+        Block weui-cell
+        Element weui-cell__bd 两个下划线
+        Modifier 状态 weui-cell_access
+    -->
+
+    <!-- 视角不再是标签，也不是css,而是Block
+    element hd bd ft __title __desc ......
+    转态 _  -->
+    <div class="order">
+        <div class="order__header">
+            <div class="order__logo"></div>
+            <div class="order__title">订单详情</div>
+        </div>
+        <div class="order__content">
+            <div class="order__info">
+                <div class="order__info-item order__info-item--train">G1234</div>
+                <div class="order__info-item order__info-item--date">2023-11-01</div>
+            </div>
+            <div class="order__passengers">
+                <div class="order__passenger">张三</div>
+                <div class="order__passenger">李四</div>
+            </div>
+        </div>
+        <div class="order__footer">
+            <button class="order__button order__button--cancel">取消订单</button>
+            <button class="order__button order__button--pay">立即支付</button>
+        </div>
+    </div>
+
+</body>
+</html>

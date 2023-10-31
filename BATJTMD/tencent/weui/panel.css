@@ -1,0 +1,16 @@
+.weui-panel{
+    background-color: var(--weui-BG-2);
+    margin-top: 10px;
+    position: relative;
+    overflow: hidden;/*超出隐藏*/
+}
+.weuipanel:first-child{/*限定第一个跟上面没间隙*/
+    margin-top: 0px;
+}
+
+.weui-panel__hd{
+    padding: 16px 16px 13px;
+    color: var(--weui-FG-0);
+    font-weight: 500;
+    position: relative;
+}

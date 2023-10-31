@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>图书馆读者调查问卷</title>
+		<style type="text/css">
+            .biaoti{align-self: center;}
+        </style>
+	</head>
+ 
+	<body>
+		<div border="1px">
+		<h1 class="biaoti">图书馆读者调查问卷</h1>
+        <p>&nbsp;为了能够及时了解您对图书馆的需求，提升我校图书馆文献资源建设的质量和水平，更好的为我校教学科研服务，我馆特设计了问卷调查题目如下，请协助填写，谢谢您的合作!
+        </p>
+		<form class="biaodan">
+			<ol>
+				<li>您的年级</li>
+                <label>请你选择:  <select><option>请你选择</option></select></label><br>
+				<br>
+				<li>您的专业</li>
+				<label><input></label>
+				<br>
+				<li>对图书馆的阅览环境</li>
+				<label><input type="radio" name="time1"/></label>满意<br>
+				<label><input type="radio" name="time1"/></label>基本满意<br>
+				<label><input type="radio" name="time1"/></label>不满意&nbsp;您的建议:<input><br>
+				<br>
+				<li>您到图书馆的原因是（可多选）</li>
+				<label><input type="checkbox" name="sport" value="1"/></label>借阅专业图书<br>
+				<label><input type="checkbox" name="sport" value="2"/></label>随便坐坐，翻翻书刊<br>
+				<label><input type="checkbox" name="sport" value="3"/></label>借阅光盘<br>
+				<label><input type="checkbox" name="sport" value="4"/></label>参加图书馆组织的活动<br>
+				<label><input type="checkbox" name="sport" value="5"/></label>自习，复习功课<br>
+				<label><input type="checkbox" name="sport" value="5"/></label>上网<br>
+				<label><input type="checkbox" name="sport" value="5"/></label>检索电子文献<br>
+				<br>
+				<li>您到图书馆的频率</li>
+				<label><input type="radio" name="xueli"/></label>几乎每天<br>
+				<label><input type="radio" name="xueli"/></label>每周1-2次<br>
+				<label><input type="radio" name="xueli"/></label>每月1-2次<br>
+				<label><input type="radio" name="xueli"/></label>几乎不去<br>
+				<br>
+				<li>您对学校的建议</li>
+				<br>
+				<textarea name="message"  placeholder="请您提出宝贵建议：" required></textarea>	
+			</ol>
+			<br>
+				<button id="tijiao">提交答案</button>	
+                <button id="tijiao">清空</button>	
+		</form>
+		</div>
+	</body>
+</html>

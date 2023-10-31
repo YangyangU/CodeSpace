@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //JS强大的表现力  语言精粹  对象
+        //对象字面量
+        //数据类型  简单 复杂（引用）
+        const xyy = {
+            name:"徐阳阳",//key value
+            age:21,
+            hometown:"九江",
+            hobbies:"吃饭",
+            isSingle:true,
+            sentFlower: function(receiver){
+                receiver.receiveFlower(sender);
+            }
+        }
+        const jyx = {
+            name:"江雅欣",
+            age:20,
+            hometown:"抚州",
+            hobbies:"拉屎",
+            isSingle:true,
+            receiveFlower:function(sender){
+                console.log("收到花");
+                console.log(sender.name);
+            }
+        }
+        const zfc = {
+            name:"朱封臣",
+            age:19,
+            hometown:"南昌",
+            hobbies:"跑步",
+            isSingle:true
+        }
+
+
+    </script>
+</body>
+</html>

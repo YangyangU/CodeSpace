@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/FirstProject.iml" filepath="$PROJECT_DIR$/FirstProject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/_4_23/_4_23.iml" filepath="$PROJECT_DIR$/_4_23/_4_23.iml" />
+      <module fileurl="file://$PROJECT_DIR$/_4_25/_4_25.iml" filepath="$PROJECT_DIR$/_4_25/_4_25.iml" />
+      <module fileurl="file://$PROJECT_DIR$/day01/day01.iml" filepath="$PROJECT_DIR$/day01/day01.iml" />
+      <module fileurl="file://$PROJECT_DIR$/day02/day02.iml" filepath="$PROJECT_DIR$/day02/day02.iml" />
+      <module fileurl="file://$PROJECT_DIR$/day03/day03.iml" filepath="$PROJECT_DIR$/day03/day03.iml" />
+      <module fileurl="file://$PROJECT_DIR$/day0925/day0925.iml" filepath="$PROJECT_DIR$/day0925/day0925.iml" />
+      <module fileurl="file://$PROJECT_DIR$/exe2/exe2.iml" filepath="$PROJECT_DIR$/exe2/exe2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/exe8/exe8.iml" filepath="$PROJECT_DIR$/exe8/exe8.iml" />
+      <module fileurl="file://$PROJECT_DIR$/page97/page97.iml" filepath="$PROJECT_DIR$/page97/page97.iml" />
+    </modules>
+  </component>
+</project>

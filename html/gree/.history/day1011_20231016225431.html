@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图书馆读者调查问卷</title>
+    <link type="text/css" rel="stylesheet" href="day1011.css">
+</head>
+<body>
+    <table align="center" border="10">
+        <tr height="50" width="100">
+            <h2 align="center">图书馆读者调查问卷</h2><br>
+        </tr>
+        <tr>
+            <p>&nbsp;为了能够及时了解您对图书馆的需求，提升我校图书馆文献资源建设的质量和水平，更好的为我校教学科研服务，我馆特设计了问卷调查题目如下，请协助填写，谢谢您的合作!
+</p>
+        </tr>
+        <tr>
+            1.您的年级<br>
+            请你选择
+            <select>
+                <option>请你选择</option>
+            </select><br>
+        </tr>
+        <tr>
+        2.您的专业<br>
+        <input><br>
+        </tr>
+        <tr>3.对图书馆的阅览环境<br>
+            <input type="radio" name="a" value="满意"/>满意<br>
+            <input type="radio" name="a" value="基本满意"/>基本满意<br>
+            <input type="radio" name="a" value="不满意"/>不满意
+        您的建议:<input><br>
+        </tr>
+    <tr>
+        4.您到图书馆的原因是（可多选）,<br>
+    <input type="radio" value="1">借阅专业图书<br>
+    <input type="radio" value="2">随便坐坐，翻翻书刊<br>
+    <input type="radio" value="3">借阅光盘<br>
+    <input type="radio" value="4">参加图书馆组织的活动<br>
+    <input type="radio" value="5">自习，复习功课<br>
+    <input type="radio" value="6">上网<br>
+    <input type="radio" value="7">检索电子文献<br>
+    </tr>
+    <tr>5.您到图书馆的频率<br>
+    <input type="radio" name="a" value="1"/>几乎每天<br>
+    <input type="radio" name="a" value="2"/>每周1-2次<br>
+    <input type="radio" name="a" value="3"/>每月1-2次<br>
+    <input type="radio" name="a" value="4"/>几乎不去<br>
+    </tr>
+    <tr>6.您对学校的建议<br>
+    <input value="请您提出宝贵建议：" height="50px" width="200px"><br>
+    </tr>
+    <tr>
+    <button>提交答案</button>
+    <button>清空</button>
+    </tr>
+    </table>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>图书馆读者调查问卷</title>
+		<link href="11_14.css" rel="stylesheet" type="text/css"/>
+	</head>
+ 
+	<body>
+		<div class="index">
+		<h1 class="biaoti">图书馆读者调查问卷</h1>
+		<hr width="597px" color="black"/>
+        <p>&nbsp;为了能够及时了解您对图书馆的需求，提升我校图书馆文献资源建设的质量和水平，更好的为我校教学科研服务，我馆特设计了问卷调查题目如下，请协助填写，谢谢您的合作!
+        </p>
+		<form class="biaodan">
+			<ol>
+				<li>您的年级</li>
+                <label>请你选择:<select><option>请你选择</option></select></label><br>
+				<br />
+				<li>你的学历是？</li>
+				<label><input type="radio" name="xueli" ></label>高中及以下<br />
+				<label><input type="radio" name="xueli"/></label>大专<br />
+				<label><input type="radio" name="xueli"/></label>本科<br />
+				<label><input type="radio" name="xueli"/></label>硕士研究生<br />
+				<br />
+				<li>你从事拳击/健身教练的时间？</li>
+				<label><input type="radio" name="time1"/></label>刚开始<br />
+				<label><input type="radio" name="time1"/></label>1~2年<br />
+				<label><input type="radio" name="time1"/></label>3~4年<br />
+				<label><input type="radio" name="time1"/></label>5~10年<br />
+				<br />
+				<li>你是通过什么渠道学会拳击/其他这项技术的？</li>
+				<label><input type="radio" name="jishu"/></label>部队<br />
+				<label><input type="radio" name="jishu"/></label>拳馆<br />
+				<label><input type="radio" name="jishu"/></label>武校<br />
+				<label><input type="radio" name="jishu"/></label>少林寺<br />
+				<label><input type="radio" name="jishu"/></label>其他<br />
+				<br />
+				<li>你晚上睡觉的时间是？</li>
+				<label><input type="radio" name="night" /></label>晚上八点至九点<br />
+				<label><input type="radio" name="night" /></label>晚上十点点至十一点<br />
+				<label><input type="radio" name="night" /></label>晚上十二点以后<br />
+				<label><input type="radio" name="night" /></label>通宵<br />
+				<br />
+				<li>你早上起床的时间是？</li>
+				<label><input type="radio" name="time2"/></label>早上六点至七点<br />
+				<label><input type="radio" name="time2"/></label>早上八点至九点<br />
+				<label><input type="radio" name="time2"/></label>早上十点至十一点<br />
+				<label><input type="radio" name="time2"/></label>中午十二点之后<br />
+				<br />
+				<li>你最近有锻炼身体吗？</li>
+				<label><input type="radio" name="duanlian"/></label>一周三到五次<br />
+				<label><input type="radio" name="duanlian"/></label>一周一到两次<br />
+				<label><input type="radio" name="duanlian"/></label>一周一次<br />
+				<label><input type="radio" name="duanlian"/></label>很久没锻炼了<br />
+				<br />
+				<li>你近期与别人发生过矛盾吗？</li>
+				<label><input type="radio" name="maodun"/></label>有，没和好<br />
+				<label><input type="radio" name="maodun"/></label>有，和好了<br />
+				<label><input type="radio" name="maodun"/></label>有，并且打了一架<br />
+				<label><input type="radio" name="maodun"/></label>有，就吵了下嘴<br />
+				<label><input type="radio" name="maodun"/></label>没有<br />
+				<br />
+				<li>你喜欢的运动有？（可多选）</li>
+				<label><input type="checkbox" name="sport" value="1"/></label>篮球<br />
+				<label><input type="checkbox" name="sport" value="2"/></label>乒乓球<br />
+				<label><input type="checkbox" name="sport" value="3"/></label>羽毛球<br />
+				<label><input type="checkbox" name="sport" value="4"/></label>拳击<br />
+				<label><input type="checkbox" name="sport" value="5"/></label>柔术<br />
+				<label><input type="checkbox" name="sport" value="5"/></label>摔跤<br />
+				<label><input type="checkbox" name="sport" value="5"/></label>散打<br />
+				<br />
+				<li>你期待的工资是？</li>
+				<label><input type="radio" name="xueli"/></label>3000~5000<br />
+				<label><input type="radio" name="xueli"/></label>5000~10000<br />
+				<label><input type="radio" name="xueli"/></label>10000~15000<br />
+				<label><input type="radio" name="xueli"/></label>15000~20000<br />
+				<br />
+				<li>你的意见:</li>
+				<br />
+				<textarea name="message"  placeholder="你的宝贵意见对我们帮助很大" required></textarea>	
+			</ol>
+			<br />
+				<button id="tijiao">提交</button>	
+		</form>
+		</div>
+	</body>
+</html>

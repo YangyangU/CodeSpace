@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WEUI源码</title>
+    <style>
+        .weui-btn{
+            position: relative;/*考虑全面*/
+            display: block;
+            width: 184px;
+            margin-left:auto ;
+            margin-right: auto;
+            padding: 12px 24px;
+            box-sizing: border-box;
+            font-size: 17px;
+            font-weight: 500;
+            text-align: center;
+            text-decoration: none;
+            color: #fff;
+            line-height: 1.41176471;
+            border-radius: 8px;
+            /*css reset */
+            -webkit-tap-highlight-color: ragb(0,0,0,0);
+            user-select: none;/*拒绝粘贴*/
+        }
+        .weui-btn_primary{
+            background-color: #009688;
+        }
+    </style>
+</head>
+<body>
+    <!-- css 国际命名规范BEM weui-btn Block 状态 _primary -->
+    <!-- button太复杂 -->
+    <a href="javascript:;" class="weui-btn weui-btn_primary">主要操作</a>
+</body>
+</html>

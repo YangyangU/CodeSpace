@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //JS强大的表现力  语言精粹  对象
+        //对象字面量
+        //数据类型  简单 复杂（引用）
+        const xyy = {
+            name:"徐阳阳",//key value
+            age:21,
+            hometown:"九江",
+            hobbies:"吃饭",
+            isSingle:true,
+            sentFlower: function(receiver){
+                //console.log(this);//this对象内部指向本身打印全部，其他情况另看
+                xq.receiveFlower(this);//这里this指xyy
+            }
+        }
+
+        //复杂，面向对象要能搞得定
+        const jyx = {
+            name:"江雅欣",
+            age:20,
+            hometown:"抚州",
+            hobbies:"拉屎",
+            isSingle:true,
+            receiveFlower:function(sender){
+                console.log("收到"+sender.name+"花");
+            }
+        }
+        
+        //代理模式
+        const xq = {
+            name:"徐倩",
+            age:20,
+            hometown:"抚州",
+            hobbies:"跳舞",
+            isSingle:true,
+            //method 接口 Interface
+            receiveFlower:function(sender){
+                //console.log("收到"+sender.name+"花");
+            // sentFlower:function(sender){
+            //     console.log("发送"+sender.name+"花");
+                xq.receiveFlower(sender);
+            }
+        }
+    </script>
+
+</body>
+</html>

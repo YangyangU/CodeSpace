@@ -1,0 +1,11 @@
+![image-20231021152128856](C:\Users\49554\AppData\Roaming\Typora\typora-user-images\image-20231021152128856.png)
+
+1.git init 初始化本地仓库 （让git掌管文件夹）
+
+2.git status 查看该仓库中的文件状态
+
+3.git add . 提交所有的文件到git暂存区
+
+4.git commit -m '你的注释' 将暂存区的代码提交到master区域
+
+5.git push -u origin master 将文件推送到远程仓库

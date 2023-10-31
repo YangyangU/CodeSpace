@@ -1,0 +1,30 @@
+let s = 'abcde'
+
+var validPalindrome = function(s) {
+    if(ispalindrome(s)) { return true}
+    else{
+        for(var i = 0; i < s.length; i++) {
+            let arr=s.split('')
+            arr.splice(i, 1)
+            arr.join('')
+            if(ispalindrome()){
+                return true;
+            }
+        }
+        return false;
+    }
+};
+
+function ispalindrome(s){
+    let left = 0
+    let right = s.length-1
+    while(left<right){
+        if(s[left]!=s[right]){
+            return false
+        }
+        left++
+        right--
+    }
+    return true
+}
+
