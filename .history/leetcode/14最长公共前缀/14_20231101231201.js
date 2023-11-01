@@ -9,8 +9,9 @@ var longestCommonPrefix = function(strs) {
             if(i>=strs[j].length||strs[j][i]!==strs[0][i]){
                 return res;
             }
-        }
         res+=strs[0][i]
+
+        }
     }
     return res
 }
