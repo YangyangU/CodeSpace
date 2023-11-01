@@ -101,7 +101,7 @@ body{
 }
 .body-play{
     height: 80px;
-    width: 280px;
+    width: 260px;
     display: flex;
     justify-content: space-around;
     align-items: center;

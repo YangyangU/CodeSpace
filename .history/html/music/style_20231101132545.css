@@ -100,18 +100,21 @@ body{
     align-items: center;
 }
 .body-play{
-    height: 80px;
-    width: 280px;
+    height: 100px;
+    width: 245px;
     display: flex;
     justify-content: space-around;
     align-items: center;
     margin: 0 auto;
 }
 .body-model{
-    margin: 0 auto;
-    width: 230px;
+    width: 220px;
     margin-top: 5px;
+    margin-left: 77px;
     display: flex;
     justify-content:space-between;
     align-items: center;
+}
+.model-left{
+    float: left;
 }

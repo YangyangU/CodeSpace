@@ -82,6 +82,7 @@ body{
     width: 245px;
 }
 .bord-left{
+    margin-top: 1px;
     width: 100px;
     border: 2px solid #F03030;
 }
@@ -101,7 +102,7 @@ body{
 }
 .body-play{
     height: 80px;
-    width: 280px;
+    width: 245px;
     display: flex;
     justify-content: space-around;
     align-items: center;

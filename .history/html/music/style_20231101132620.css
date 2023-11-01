@@ -101,7 +101,7 @@ body{
 }
 .body-play{
     height: 80px;
-    width: 280px;
+    width: 245px;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -109,9 +109,14 @@ body{
 }
 .body-model{
     margin: 0 auto;
-    width: 230px;
-    margin-top: 5px;
+
+    width: 245px;
+    /* margin-top: 5px;
+    margin-left: 77px; */
     display: flex;
     justify-content:space-between;
     align-items: center;
+}
+.model-left{
+    float: left;
 }

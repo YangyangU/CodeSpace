@@ -115,3 +115,6 @@ body{
     justify-content:space-between;
     align-items: center;
 }
+.icon-bofang{
+    box-shadow: 0 0 30px #1a1212;
+}

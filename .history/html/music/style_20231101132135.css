@@ -79,39 +79,48 @@ body{
 .body-line{
     margin: 0 auto;
     margin-top: 30px;
-    width: 245px;
+    width: 260px;
 }
 .bord-left{
+    margin-top: -1px;
+    float: left;
     width: 100px;
     border: 2px solid #F03030;
 }
 .bord-right{
+    /* margin-left: 90px; */
     width: 245px;
     border: 1px solid #C6C6C6;
 }
 .time{
-    margin-top: 8px;
+    position: absolute;
+    width: 227px;
+    margin-top: -10px;
     font-size: 8px;
     font-family: SourceHanSansCN;
     font-weight: bold;
     color: #9EA0AD;
+    line-height: 51px;
     display: flex;
     justify-content:space-between;
     align-items: center;
 }
 .body-play{
-    height: 80px;
-    width: 280px;
+    height: 100px;
+    width: 250px;
     display: flex;
     justify-content: space-around;
     align-items: center;
     margin: 0 auto;
 }
 .body-model{
-    margin: 0 auto;
-    width: 230px;
+    width: 220px;
     margin-top: 5px;
+    margin-left: 77px;
     display: flex;
     justify-content:space-between;
     align-items: center;
+}
+.model-left{
+    float: left;
 }
