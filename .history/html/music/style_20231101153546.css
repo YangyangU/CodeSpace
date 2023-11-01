@@ -8,17 +8,17 @@ body{
 .music__head{
     position: relative;
     height: 303px;
-    overflow: auto;/*滑动自适应*/
+    overflow: auto;
 }
 .music__head .bg{
     width: 100%;
     height: 303px;
     background-image: url(https://images.uiiiuiii.com/wp-content/uploads/2019/09/itz-font20190929-12-47.jpg
     );
-    background-size: cover;/*图片铺满窗口*/
-    filter: blur(8px);/*虚化图片*/
+    background-size: cover;
+    filter: blur(8px);
     position: absolute;
-    z-index: -1;/*将背景向下移一个层级*/
+    z-index: -1;
 }
 .music__head-title{
     margin: 45px 0;
@@ -32,37 +32,37 @@ body{
     text-align: center;
     font-size: 12px;
     font-weight: bold;
-    font-family: SourceHanSansCN;/*字体*/
+    font-family: SourceHanSansCN;
 }
 .music__body{
     width: 100%;
-    height: calc(100vh - 130px);/*计算全屏-head部分高度 减号两边加空格*/
+    height: calc(100vh - 130px);/*计算全屏-130px 减号两边加空格*/
     position: absolute;
     top: 130px;
     background-color: #fff;
-    border-top-right-radius: 32px;/*右上角圆滑*/
-    border-top-left-radius: 32px;/*左上角圆滑*/
+    border-top-right-radius: 32px;
+    border-top-left-radius: 32px;
 }
 .body-pic{
     width: 257px;
     height: 283px;
-    overflow: hidden;/*超出即隐藏*/
+    overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;/*弹性布局让子容器完全居中*/
     border-radius: 40px;
     position: absolute;
     left: 50%;
-    transform: translateX(-50%);/*图片居中*/
+    transform: translateX(-50%);
     top:-39px;
-    box-shadow: 0 0 10px #efefef;/*图片阴影*/
+    box-shadow: 0 0 10px #efefef;
 }
 .body-pic img{
     height: 100%;
 }
 .body-desc{
     margin-top: 260px;
-    text-align: center;/*文字居中*/
+    text-align: center;
 }
 .name{
     font-size: 22px;
@@ -96,7 +96,7 @@ body{
     color: #9EA0AD;
     display: flex;
     justify-content:space-between;
-    align-items: center;/*弹性布局让子容器完全居中*/
+    align-items: center;
 }
 .body-play{
     height: 80px;
@@ -112,5 +112,5 @@ body{
     margin-top: 5px;
     display: flex;
     justify-content:space-between;
-    align-items: center;/*弹性布局让子容器完全居中*/
+    align-items: center;
 }
