@@ -46,13 +46,13 @@ body{
     text-indent: 2em;
 }
 .inside{
-    background-color: #f79090;
+    background-color: #a1eaf5;
 }
 .outside{
     background-color: #fff;
 }
 .front-cover .outside{
-    background-image: url(https://tse4-mm.cn.bing.net/th/id/OIP-C.oWr0-UcLkYBGedCwTIN2LAHaHa?w=192&h=194&c=7&r=0&o=5&dpr=1.3&pid=1.7);
+    background-image: url(https://bpic.588ku.com/illus_water_img/19/04/16/90a94ae32ff07ad1aa862d081bb19e85.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     transform: translateZ(3px);
@@ -64,7 +64,7 @@ body{
     transform: rotateZ(-3px);
 }
 .back-cover .inside{
-    background-color: #f79090;
+    background-color: #f5a1a1;
 }
 
 .shadow,
@@ -81,7 +81,7 @@ body{
     background-color: rgba(0,0,0,0.5);
 }
 .card{
-    background-image: url(https://tse3-mm.cn.bing.net/th/id/OIP-C.zuHVOAp1LoRzzkHAUE9gbwHaE8?w=295&h=196&c=7&r=0&o=5&dpr=1.3&pid=1.7);
+    background-image: url(https://ts1.cn.mm.bing.net/th/id/R-C.29b97795c05783d0e602505a0b511cc0?rik=s4LvpDxxW%2bYxdQ&riu=http%3a%2f%2fimg95.699pic.com%2felement%2f40040%2f2074.png_860.png&ehk=LXPYhWU1UDo1jQLFe0m%2bWujxjtaikfqMhwwlsKtw0MM%3d&risl=&pid=ImgRaw&r=0);
     background-repeat: no-repeat;
     background-size: cover;
 }
