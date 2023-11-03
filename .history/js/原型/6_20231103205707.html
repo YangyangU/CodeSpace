@@ -1,0 +1,28 @@
+<script>
+    Ground.prototype.lastName = '掘金'
+
+    function Ground(){
+
+    }
+
+    var ground = new Ground()
+
+    Father.prototype = ground
+
+    function Father(){
+        this.name = '管理员'
+    }
+
+    var father = new Father()
+
+    Son.prototype = father
+
+    function Son(){
+        this.habbit = '推送文章'
+    }
+
+    var son = new Son()
+
+    console.log(son.name);
+    console.log(son.lastName);
+</script>
