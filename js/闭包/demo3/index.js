@@ -3,13 +3,11 @@ function bar(){//外层作用域是全局
 }
 
 function foo(){
-    var myName = '欣欣'
+    var myName = '掘金'
     bar()
 }
 
-
-var myName = '阳阳'
-
+var myName = '管理员'
 foo()
 
 //创建执行上下文时有个outer全局为空
