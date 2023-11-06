@@ -12,10 +12,10 @@ function Car(color){
     this.height = '1400'
     this.width = '4900'
     this.weight = 1000
-    // this.color = color
+    this.color = color
 }
 
-let car1 =new Car();//普通函数调用，没返回值
+let car1 =Car();//普通函数调用，没返回值
 
 // let car1 = new Car('pink');//实例对象
 let car2 = new Car('green');
