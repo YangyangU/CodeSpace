@@ -16,6 +16,9 @@
 // console.log(num * 2);//246  //当参与四则运算v8将它看成数字
 
 
+// var str = 'abcd'
+// console.log(str.length);
+
 
 // var num = 4
 // num.len = 3 //引发
@@ -25,13 +28,13 @@
 // delete num.len
 
 // console.log(num.len);//执行时又new Number(4).len
-// 访问的时候创建了，又移除了，所以报undefined
-// 这样执行的过程叫隐式包装类
+//访问的时候创建了，又移除了，所以报undefined
+//这样执行的过程叫隐式包装类
 
 
 //考点
-var arr = [1,2,3,4,5]
-arr.length = 2
+// var arr = [1,2,3,4,5]
+// arr.length = 2
 
 // console.log(arr);
 
