@@ -11,9 +11,15 @@ var lengthOfLastWord = function(s) {
             break;
         }
     }  
-    n = arr.lastIndexOf(' ')
-    for(let i = n+1; i < arr.length; i++){
+    if(arr[arr.length-1]==' '){
+        n = arr.lastIndexOf(' ')-1;
+    
         ans++
+    }else{
+        n = arr.lastIndexOf(' ')
+        for(let i = n+1; i < arr.length; i++){
+            ans++
+        }
     }
     return ans;
 };
