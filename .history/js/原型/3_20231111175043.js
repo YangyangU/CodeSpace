@@ -10,13 +10,13 @@ function Car(owner, color){
 var car1 = new Car('掘友','pink')
 var car2 = new Car('掘金管理','green')
 
-car1.color = 'black'   //私有属性只能改自己
+car.color = 'black'   //私有属性只能改自己
 
-// car1.name = '红旗'    //共有属性改不了原型，只能改自己的属性
-Car.prototype.name = '红旗'
+// car.name = '红旗'    //共有属性改不了原型，只能改自己的属性
+// Car.prototype.name = '红旗'
 
 //delete Car.prototype.name
 // delete car.name
 
-console.log(car1.name);
-console.log(car2.name);
+console.log(car1);
+console.log(car2);

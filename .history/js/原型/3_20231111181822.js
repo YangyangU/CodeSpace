@@ -18,5 +18,5 @@ Car.prototype.name = '红旗'
 //delete Car.prototype.name
 // delete car.name
 
-console.log(car1.name);
+console.log(car1);
 console.log(car2.name);
