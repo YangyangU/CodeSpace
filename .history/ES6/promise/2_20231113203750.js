@@ -38,11 +38,11 @@ function baby() {
 //优化
 xq()
 .then((res)=>{//res是定情信物
-    console.log(res);
+    //console.log(res);
     return marry()
 })//这里能返回promise对象吗？能，但是跟xq()的promise对象不同，我们现在要
 //做的就是让它变成同一种，marry前面加个return，返回值覆盖原来的promise对象
 .then((res2)=>{
-    console.log(res2);
+    //console.log(res2);
     baby()
 })
