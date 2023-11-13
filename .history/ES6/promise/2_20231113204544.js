@@ -14,22 +14,14 @@ function marry() {
     return new Promise((resolve, reject)=> {
         setTimeout(()=>{
             console.log('阳阳结婚了！');
-            resolve('洞房了！')
+            resolve('洞房了')
         },1000)
     })
 }
 function baby() {
-    return new Promise((resolve, reject)=>{
-        setTimeout(()=>{
-            console.log('小阳阳出生了！');
-            resolve('准备生二胎！')
-        },500)
-    })
-}
-function secondBaby() {
     setTimeout(()=>{
-        console.log('小小阳阳出生了！');
-    },1000)
+        console.log('小阳阳出生了！');
+    },500)
 }
 //实例对象.then
 // xq().then((res)=>{//res是定情信物
@@ -52,9 +44,5 @@ xq()
 //做的就是让它变成同一种，marry前面加个return，返回值覆盖原来的promise对象
 .then((res2)=>{
     console.log(res2);
-    return baby()
-})
-.then((res3)=>{
-    console.log(res3);
-    secondBaby()
+    baby()
 })

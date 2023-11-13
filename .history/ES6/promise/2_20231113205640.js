@@ -52,9 +52,5 @@ xq()
 //做的就是让它变成同一种，marry前面加个return，返回值覆盖原来的promise对象
 .then((res2)=>{
     console.log(res2);
-    return baby()
-})
-.then((res3)=>{
-    console.log(res3);
-    secondBaby()
+    baby()
 })
