@@ -35,26 +35,26 @@
 
 
 
-// 函数没有词法作用域，函数在谁的作用域里面生效，词法作用域就是谁，如果是函数，函数没有词法作用域，然后再往外面找
-function foo() {// [[scope]]
-    var b = 1
-    bar()
-}
-function bar() {
-    console.log(this.b);
-}
-foo();
-
-
-// var b = 2
-// function foo() {
+//函数没有词法作用域，函数在谁的作用域里面生效，词法作用域就是谁，如果是函数，函数没有词法作用域，然后再往外面找
+// function foo() {// [[scope]]
 //     var b = 1
-//     function baz() {
-//         bar()
-//     }
-//     function bar() {
-//         console.log(this.b);//2
-//     }
-//     baz()
+//     bar()
+// }
+// function bar() {
+//     console.log(this.b);
 // }
 // foo();
+
+
+var b = 2
+function foo() {
+    var b = 1
+    function baz() {
+        bar()
+    }
+    function bar() {
+        console.log(this.b);//2
+    }
+    baz()
+}
+foo();
