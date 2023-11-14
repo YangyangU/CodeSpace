@@ -1,0 +1,6 @@
+<view class="hero">
+  YYY
+  <button bindtap="doLogin">
+  按钮
+  </button>
+</view>
