@@ -5,9 +5,18 @@ Page({
    * 页面的初始数据
    */
   data: {
+    info:{
+      logo:'https://www.lamborghini.com/sites/it-en/files/themes/custom/lambo_facelift_2019/images/logo.png',
+      name:'Lamborghini',
+      model:'Revuelto',
+      price:629.999,
+      pic:'https://www.lamborghini.com/sites/it-en/files/DAM/lamborghini/facelift_2019/homepage/families-gallery/2023/revuelto/revuelto_m.png'
+    }
 
   },
-
+  doLogin(){
+  console.log('点击了按钮');
+  },
   /**
    * 生命周期函数--监听页面加载
    */

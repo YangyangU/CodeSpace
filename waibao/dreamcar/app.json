@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/cars/cars",
     "pages/index/index",
+    "pages/cars/cars",
     "pages/logs/logs"
   ],
   "window": {
