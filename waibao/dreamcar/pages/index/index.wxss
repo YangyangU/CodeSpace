@@ -8,3 +8,8 @@
 .hero{
 
 }
+
+/* 白色背景 */
+.while{
+  background: #fff;
+}
