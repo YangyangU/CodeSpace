@@ -10,6 +10,6 @@
 }
 
 /* 白色背景 */
-.while{
-  background: #fff;
+.white{
+  background: rgb(194, 182, 182);
 }

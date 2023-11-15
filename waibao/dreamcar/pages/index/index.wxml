@@ -1,7 +1,9 @@
 <!-- wx提供了功能丰富的组件 -->
 <view>
-  <text>{{user.name}}111</text>
+  <text>{{slides[0].description}}111</text>
   <text>{{user.favor}}222</text>
+  <image src="{{pic}}" mode=""/>
+
 </view>
 <!-- <swiper indicator-dots="{{true}}" class="section hero white">
   <swiper-item>1</swiper-item>
