@@ -1,4 +1,12 @@
-//应用
-App({
+// 应用
 
+// Page() 页面
+// 花括号内配置
+App({
+  globalData:{
+    user:{
+      name:'阳阳',
+      favor:['coding','游戏']
+    }
+  }
 })
