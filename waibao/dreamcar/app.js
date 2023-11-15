@@ -8,5 +8,8 @@ App({
       name:'阳阳',
       favor:['coding','游戏']
     }
+  },
+  onLaunch(){
+    console.log('应用启动了');
   }
 })

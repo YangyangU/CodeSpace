@@ -1,5 +1,9 @@
 <!-- wx提供了功能丰富的组件 -->
-<swiper indicator-dots="{{true}}" class="section hero white">
+<view>
+  <text>{{user.name}}111</text>
+  <text>{{user.favor}}222</text>
+</view>
+<!-- <swiper indicator-dots="{{true}}" class="section hero white">
   <swiper-item>1</swiper-item>
   <swiper-item>2</swiper-item>
-</swiper>
+</swiper> -->
