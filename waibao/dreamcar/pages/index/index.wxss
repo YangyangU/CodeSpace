@@ -11,5 +11,5 @@
 
 /* 白色背景 */
 .white{
-  background: rgb(194, 182, 182);
+  background: rgb(255, 255, 255);
 }
