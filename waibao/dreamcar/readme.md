@@ -27,4 +27,17 @@
 
 
 - 循环输出的概念 
-  - 模版在{{直出}}
+  - 模版在{{直出}}外，数据列表输出的常态
+  - block 只承载指令 wx:for
+    不会出现在文档流中
+  - item 默认
+    item.image
+
+- css 架构
+  Dry 原则 Don't repeat yourself !
+  css 业务拆分  一个元素多个类名
+  section hero white
+  - app.wxss 全局样式
+    - 公用的样式
+    - 模块化
+  - page.wxss 页面业务样式

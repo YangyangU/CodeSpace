@@ -1,4 +1,14 @@
-.hero{
-  background-color: rgb(197, 213, 218);
-  color: #ffffff;
+/* 模块化划分 */
+@import"styles/reset.wxss";
+@import"styles/hero.wxss";
+@import"styles/white.wxss";
+@import"styles/button.wxss";
+@import"styles/action.wxss";
+
+page{
+  background: #f8f8f8;
+}
+
+.section{
+  height: 100vh;
 }
