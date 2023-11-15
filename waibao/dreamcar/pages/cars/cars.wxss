@@ -1,3 +1,8 @@
 .hero{
   background-color: rgb(162, 167, 172);
 }
+
+.hd image{
+  height: 50px;
+  width: 50px;
+}
