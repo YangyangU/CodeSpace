@@ -24,7 +24,7 @@
     //     }
     // }
     //考虑参数
-    function send(e,a){console.log('提交了',e,a);}
+    function send(e){console.log('提交了',e);}
     btn.addEventListener('click',throttle(send, 1000));
     function throttle(fn, delay) {
         let prevTime = Date.now();

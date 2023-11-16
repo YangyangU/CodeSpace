@@ -18,14 +18,14 @@
         <button onclick="submit">提交</button>
     </form> -->
      <button id="btn">提交</button>
-    <!-- <script>
+    <!--<script>
         let btn = document.getElementById('btn');
         btn.addEventListener('click', function(){
             console.log("已提交")
         })
     </script> -->
     <script>
-        // let btn = document.getElementById('btn');
+        let btn = document.getElementById('btn');
         // btn.addEventListener('click', function(){
         //     setTimeout(function(){
         //         console.log('已提交');
@@ -34,7 +34,7 @@
         // function send() {
         //     console.log('提交完成');
         // }
-        // // // btn.addEventListener('click',sent)//放函数体
+        // // btn.addEventListener('click',sent)//放函数体
         // btn.addEventListener('click',debounce(send,1000))//所以return
         // function debounce(fn,delay) {
         //     let timer;
@@ -47,8 +47,8 @@
         // }
 
         //接收参数
-        function send(e) {
-            console.log('提交完成',e);
+        function send(e,a) {
+            console.log('提交完成',e,a);
         }
         // btn.addEventListener('click',sent)//放函数体
         btn.addEventListener('click',debounce(send,1000))//所以return
@@ -63,6 +63,6 @@
                 },delay)
             }
         }
-     </script>
+    </script>
 </body>
 </html>

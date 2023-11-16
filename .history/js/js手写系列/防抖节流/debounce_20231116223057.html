@@ -31,38 +31,38 @@
         //         console.log('已提交');
         //     },1000)
         // })
-        // function send() {
-        //     console.log('提交完成');
-        // }
-        // // // btn.addEventListener('click',sent)//放函数体
-        // btn.addEventListener('click',debounce(send,1000))//所以return
-        // function debounce(fn,delay) {
-        //     let timer;
-        //     return function(){
-        //         if (timer) clearTimeout(timer);
-        //         timer = setTimeout(function () {
-        //             fn()
-        //         },delay)
-        //     }
-        // }
-
-        //接收参数
-        function send(e) {
-            console.log('提交完成',e);
+        function send() {
+            console.log('提交完成');
         }
-        // btn.addEventListener('click',sent)//放函数体
+        // // btn.addEventListener('click',sent)//放函数体
         btn.addEventListener('click',debounce(send,1000))//所以return
         function debounce(fn,delay) {
             let timer;
             return function(){
-                let args = arguments;
-                //arguments
                 if (timer) clearTimeout(timer);
-                timer = setTimeout(()=> {
-                    fn.call(this,...args);
+                timer = setTimeout(function () {
+                    fn()
                 },delay)
             }
         }
+
+        //接收参数
+    //     function send(e,a) {
+    //         console.log('提交完成',e,'参数2');
+    //     }
+    //     // btn.addEventListener('click',sent)//放函数体
+    //     btn.addEventListener('click',debounce(send,1000))//所以return
+    //     function debounce(fn,delay) {
+    //         let timer;
+    //         return function(){
+    //             let args = arguments;
+    //             //arguments
+    //             if (timer) clearTimeout(timer);
+    //             timer = setTimeout(()=> {
+    //                 fn.call(this,...args);
+    //             },delay)
+    //         }
+    //     }
      </script>
 </body>
 </html>

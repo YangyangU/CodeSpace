@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">提交</button>
+
+    <script>
+        let btn = document.getElementById('btn');
+        function send(){console.log('提交了');}
+        btn.addEventListener('click',throttle(send, 1000));
+
+        
+        // function throttle(fn, delay) {
+        //     let prevTime = Date.now();
+
+        //     return function(){
+        //         if(Date.now() - prevTime > delay){//第二次点击的时间 - 第一次点击的时间 > 1000
+        //             fn()
+        //             prevTime = Date.now()
+        //         }
+        //     }
+        // }
+
+            //考虑参数
+        function throttle(fn, delay) {
+            let prevTime = Date.now();
+            
+            return function(){
+                if(Date.now() - prevTime > delay){//第二次点击的时间 - 第一次点击的时间 > 1000
+                    fn()
+                    prevTime = Date.now()
+                }
+            }
+
+        }
+    </script>
+</body>
+</html>
