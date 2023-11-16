@@ -47,19 +47,17 @@
         // }
 
         //接收参数
-        function send(e,a,b) {
-            console.log('提交完成',e,a,b);
+        function send(e) {
+            console.log('提交完成',e);
         }
         // btn.addEventListener('click',sent)//放函数体
         btn.addEventListener('click',debounce(send,1000))//所以return
         function debounce(fn,delay) {
             let timer;
-            return function(){
-                let args = arguments;
-                //arguments
+            return function(e){
                 if (timer) clearTimeout(timer);
-                timer = setTimeout(()=> {
-                    fn.call(this,...args);
+                timer = setTimeout(function () {
+                    fn(e)
                 },delay)
             }
         }

@@ -58,7 +58,7 @@
                 let args = arguments;
                 //arguments
                 if (timer) clearTimeout(timer);
-                timer = setTimeout(()=> {
+                timer = setTimeout(function () {
                     fn.call(this,...args);
                 },delay)
             }

@@ -54,12 +54,12 @@
         btn.addEventListener('click',debounce(send,1000))//所以return
         function debounce(fn,delay) {
             let timer;
-            return function(){
+            return function(e){
                 let args = arguments;
                 //arguments
                 if (timer) clearTimeout(timer);
-                timer = setTimeout(()=> {
-                    fn.call(this,...args);
+                timer = setTimeout(function () {
+                    fn(e)
                 },delay)
             }
         }
