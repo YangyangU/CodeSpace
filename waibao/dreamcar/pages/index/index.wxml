@@ -5,6 +5,7 @@
   <image src="{{pic}}" mode=""/>
 
 </view> -->
+<!-- 幻灯片 -->
 <swiper indicator-dots="{{true}}" class="section hero white">
   <!-- 循环输出 -->
   <block wx:for="{{slides}}" wx:key="id"> 
@@ -22,3 +23,11 @@
     </swiper-item>
   </block>
 </swiper>
+<view class="cards">
+  <view class="card" wx:for="{{  entities  }}" wx:key="id">
+    <!-- <a>标签 -->
+    <navigator url="/pages/vehicles/show">
+      <image src="{{ item.image }}" mode="aspectFill"/>
+    </navigator>
+  </view>
+</view>
