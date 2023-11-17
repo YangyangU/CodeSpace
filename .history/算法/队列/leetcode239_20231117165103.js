@@ -33,20 +33,12 @@ var maxSlidingWindow = function(nums, k) {
     let res = []
     let deque = []
     for (let i = 0; i < len; i++) {
-        while(deque.length && nums[deque[deque.length - 1]] < nums[i]){  //数组下标为-1会报错所以判断deque.length不为零
+        while(deque.length && deque[deque.length - 1] < nums[i]){  //数组下标为-1会报错所以判断deque.length不为零
             deque.pop()
         }        
-        // deque.push(nums[i])//如果满足递减，则进队
-        deque.push(i)//不存值，存下标
-
-        //队头元素是不是已经出窗口了，如果超出窗口长度，将原来的队头即最大元素下标出队
-        if(deque[0] <= i - k){
-            deque.shift()
-        }
-
-
+        deque.push(nums[i])
         if(i >= k - 1){//到达窗口宽度，记录最大值
-            res.push(nums[deque[0]])
+            res.push(deque[i])
         }
     }
     return res

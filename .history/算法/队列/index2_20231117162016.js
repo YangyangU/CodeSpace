@@ -5,4 +5,4 @@ queue.pop()
 queue.shift()
 queue.unshift(1)
 
-// 用双端队列做leetcode239.js
+用双端队列做leetcode239.js

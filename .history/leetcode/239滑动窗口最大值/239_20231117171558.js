@@ -1,7 +1,9 @@
 nums = [1,3,-1,-3,5,3,6,7], k = 3
 
-// 双指针
+//双指针
 
+
+// 时间复杂度k*n
 // var maxSlidingWindow = function(nums, k) {
 //     let left = 0
 //     let right = k - 1
@@ -24,16 +26,13 @@ nums = [1,3,-1,-3,5,3,6,7], k = 3
 //     return res
 // };
 
-// 上面这种做法，能不能把k的复杂度去掉，在窗口移动的过程中，只根据发生变化的元素对最大值进行更新。
 
-
-//双端队列有利于维护一个递减队列
 var maxSlidingWindow = function(nums, k) {
     let len = nums.length;
     let res = []
     let deque = []
     for (let i = 0; i < len; i++) {
-        while(deque.length && nums[deque[deque.length - 1]] < nums[i]){  //数组下标为-1会报错所以判断deque.length不为零
+        while(deque.length && nums[deque[deque.length - 1]] <= nums[i]){  //数组下标为-1会报错所以判断deque.length不为零
             deque.pop()
         }        
         // deque.push(nums[i])//如果满足递减，则进队
