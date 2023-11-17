@@ -21,4 +21,4 @@ function deepCopy(obj) {
     return objCopy
 }
 
-console.log(deepCopy(obj));
+console.log(deepCopy(Object.keys();

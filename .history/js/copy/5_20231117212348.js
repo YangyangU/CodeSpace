@@ -20,5 +20,3 @@ function deepCopy(obj) {
     }
     return objCopy
 }
-
-console.log(deepCopy(obj));
