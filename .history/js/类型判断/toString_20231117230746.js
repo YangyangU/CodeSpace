@@ -32,7 +32,7 @@ console.log(
     Object.prototype.toString.call(bigint)
 );//'[object bigint]'
 
-let symbol = Symbol('hello')
+let symbol = 'name'
 console.log(
     Object.prototype.toString.call(symbol)
 );//'[object Function]'

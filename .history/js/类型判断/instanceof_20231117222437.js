@@ -12,7 +12,6 @@ function instanceOF(L,R){
 
     while(left !== null){
         if(left===right){return true}
-        left = left.__proto__
     }
     return false
 }

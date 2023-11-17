@@ -30,11 +30,6 @@ console.log(
 let bigint = 123n
 console.log(
     Object.prototype.toString.call(bigint)
-);//'[object bigint]'
-
-let symbol = Symbol('hello')
-console.log(
-    Object.prototype.toString.call(symbol)
 );//'[object Function]'
 
 var s ='oawdjoaw'

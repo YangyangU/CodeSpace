@@ -12,10 +12,9 @@ function instanceOF(L,R){
 
     while(left !== null){
         if(left===right){return true}
-        left = left.__proto__
     }
     return false
 }
 
-console.log(instanceOF([],Array));//true
+// console.log(instanceOF([],Array));//true
 console.log(instanceOF([],Object));//true

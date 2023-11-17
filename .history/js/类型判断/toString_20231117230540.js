@@ -27,14 +27,8 @@ console.log(
     Object.prototype.toString.call(function() {})
 );//'[object Function]'
 
-let bigint = 123n
 console.log(
-    Object.prototype.toString.call(bigint)
-);//'[object bigint]'
-
-let symbol = Symbol('hello')
-console.log(
-    Object.prototype.toString.call(symbol)
+    Object.prototype.toString.call(123n)
 );//'[object Function]'
 
 var s ='oawdjoaw'
