@@ -1,0 +1,24 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    text-align: center;
+}
+.head{
+    padding-top: 20px;
+    position: relative;
+    height: 100px;
+    overflow: auto;/*滑动自适应*/
+}
+
+.return{
+    float: left;
+}
+input[type="text"]{
+    height: 40px;
+    width: 200px;
+}
+input[type="button"]{
+    height: 30px;
+}

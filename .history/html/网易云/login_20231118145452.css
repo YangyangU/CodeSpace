@@ -1,0 +1,16 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    text-align: center;
+}
+.head{
+    position: relative;
+    height: 100px;
+    overflow: auto;/*滑动自适应*/
+}
+
+.return{
+    display: block;
+}

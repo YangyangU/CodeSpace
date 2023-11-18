@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="head">
+        <div class="return">
+            <img src="左箭头.png">
+        </div>
+        <div class="title">
+            <img src="网易云音乐.png">
+            <p>网易云音乐</p>
+        </div>
+    </div>
+    <div class="body">
+        <div class="input">
+            <div class="email">
+                <input type="text" id="email" placeholder="登录邮箱">
+            </div>
+            <div class="password">
+                <input type="text" id="password" placeholder="密码">
+            </div>
+        </div>
+        <div class="login">
+            <button id="btn">登录</button>
+        </div>
+        <div class="reset">
+            <a src="#">重设密码</a>
+        </div>
+    </div>
+    <div class="tips" id="tips">
+        <img src="对号.png">
+        <p>登录成功</p>
+    </div>
+</body>
+<script>
+    const email = document.getElementById("email");
+    const password = document.getElementById("password");
+    const btn = document.getElementById('btn');
+    const tips = document.getElementById("myElement").style.display = "none";
+    btn.addEventListener('click',() =>{
+        let xhr = new XMLHttpRequest();
+            xhr.open('GET',`http://192.168.31.45:3000/login?username=${email.value}&password=${password.value}`,true)
+            xhr.onreadystatechange = ()=>{
+                if(xhr.readyState==4 && xhr.status==200){
+                    let result = JSON.parse(xhr.responseText);
+                    console.log(result);
+                    document.getElementById("demo").innerHTML=x;
+                }
+            }
+            xhr.send();
+            
+    })
+
+
+</script>
+</html>

@@ -1,0 +1,15 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    text-align: center;
+}
+.head{
+    height: 100px;
+    width: 100px;
+}
+
+.return{
+    float: left;
+}
