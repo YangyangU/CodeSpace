@@ -43,6 +43,6 @@
 // console.log(obj);//存在堆
 
 
-// const a 
-// a = 2 
-// console.log(a);
+const a 
+a = 2 
+console.log(a);

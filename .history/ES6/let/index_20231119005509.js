@@ -17,9 +17,9 @@
 
 
 //不能重复定义 const也是一样
-// let a = 1
-// let a = 2
-// console.log(a);//SyntaxError: Identifier 'a' has already been declared
+let a = 1
+let a = 2
+console.log(a);//SyntaxError: Identifier 'a' has already been declared
 
 
 // var a = 2
@@ -29,9 +29,9 @@
 // console.log(window.a);//undefined
 
 
-// const a = 1
-// a = 2
-// console.log(a);//TypeError: Assignment to constant variable.
+const a = 1
+a = 2
+console.log(a);//TypeError: Assignment to constant variable.
 
 
 
@@ -41,8 +41,3 @@
 // obj.name = '欣欣'
 
 // console.log(obj);//存在堆
-
-
-// const a 
-// a = 2 
-// console.log(a);
