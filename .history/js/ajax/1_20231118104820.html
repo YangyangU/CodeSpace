@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">新歌速递</button>
+    <ul>
+        <li>test</li>
+    </ul>
+
+    <script>
+        const btn = document.getElementById("btn");
+        btn.addEventListener("click",()=>{
+            // console.log(123);
+            //我希望它能朝网易云服务器上的后端代码发一段http请求
+            //只接收白名单的请求
+            let xhr = new XMLHttpRequest();//用于做网络请求
+        })
+    </script>
+</body>
+</html>

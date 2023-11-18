@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">新歌速递</button>
+    <ul id="ul">
+    </ul>
+    <script>
+        const btn = document.getElementById("btn");
+        btn.addEventListener("click",()=>{
+            fetch('http://u.ronki.moe:3000/top/song?type=8')
+            .then(data=>{
+                return data.json()//data自带的json
+            })
+            .then(res =>{//res接收上一个return，如果没有return则是原resolve
+                res.data.forEach((song)=> {
+                        // console.log(song.name);
+                        let li = document.createElement("li");
+                        li.innerHTML = song.name;
+                        document.getElementById('ul').appendChild(li);//添加子元素
+                    });
+            })
+        })
+    </script>
+</body>
+</html>

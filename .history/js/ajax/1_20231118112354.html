@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">新歌速递</button>
+    <ul>
+        <li>test</li>
+    </ul>
+
+    <script>
+        const btn = document.getElementById("btn");
+        btn.addEventListener("click",()=>{
+            // console.log(123);
+            //我希望它能朝网易云服务器上的后端代码发一段http请求
+            //只接收白名单的请求
+            let xhr = new XMLHttpRequest();//用于做网络请求
+            //三个参数：请求方法  目标地址  true或false（控制异步或同步）
+            xhr.open('GET','http://u.ronki.moe:3000/top/song?type=7',true)//请求准备工作
+            xhr.onreadystatechange = ()=>{//监听后端请求有没有发送回来
+                if(xhr.readyState==4 && xhr.status==200){//State:0创建,1已经准备好请求体,2已经send,3已经接收到响应体,4数据包解析完成  status:200
+                    let result = JSON.parse(xhr.responseText);
+                    console.log(result);
+                    result.data.forEach((song)=> {
+                        // console.log(song.name);
+                        let li = document.createElement("li");
+                        li.innerHTML = song.name;
+                    });
+                }
+            }
+            xhr.send();//发送请求
+        })
+    </script>
+</body>
+</html>
