@@ -46,7 +46,7 @@
     const tips = document.getElementById("tips");
     btn.addEventListener('click', () => {
         let xhr = new XMLHttpRequest();
-        xhr.open('GET', `http://u.ronki.moe:3000//login?username=${email.value}&password=${password.value}`, true)
+        xhr.open('GET', `http://u.ronki.moe:3301/login?username=${email.value}&password=${password.value}`, true)
         xhr.onreadystatechange = () => {
             if (xhr.readyState == 4 && xhr.status == 200) {
                 let result = JSON.parse(xhr.responseText);
