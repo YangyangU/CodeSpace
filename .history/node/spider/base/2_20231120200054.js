@@ -14,7 +14,7 @@
 
 // console.log(process.argv[process.argv.length - 1]);
 
-let player = process.argv[process.argv.length - 1]
+let player = console.log(process.argv[process.argv.length - 1]);
 
 // 电脑生成一个
 let arr = ['rock', 'scissors', 'paper']
