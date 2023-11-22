@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+// function a() {
+//     setTimeout(function() {
+//         console.log('我的菜来了');
+//     },1000)
+// }
+// function b(){
+//     console.log('我在刷抖音');
+// }
+// a()
+// b()
+
+const promise = new Promise(function(resolve, reject) {
+    setTimeout(function() { //做一些异步操作
+        resolve('谢谢你，可以往下看！')
+    },1000)
+})
+const result = promise.then(function(value) {
+  // 成功
+  console.log(result) //谢谢你，可以往下看！
+  return value
+}, function(error) {
+  // 失败
+  console.log(error); //没点赞，不许看！
+});
+    </script>
+</body>
+</html>
