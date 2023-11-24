@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>localStorage 前端</title>
+</head>
+<body>
+    <div class="wrapper">
+        <h2>LOCAL TAPAS</h2>
+        <p></p>
+        <ul class="plates">
+            <li>Loading Tapas...</li>
+        </ul>
+        <form class="add-items">
+            <input type="text" name="item" placeholder="Item Name" required>
+            <input type="submit" value="+ Add Item">
+        </form>
+    </div>
+    <script>
+        // window.localStorage.setItem('name', 'batam');
+        const addItems = document.querySelector('.add-items');
+        const itemsList = document.querySelector('.plates');
+        const items = localStorage.getItem('items'); 
+        //const items =[]
+        function addItem(e) {
+            e.preventDefault();//阻止浏览器的默认行为
+            //组织todos结构
+            const item = {
+                text: this.querySelector('[name=item]').value,
+                done:false
+            }
+            // console.log(item);
+            items.push(item);
+            //DOM 更新的业务逻辑，重新渲染
+            populateList(items, itemsList);
+            this.reset(); //用户体验的考虑
+            //序列化一下
+            // localStorage.setItem('item', items);
+            localStorage.setItem('item', JSON.stringify(items));
+        }
+
+        function populateList(plates=[], platesList) {
+            // map 返回一个新数组， callback  return 一个新数组
+            // join 把数组转换成字符串
+            platesList.innerHTML = plates.map((plate, i)=>{
+                return `
+                    <li>
+                        <input type="checkbox"
+                        data-index=${i}
+                        id="item${i}" ${plate.done ? 'checked' : ''}>   
+                        <label for="item${i}">${plate.text}</label>
+                    </li>
+                `
+            }).join('')
+        }
+        function toggleDone() {
+            console.log(e.target);
+            if(e.target.matches('input')){
+                const el = e.target;
+                const index = el.dataset.index;
+                items[index].done = !items[index].done;
+                localStorage.setItem('items', JSON.stringify(items));
+            }
+        }
+        
+        addItems.addEventListener('submit', addItem);
+        //父元素上绑定事件，事件委托 性能好
+        itemsList.addEventListener('click',toggleDone);
+        window.onload = function() {
+            populateList(items,itemsList);
+        }
+    </script>
+</body>
+</html>
