@@ -23,7 +23,7 @@
         // window.localStorage.setItem('name', 'batam');
         const addItems = document.querySelector('.add-items');
         const itemsList = document.querySelector('.plates');
-        const items = JSON.parse(localStorage.getItem('items')) || [];
+        const items = JSON.parse(localStorage.getItem('items') || []);
         //const items =[]
         function addItem(e) {
             e.preventDefault();//阻止浏览器的默认行为

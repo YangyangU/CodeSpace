@@ -20,11 +20,10 @@ n = 20
 
 var fib = function(n) {
     let a = 1 
-    let b = 0
-    for (let i = 0; i < n; i++) {
+    let b = 1
+    for (let i = 0; i <= n; i++) {
         [a,b]=[b,a + b]
     }
-    return b
 };
 
 console.log(fib(n));

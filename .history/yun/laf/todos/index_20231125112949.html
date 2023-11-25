@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // fetch('https://xfza81.laf.run/get-list')
+        // .then(data => data.json())
+        // .then(data =>{
+        //     console.log(data);
+        // })
+        async function fetchData() {
+            const response = await fetch('https://xfza81.laf.run/get-list');
+            const data = await response.json();
+            // console.log(data);
+            document.querySelector('#list').innerHTML = data
+        }
+        fetchData();
+    </script>
+</body>
+
+</html>
