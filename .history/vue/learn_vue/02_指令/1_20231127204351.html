@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+    <template id="my-app">
+        <h2>{{message}} -- {{message}}</h2>
+        <h2>{{count * 10}}</h2>
+        <h2>{{message.split(" ").reverse().join(" ")}}</h2><!-- split在空格地方分割字符串并存入数组返回，再倒转数组，再用空格拼接成字符串 -->
+        <h2>{{methods}}</h2>
+    </template>
+    
+    
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        const App ={
+            template:"#my-app",
+            data(){
+                return {
+                    message:'Hello 阳阳',//翻转阳阳，字符串没有自带的方法
+                    count:100
+                }
+            },
+            methods(){
+                
+            }
+        }
+        Vue.createApp(App).mount('#app')
+    </script>
+
+</body>
+</html>

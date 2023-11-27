@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        [v-cloak]{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="app"></div>
+    <template id="my-app">
+        <h2>{{message}}</h2>
+        <h2 v-pre>{{message}}</h2><!-- 不要当成变量 -->
+        <h2 v-cloak>{{message}}</h2><!-- 当成类名加样式 vue读走字符串后再生成成html去渲染 没有编译前不出现-->
+    </template>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        const App ={
+            template:'#my-app',
+            data(){
+                return{
+                    message:'Hello world'
+                }
+            },
+        }
+        Vue.createApp(App).mount('#app')
+    </script>
+</body>
+</html>

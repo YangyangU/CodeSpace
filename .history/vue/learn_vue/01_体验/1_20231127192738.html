@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h2>Hello World</h2>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <!-- <script>//原生js
+        let app = document.getElementById("app")
+        let h2 = document.createElement("h2")
+        h2.innerHTML = "Hello World"
+        app.appendChild(h2)
+    </script> -->
+    <script>
+        const tel = {
+            template:'<h2>Hello World</h2>'
+        }
+        const app = Vue.createApp(tel)//app创建的项目
+        app.mount('#app')//挂载   //ID #不能重复
+    </script>
+</body>
+</html>
