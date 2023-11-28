@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+
+    </div>
+    <template id="my-app">
+        <h2 v-text="msg"></h2><!-- 不是html字符串模版 -->
+        <button @click="add">+1</button>
+    </template>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        const App = {
+            template:'#my-app',
+            data(){
+                return {
+                  msg:'徐阳阳生日快乐！'  
+                }
+            },
+            methods(){
+                add()
+                
+            }
+        }
+        Vue.createApp(App).mount('#app')
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .active {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+
+    </div>
+    <template id="my-app">
+        <div :class="className">阳阳</div>
+        <div :class="{'active':isActive}">阳阳</div><!-- 对象绑定类名 -->
+        <button @click="change">切换</button>
+        <div :class="{'active':isActive,'title':true}">阳阳</div>
+        <div class="lang" :class="className">浪里个浪</div><!--多个绑定-->
+        <div class='baobao' :class="classObj">旭旭宝宝</div>
+        <div class="baby" :class="getClass()">阳阳</div><!--函数绑定-->
+        <div :class="['feng','baby',className]">冯诺依曼</div><!--数组绑定-->
+        <div :class="['wang',isActive ? 'active' : '']">隔壁老王</div><!--三元绑定-->
+        <div :class="['hengheng',{'active':isActive}]">哼</div>
+    </template>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        const App = {
+            template:'#my-app',
+            data(){
+            }
+        }
+        Vue.createApp(App).mount('#app')
+    </script>
+</body>
+</html>

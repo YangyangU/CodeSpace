@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+
+    </div>
+    <template id="my-app">
+        <!-- <h2 v-text="msg"></h2>不是html字符串模版 -->
+        <!-- <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYt1PmGFcOOHiEjyCeO-kmTm4pknacWkaWnw&usqp=CAU"> -->
+        <!-- <img src="{{imgUrl}}"> 报错-->
+        <img v-bind:src="imgUrl" alt="">
+        <!-- <a href="https://www.baidu.com">百度一下</a> -->
+        <!-- <a v-bind:src="link"></a> -->
+        <a :src="link"></a><!--缩写-->
+    </template>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        const App = {
+            template:'#my-app',
+            data(){
+                return {
+                  msg:'徐阳阳生日快乐！',  
+                  imgUrl:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYt1PmGFcOOHiEjyCeO-kmTm4pknacWkaWnw&usqp=CAU',
+                  link:'https://www.baidu.com'
+                }
+            },
+        }
+        Vue.createApp(App).mount('#app')
+    </script>
+</body>
+</html>
