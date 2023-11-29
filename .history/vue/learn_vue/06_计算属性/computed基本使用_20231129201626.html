@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+    <template id="my-app">
+        <h2>今天温度：{{temp}} ℃</h2>
+        <h3>这边建议您穿：{{suggestion}} 哟</h3>
+        <button @click="add">+</button>
+        <button @click="minus">-</button>
+    </template>
+    
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        const App={
+            template:'#my-app',
+            data(){
+                return{
+                    temp:10,
+                    // suggestion:'夹克'  跟computed冲突
+                }
+            },
+            methods:{
+                add(){
+                    this.temp += 5
+                    // if(this.temp>=20){
+                    //     this.suggestion = '短袖'
+                    // }else if(this.temp<=0){
+                    //     this.suggestion = '羽绒服'
+                    // }else{
+                    //     this.suggestion = '夹克'
+                    // }
+                },
+                minus(){
+                    this.temp -= 5
+                    // if(this.temp>=20){
+                    //     this.suggestion = '短袖'
+                    // }else if(this.temp<=0){
+                    //     this.suggestion = '羽绒服'
+                    // }else{
+                    //     this.suggestion = '夹克'
+                    // }
+                }
+            },
+            computed:{//计算属性  充当数据源使用
+                suggestion(){//  响应式执行 当它依赖的数据源发生变化时
+                    let res = '夹克'
+                    if(this.temp >= 20){
+                        res = '短袖'
+                    }else if(this.temp <= 0){
+                        res = '羽绒服'
+                    }else{
+                        res = '夹克'
+                    }
+                    return res
+                }
+            }
+        }
+        Vue.createApp(App).mount('#app')
+    </script>
+</body>
+</html>
