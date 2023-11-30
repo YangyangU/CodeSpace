@@ -1,22 +1,22 @@
 numRows = 2
 
 var generate = function(numRows) {
-    if (numRows === 0) {
-        return [];
+    let newres = new Set([1])
+    let res = []
+    let m = [1];
+    let n = [1];
+    m.unshift(0)
+    n.push(0)
+
+    if(numRows == 0) return
+    else if(numRows == 1){
+        return [res]
     }
-
-    const result = [[1]];
-
-    for (let i = 1; i < numRows; i++) {
-        const row = [1];
-        for (let j = 1; j < i; j++) {
-            row.push(result[i - 1][j - 1] + result[i - 1][j]);
-        }
-        row.push(1);
-        result.push(row);
+    for (var i = 0; i < numRows; i++) {
+        res.push(m[i]+n[i])
+        newres.push(res)
     }
-
-    return result;
+    return newres
 };
 
 console.log(generate(numRows));
