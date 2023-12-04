@@ -1,0 +1,55 @@
+import { createWebHistory,createRouter } from 'vue-router'
+import Home from '../views/Home.vue'
+import About from '../views/About.vue'
+import Newest from '../views/homeChild/newest.vue'
+
+const routes = [
+    {//重定向
+        path:'/',
+        redirect:'/home',
+    },
+    {//一个页面就是一个花括号
+        path: '/home',//网页上的路径
+        component: Home,
+        children: [
+            {
+                path: '/home',
+                redirect:'/home/newest',
+            },
+            {
+                path: 'newest',//二级路由不接斜杠
+                component: Newest
+            },
+            {
+                path: 'recommend',
+                component: () => import('../views/homeChild/recommend.vue')
+            },
+        ]
+    },
+    {
+        path: '/about',
+        component: About,
+        children: [
+            {
+                path: '/about',
+                redirect:'/about/company',
+            },
+            {
+                path: 'company',
+                component: () => import('../views/aboutChild/company.vue')
+            },
+            {
+                path: 'school',
+                component: () => import('../views/aboutChild/company.vue')
+
+            },
+        ]
+    }
+]
+
+const router = createRouter({
+    history: createWebHistory(), //路由history模式 ，还有一个hash模式
+    routes
+})
+
+export default router  //有什么用？
