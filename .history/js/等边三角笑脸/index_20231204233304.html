@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #sanjiao{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="sanjiao">
+
+    </div>
+    <script>
+        var rows = 6
+        const a = document.getElementById("sanjiao")
+        for (var i = 1; i <= rows; i++) {
+
+            for (var k = 1; k <= i-1 ; k++) {
+                a.innerHTML += "&nbsp;&nbsp;"
+            }
+            for (var j = 0; j <= rows - i; j++) {
+                a.innerHTML += "\u263a "
+            }
+            
+            a.innerHTML += "<br>";
+        }
+    </script>
+</body>
+</html>
