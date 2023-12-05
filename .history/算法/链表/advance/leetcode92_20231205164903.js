@@ -1,0 +1,12 @@
+
+
+var reverseBetween = function(head, left, right) {
+    //把链表left,right截取
+    let lNode = head
+    for(let i = 0; i < left - 1; i++) {
+        lNode = cur.next
+
+    }
+
+    // reverseList
+};

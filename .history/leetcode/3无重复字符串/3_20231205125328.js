@@ -35,3 +35,7 @@ s = "abcabcbb"
 // }
 
 // console.log(lengthOfLongestSubstring(s));
+
+
+console.log([].valueOf());
+console.log([].toString());
