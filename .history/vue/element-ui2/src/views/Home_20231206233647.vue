@@ -2,14 +2,18 @@
     <div class="common-layout">
         <el-container>
             <el-header>
-                <span>阳哥选课系统</span>
+                <span>
+                    阳哥选课系统
+                </span>
                 <el-dropdown>
-                    <span class="el-dropdown-link">欢迎{{$route.hash.slice(1)}}</span>
+                    <span class="el-dropdown-link">
+                        Dropdown List
+                    </span>
                     <template #dropdown>
                         <el-dropdown-menu>
-                            <el-dropdown-item>修改密码</el-dropdown-item>
-                            <el-dropdown-item>个人详情</el-dropdown-item>
-                            <el-dropdown-item>退出登录</el-dropdown-item>
+                            <el-dropdown-item>Action 1</el-dropdown-item>
+                            <el-dropdown-item>Action 2</el-dropdown-item>
+                            <el-dropdown-item>Action 3</el-dropdown-item>
                         </el-dropdown-menu>
                     </template>
                 </el-dropdown>
@@ -40,15 +44,12 @@ export default {
             height: 80px;
             line-height: 80px;
             font-size: 30px;
-            display: flex;
-            justify-content: space-between;
 
-            .el-dropdown-link {
+            .example-showcase .el-dropdown-link {
                 cursor: pointer;
                 color: var(--el-color-primary);
                 display: flex;
                 align-items: center;
-                font-size: 24px;
             }
         }
     }

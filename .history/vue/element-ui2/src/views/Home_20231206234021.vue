@@ -4,7 +4,9 @@
             <el-header>
                 <span>阳哥选课系统</span>
                 <el-dropdown>
-                    <span class="el-dropdown-link">欢迎{{$route.hash.slice(1)}}</span>
+                    <span class="el-dropdown-link">
+                        欢迎admin
+                    </span>
                     <template #dropdown>
                         <el-dropdown-menu>
                             <el-dropdown-item>修改密码</el-dropdown-item>
@@ -43,12 +45,11 @@ export default {
             display: flex;
             justify-content: space-between;
 
-            .el-dropdown-link {
+            .example-showcase .el-dropdown-link {
                 cursor: pointer;
                 color: var(--el-color-primary);
                 display: flex;
                 align-items: center;
-                font-size: 24px;
             }
         }
     }

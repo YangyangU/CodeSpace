@@ -37,11 +37,7 @@
                 // console.log(this.$router);//this代表vue实例，$官方定义
                 //用js控制路由跳转
                 // this.$router.push(`/home/${this.account}`)//第一种云括号
-                // this.$router.push({path:'/home',query:{user:this.account}})//query传参
-                // this.$router.push({name:'home',params:{user:this.account}})//第三种name
-                this.$router.push({path:'/home',hash:`#${this.account}`})//第四种hash传参
-
-
+                this.$router.push({path:'/home',query:{user:this.account}})
             }
         }
     }

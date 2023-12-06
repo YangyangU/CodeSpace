@@ -4,7 +4,7 @@
             <el-header>
                 <span>阳哥选课系统</span>
                 <el-dropdown>
-                    <span class="el-dropdown-link">欢迎{{$route.hash.slice(1)}}</span>
+                    <span class="el-dropdown-link">欢迎{{$route.query.user}}</span>
                     <template #dropdown>
                         <el-dropdown-menu>
                             <el-dropdown-item>修改密码</el-dropdown-item>
