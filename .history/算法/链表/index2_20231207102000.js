@@ -3,9 +3,6 @@
 //链表O(1)
 
 //访问起来很麻烦，从表头往下找
-// 读取值
-//数组O(1)
-//链表O(n)
 
 function ListNode(){
     this.val=val;
