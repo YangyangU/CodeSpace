@@ -62,11 +62,6 @@ export default {
 
         .el-aside{
             background-color: rgba(0, 190, 197, 0.541);
-
-            li{
-                
-                margin:100px 100px;
-            }
         }
         .el-main{
             background-color: bisque;

@@ -15,15 +15,7 @@
                 </el-dropdown>
             </el-header>
             <el-container>
-                <el-aside width="200px">
-                    <ul>
-                        <li>1</li>
-                        <li>2</li>
-                        <li>3</li>
-                        <li>4</li>
-                        <li>5</li>
-                    </ul>
-                </el-aside>
+                <el-aside width="200px">Aside</el-aside>
                 <el-main>Main</el-main>
             </el-container>
         </el-container>
@@ -62,14 +54,6 @@ export default {
 
         .el-aside{
             background-color: rgba(0, 190, 197, 0.541);
-
-            li{
-                
-                margin:100px 100px;
-            }
-        }
-        .el-main{
-            background-color: bisque;
         }
     }
 }

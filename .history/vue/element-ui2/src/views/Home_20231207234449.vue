@@ -64,7 +64,6 @@ export default {
             background-color: rgba(0, 190, 197, 0.541);
 
             li{
-                
                 margin:100px 100px;
             }
         }
