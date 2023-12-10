@@ -17,7 +17,7 @@ function climbStairs(n) {
     return dp[n];
 }
 
-// 前两个相加
+
 var climbStairs = function(n) {
     let p = 0, q = 0, r = 1;
     for (let i = 1; i <= n; ++i) {
