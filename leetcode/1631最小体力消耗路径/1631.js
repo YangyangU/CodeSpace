@@ -1,0 +1,3 @@
+var minimumEffortPath = function(heights) {
+
+};
