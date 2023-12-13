@@ -1,0 +1,14 @@
+nums = [1,1,1,2,2,3]
+
+var removeDuplicates = function(nums) {
+    let n = 0
+    for(let i = 1; i < nums.length; i++) {
+        if(nums[n] === nums[i]){
+            console.log(1);
+            nums.splice(i, 1)
+        }
+    }
+    return nums.length
+};
+
+console.log(removeDuplicates(nums));
