@@ -1,8 +1,6 @@
 nums = [1,2,3,4,5,6,7], k = 3
 
 var rotate = function(nums, k) {
-
-    //不能体现轮转
     // var arr = nums.slice((nums.length - k), nums.length)
     // nums.splice(nums.length - k)
     // var res = arr.concat(nums)

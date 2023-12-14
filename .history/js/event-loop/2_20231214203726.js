@@ -23,8 +23,8 @@ new Promise((resolve,reject)=>{//第一次事件循环da
 // promise
 // then1
 // then2
-// setTimeout
 // end
+// setTimeout
 // inner
 
 
