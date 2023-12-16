@@ -1,6 +1,7 @@
 console.log('script start')//打印1
 async function async1() {//返回promise对象，同步任务
     await async2()//微任务进队列
+    await async2()
     console.log('async1 end')//被await推入微队列 //打印5
 }
 async function async2() {
@@ -38,6 +39,7 @@ console.log('script end')//打印3
 console.log('script start')
 async function async1() {
     await async2()
+    await async2()//加了一行，打印结果被打乱
     console.log('async1 end')
 }
 async function async2() {
@@ -69,4 +71,4 @@ console.log('script end')
 // promise2
 // setTimeout
 
-//我的理解是，在微任务队列，await会将后面接着的一个事件往后平移一位
+//我的理解是，在微任务队列，await会将后面接着的一个事件往后挪一位

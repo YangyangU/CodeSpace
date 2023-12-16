@@ -1,6 +1,7 @@
 console.log('script start')//打印1
 async function async1() {//返回promise对象，同步任务
     await async2()//微任务进队列
+    await async2()
     console.log('async1 end')//被await推入微队列 //打印5
 }
 async function async2() {
