@@ -7,13 +7,14 @@ var calPoints = function(operations) {
         if(Number(operations[i])) {
             arr.push(Number(operations[i]))
         }else if(operations[i] === "C"){
-            arr.pop()
+            arr.splice(i-1,1)
         }else if(operations[i] === "D"){
-            arr.push(arr[arr.length-1]*2)
+            arr.push(arr[i-1]*2)
         }else if(operations[i] === "+"){
-            arr.push(arr[arr.length-1]+arr[arr.length-2])
+            arr.push(arr[i-1]+arr[i-2])
         }
     }
+    console.log(arr);
     arr.forEach(item=>{
         count += item
     });

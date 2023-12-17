@@ -11,7 +11,7 @@ var calPoints = function(operations) {
         }else if(operations[i] === "D"){
             arr.push(arr[arr.length-1]*2)
         }else if(operations[i] === "+"){
-            arr.push(arr[arr.length-1]+arr[arr.length-2])
+            arr.push(arr[i-1]+arr[i-2])
         }
     }
     arr.forEach(item=>{
