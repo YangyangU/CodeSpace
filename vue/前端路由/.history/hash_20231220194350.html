@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>
+            <!-- #就不刷新 -->
+            <a href="#/home">首页</a>
+        </li>
+        <li>
+            <a href="#/about">关于</a>
+        </li>
+    </ul>
+
+    <div id="routeView">
+        <!-- 放一个代码片段 -->
+    </div>
+
+    <script>
+        const routes = [
+            {
+                path:'#/home',
+                component:'首页页面内容'
+            }
+        ]
+    </script>
+</body>
+</html>

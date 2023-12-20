@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li>
+            <!-- 阻止a标签的默认刷新行为 -->
+            <a href="/home">首页</a>
+        </li>
+        <li>
+            <a href="/about">关于</a>
+        </li>
+    </ul>
+
+    <div id="routeView">
+        <!-- 放一个代码片段 -->
+    </div>
+
+    <script>
+        const routes = [
+            {
+                path: '/home',
+                component: '<h2>首页页面内容</h2>'
+            },
+            {
+                path: '/about',
+                component: '<h2>关于页面内容</h2>'
+            }
+
+        ]
+
+        const links = document.querySelectorAll('li a')
+        const routeView = document.getElementById('routeView')
+        console.log(links);
+
+
+        window.addEventListener('DOMContentLoaded', onLoad);
+        window.addEventListener('popstate', onLoad);
+
+
+        function onLoad() {
+
+            links.forEach(a => {
+                a.addEventListener('click', (e) => {
+                    console.log(e);
+                    e.preventDefault();//阻止了a标签的默认跳转行为
+                    //添加一种可以修改url又不影响页面刷新的逻辑
+                    history.pushState(null, '', a.getAttribute('href'))//向url push一个新值
+                    onPopState()
+                })
+            });
+
+            function onPopState() {
+                console.log(location);
+                routes.forEach(item => {
+                    if (item.path === location.pathname) {
+                        routeView.innerHTML = item.component
+                    }
+                });
+            }
+        }
+
+    </script>
+</body>
+
+</html>

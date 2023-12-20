@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>
+            <!-- 阻止a标签的默认刷新行为 -->
+            <a href="/home">首页</a> 
+        </li>
+        <li>
+            <a href="/about">关于</a>
+        </li>
+    </ul>
+
+    <div id="routeView">
+        <!-- 放一个代码片段 -->
+    </div>
+
+    <script>
+        const routes = [
+            {
+                path:'/home',
+                component:'首页页面内容'
+            },
+            {
+                path:'/about',
+                component:'关于页面内容'
+            }
+
+        ]
+    
+        const links = document.querySelectorAll('li a')
+        console.log(links);
+        links.forEach(a => {
+            a.addEventListener('click',(e)=>{
+                console.log(e);
+            })         
+        });
+    </script>
+</body>
+</html>
