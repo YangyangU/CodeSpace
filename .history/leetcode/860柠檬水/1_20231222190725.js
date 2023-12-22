@@ -1,0 +1,42 @@
+bills = [5,5,5,5,20,20,5,5,20,5]
+
+var lemonadeChange = function(bills) {
+    let arr = [];
+    let count = 0;
+    let len10 = 0
+    for (let i = 0; i < bills.length; i++) {
+        if(bills[i] === 5) {
+            arr.push(5);
+        }
+        else if(bills[i] === 10) {
+            if(arr.includes(5)){
+                arr.splice(arr.indexOf(5),1)
+                arr.push(10)
+            }
+            else return false
+        }else if(bills[i] === 20) {
+            console.log(arr);
+            if(arr.includes(5)){
+                count = 0
+                for (let i = 0; i < arr.length; i++) {
+                    if(arr[i] === 5) {
+                        count ++
+                    }
+                }
+                console.log(count);
+                len10 = arr.length - count
+                if(count >= 3 ){
+                    for (let i = 0; i < 3; i++) {
+                        arr.splice(arr.indexOf(5),1)
+                    }
+                }else if(len10>=1 && count>=1){
+                    arr.splice(arr.indexOf(5),1)
+                    arr.splice(arr.indexOf(10),1)
+                }else return false
+            }else return false
+        }
+    }
+    return true
+};
+
+console.log(lemonadeChange(bills));
