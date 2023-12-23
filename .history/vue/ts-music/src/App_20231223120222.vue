@@ -13,11 +13,7 @@ onMounted(async ()=>{
 </script>
 
 <template>
-  <ul>
-    <li v-for="banner in banners" :key="banner.targetId">
-      <img :src="banner.pic">
-    </li>
-  </ul>
+
 </template>
 
 <style scoped>

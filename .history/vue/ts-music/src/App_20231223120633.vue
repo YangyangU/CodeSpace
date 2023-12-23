@@ -15,7 +15,7 @@ onMounted(async ()=>{
 <template>
   <ul>
     <li v-for="banner in banners" :key="banner.targetId">
-      <img :src="banner.pic">
+      <img :src="banner.">
     </li>
   </ul>
 </template>
