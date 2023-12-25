@@ -1,0 +1,4 @@
+const fs = require('fs');
+
+// fs.appendFileSync('./data.txt','\n疑是银河落九天')
+fs.renameSync()
