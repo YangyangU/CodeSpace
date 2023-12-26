@@ -1,0 +1,16 @@
+const http = require('http');
+
+const server = http.createServer((req,res)=>{ //req前端的请求 res后端的响应
+    res.statusCode = 200; //状态码
+    res.setHeader('Content-Type', 'text/html');//设置返回结果内容的类型是html 所以下面会返回成html
+
+    console.log(req.url);
+    console.log(req.method);
+
+    const {url} = req
+    res.end('<h1>hello world</h1>');
+})
+
+server.listen(3000,()=>{
+    console.log('server listening on port 3000');
+})
