@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+    <script>
+        let el = document.getElementById("app");
+        el.style.width = (el.offsetWidth + 1) + 'px'    el.offsetWidth强制执行渲染队列，但是队列为空，使用只执行一次
+        el.style.width = 1 + 'px'
+    </script>
+</body>
+</html>
