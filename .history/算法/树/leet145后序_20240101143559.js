@@ -1,3 +1,5 @@
+//后序遍历 左右根
+
 let root = {
     val:'A',
     left:{
@@ -20,35 +22,24 @@ let root = {
     }
 }
 
-
 //递归
-// var preorderTraversal = function(root) {    
-//     if(!root) return []
-//     let res = [];
+// var postorderTraversal = function(root) {
 
-//     res.push(root.val);
-//     res = res.concat(preorderTraversal(root.left));
-//     res = res.concat(preorderTraversal(root.right));
+//     res = [];
 
-//     return res;
-// };
+//     var help = (node)=>{
 
-
-// var preorderTraversal = function(root) {    
-//     let res = [];
-//     function help(node){
 //         if(!node) return
 
-//         res.push(node.val);
-//         help(node.left);
-//         help(node.right);
+//         help(node.left)
+//         help(node.right)
+//         res.push(node.val)
 //     }
-//     help(root);
-//     return res;
+//     help(root)
+//     return res
 // };
 
-
-//迭代  栈的思想
+//迭代
 var preorderTraversal = function(root) {
     if(!root) return []
     const res = [];
@@ -57,7 +48,7 @@ var preorderTraversal = function(root) {
 
     while(stack.length){
         const top = stack.pop();
-        res.push(top.val);
+        res.unshift(top.val);
         if(top.right){
             stack.push(top.right);
         }
@@ -68,5 +59,4 @@ var preorderTraversal = function(root) {
     return res
 }
 
-
-console.log(preorderTraversal(root));
+console.log(postorderTraversal(root));

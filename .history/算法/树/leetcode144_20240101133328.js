@@ -1,24 +1,4 @@
-let root = {
-    val:'A',
-    left:{
-        val:'B',
-        left:{
-            val:'D'
-        },
-        right:{
-            val:'E'
-        }
-    },
-    right:{
-        val:'C',
-        left:{
-            val:'F'
-        },
-        right:{
-            val:'G'
-        }
-    }
-}
+root = [1,null,2,3]
 
 
 //递归
@@ -48,9 +28,8 @@ let root = {
 // };
 
 
-//迭代  栈的思想
+//迭代
 var preorderTraversal = function(root) {
-    if(!root) return []
     const res = [];
     const stack = [];
     stack.push(root);
@@ -58,13 +37,9 @@ var preorderTraversal = function(root) {
     while(stack.length){
         const top = stack.pop();
         res.push(top.val);
-        if(top.right){
-            stack.push(top.right);
-        }
-        if(top.left){
-            stack.push(top.left);
-        }
     }
+
+
     return res
 }
 

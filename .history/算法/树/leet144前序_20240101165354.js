@@ -22,19 +22,19 @@ let root = {
 
 
 //递归
-// var preorderTraversal = function(root) {    
+// var inorderTraversal = function(root) {    
 //     if(!root) return []
 //     let res = [];
 
 //     res.push(root.val);
-//     res = res.concat(preorderTraversal(root.left));
-//     res = res.concat(preorderTraversal(root.right));
+//     res = res.concat(inorderTraversal(root.left));
+//     res = res.concat(inorderTraversal(root.right));
 
 //     return res;
 // };
 
 
-// var preorderTraversal = function(root) {    
+// var inorderTraversal = function(root) {    
 //     let res = [];
 //     function help(node){
 //         if(!node) return
@@ -49,24 +49,25 @@ let root = {
 
 
 //迭代  栈的思想
-var preorderTraversal = function(root) {
+var inorderTraversal = (root) => {
     if(!root) return []
     const res = [];
     const stack = [];
-    stack.push(root);
+    
 
-    while(stack.length){
+    while(stack.length || root){
+
+        while(root){
+            stack.push(root);
+            root = root.left;
+        }
+
         const top = stack.pop();
         res.push(top.val);
-        if(top.right){
-            stack.push(top.right);
-        }
-        if(top.left){
-            stack.push(top.left);
-        }
+        root = top.right;
     }
     return res
-}
+};
 
 
-console.log(preorderTraversal(root));
+console.log(inorderTraversal(root));
