@@ -1,0 +1,1 @@
+npm init -y  给了一个package.json文件

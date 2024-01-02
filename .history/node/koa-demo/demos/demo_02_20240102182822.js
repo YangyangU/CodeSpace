@@ -1,0 +1,12 @@
+const Koa = require('koa');
+
+const app = new Koa();
+
+const main = (ctx) =>{//只要被app use掉的函数一定具有ctx == koa
+
+}
+app.use(main)
+
+app.listen(3000,()=>{
+    console.log('项目运行在3000端口');
+}); 
