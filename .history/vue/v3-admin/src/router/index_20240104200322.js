@@ -1,0 +1,21 @@
+//路由配置 后台管理系统
+const routes = [
+    {
+        path:'/',
+        redirect:'/dashboard' //重定向30x
+    },
+    {
+        path:'/',
+        name:'Home',//userRouter push
+        component: Home,//Layout
+        children:[
+            {
+                path:'/dashboard',
+                name:'dashboard',
+                meta:{
+
+                }
+            }
+        ]
+    }
+]
