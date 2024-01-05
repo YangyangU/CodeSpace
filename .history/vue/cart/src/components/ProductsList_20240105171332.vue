@@ -1,0 +1,29 @@
+<template>
+    <ul>
+        <li v-for="product in products" :key="product.id">
+            {{ product.title }} - {{ currency(product.price) }}
+            <br>
+            <button
+                :disabled = "!product.inventory"
+                @click="addProductToCart(product)"
+            >Add to cart</button>
+        </li>
+    </ul>
+</template>
+
+<script setup>
+import {useStore} from 'vuex'
+import {computed} from 'vue'
+import {currency} from '../currency.js'
+const store = useStore() //状态树
+//借|接
+const products = computed(() => store.state.products.all)
+console.log(products)
+//派遣一个工作
+store.dispatch('products/getAllProducts')
+const addProductToCart = (product) => store.dispatch('products/addProductToCart', product)
+</script>
+
+<style scoped>
+
+</style>
