@@ -1,6 +1,6 @@
 <template>
     <div class="login-wrap">
-        <div class="ms-Login">
+        <div class="ms-login">
             <!-- v-model 双向绑定 性能不好 表单的目的是收集数据  rules校验规则elp自代-->
             <div class="ms-title">后台管理系统</div>
             <!-- ref="login" 表示为 el-form 组件创建一个名为 login 的引用，这样在 JavaScript 中就可以通过 this.$refs.login 来访问 el-form 组件的实例 -->
@@ -65,6 +65,7 @@ const SubmitFrom=(fromEl:FormInstance | undefined) =>{//验证fromEl是否有效
             localStorage.setItem('ms_username', param.username)
             const keys = permiss.roleList[param.username == 'admin' ? 'admin' : 'user']
             localStorage.setItem('ms_keys', JSON.stringify(keys))
+            permiss.setKeys((keys))
             router.push('/')
         }else{
             ElMessage.error('请校验表单')
@@ -74,5 +75,46 @@ const SubmitFrom=(fromEl:FormInstance | undefined) =>{//验证fromEl是否有效
 </script>
 
 <style scoped>
+.login-wrap {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-image: url(../assets/img/login-bg.jpg);
+    background-size: 100%;
+}
+.ms-title {
+    width: 100%;
+    line-height: 50px;
+    text-align: center;
+    font-size: 20px;
+    color: #fff;
+    border-bottom: 1px solid #ddd;
+}
+.ms-login {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 350px;
+    margin: -190px 0 0 -175px;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.3);
+    overflow: hidden;
+}
+.ms-content {
+    padding: 30px 30px;
+}
+.login-btn {
+    text-align: center;
+}
+.login-btn button {
+    width: 100%;
+    height: 36px;
+    margin-bottom: 10px;
+}
+.login-tips {
+    font-size: 12px;
+    line-height: 30px;
+    color: #fff;
+}
 
 </style>

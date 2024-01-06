@@ -4,13 +4,17 @@ interface ObjectList {
     [key: string]: String[];
 }
 // 不同角色的权限
-export const usePermissStore = defineStore('permiss', 
-() => {
+export const usePermissStore = defineStore('permiss', () => {
+    const keys = localStorage.getItem('ms_keys')
     return {
+        key:keys ? JSON.parse(keys):[],
         // 角色列表
         roleList: <ObjectList>{
             admin: ['1', '2', '3', '4'],
             user: ['1']  // 403
+        },
+        setKeys(val){
+            this.key = val
         }
     }
 })
