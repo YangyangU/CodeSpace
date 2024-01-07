@@ -1,33 +1,33 @@
 <template>
     <div class="qq-body">
-            <ul class="body-info">
-                <li v-for="(item, index) in communication" :key="index">
-                    <div class="oneinfo">
-                        <div class="body-showhead">
-                            <img :src='item.img' alt="" class="oneimg">
-                        </div>
+        <ul class="body-info">
+            <li v-for="(item, index) in communication" :key="index">
+                <div class="oneinfo">
+                    <div class="body-showhead">
+                        <img :src='item.img' alt="" class="oneimg">
+                    </div>
 
-                        <div class="body-showname">
+                    <div class="body-showname">
 
-                            <div class="body-name">
-                                {{ item.name }}
-                            </div>
-                            <div class="lastinfo">
-                                {{ item.lastinfo }}
-                            </div>
+                        <div class="body-name">
+                            {{ item.name }}
                         </div>
-                        <div class="lastdata">
-                            {{ item.time }}
+                        <div class="lastinfo">
+                            {{ item.lastinfo }}
                         </div>
                     </div>
-                </li>
-            </ul>
-        </div>
+                    <div class="lastdata">
+                        {{ item.time }}
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
 </template>
 
 <script>
-    export default {
-        data() {
+export default {
+    data() {
         return {
             communication: [
                 {
@@ -211,7 +211,7 @@
     }
 
 }
-    
+
 </script>
 
 <style scoped>
@@ -270,5 +270,4 @@
     }
 
 }
-
 </style>
