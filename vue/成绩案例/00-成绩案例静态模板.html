@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/index.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app" class="score-case">
+      <div class="table">
+        <table>
+          <thead>
+            <tr>
+              <th>编号</th>
+              <th>科目</th>
+              <th>成绩</th>
+              <th>操作</th>
+            </tr>
+          </thead>
+          <tbody v-if="list.length">
+            <tr v-for="(item,index) in list" :key="item.id">
+              <td>{{index+1}}</td>
+              <td>{{item.subject}}</td>
+              <td :class="{red:item.score < 60}">{{item.score}}</td>
+              <td><a @click.prevent="del(item.id)" href="#">删除</a></td>
+            </tr>
+          </tbody>
+          <tbody v-else>
+            <tr>
+              <td colspan="5">
+                <span class="none">暂无数据</span>
+              </td>
+            </tr>
+          </tbody>
+
+          <tfoot>
+            <tr>
+              <td colspan="5">
+                <span>总分：{{sum}}</span>
+                <span style="margin-left: 50px">平均分：{{avgscore}}</span>
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+      <div class="form">
+        <div class="form-item">
+          <div class="label">科目：</div>
+          <div class="input">
+            <input
+              type="text"
+              placeholder="请输入科目"
+              v-model="subject"
+            />
+          </div>
+        </div>
+        <div class="form-item">
+          <div class="label">分数：</div>
+          <div class="input">
+            <input
+              type="text"
+              placeholder="请输入分数"
+              v-model="score"
+            />
+          </div>
+        </div>
+        <div class="form-item">
+          <div class="label"></div>
+          <div class="input">
+            <button class="submit" @click="add">添加</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script>
+      const app = new Vue({
+        el: '#app',
+        data: {
+          list: [
+            { id: 1, subject: '语文', score: 20 },
+            { id: 7, subject: '数学', score: 99 },
+            { id: 12, subject: '英语', score: 70 },
+          ],
+          subject: '',
+          score: '',
+        },
+        methods:{
+          del(id){
+            // this.list.splice(this.list.id,1)
+            this.list = this.list.filter(item => item.id !== id)
+          },
+          add(){
+            if(this.score == '' || this.subject == ''){
+              alert('请填写完整信息')
+            }else if(typeof this.score !== 'number'|| this.score < 0 || this.score > 100){
+              alert('请输入正确成绩')
+            }
+            else{
+              this.list.unshift({
+                id:+new Date(),
+                subject:this.subject,
+                score:this.score
+              })
+            }
+            this.subject = ''
+            this.score = ''
+          }
+        },
+        computed:{
+          sum(){
+            // var sum = 0
+            // this.list.forEach(item => {
+            //   sum += item.score
+            // });
+            // return sum
+            return this.list.reduce((sum,item)=>sum + item.score,0)
+          },
+          avgscore(){
+            // return this.sum/this.list.length
+            if(this.list.length !== 0){
+              return (this.sum/this.list.length).toFixed(2)//保留两位小数
+            }else{
+              return 0
+            }
+            //0/0为NaN
+          }
+        },
+      })
+    </script>
+  </body>
+</html>

@@ -1,0 +1,197 @@
+.app-container {
+  padding-bottom: 300px;
+  width: 800px;
+  margin: 0 auto;
+}
+@media screen and (max-width: 800px) {
+  .app-container {
+    width: 600px;
+  }
+}
+.app-container .banner-box {
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+.app-container .banner-box img {
+  width: 100%;
+}
+.app-container .nav-box {
+  background: #ddedec;
+  height: 60px;
+  border-radius: 10px;
+  padding-left: 20px;
+  display: flex;
+  align-items: center;
+}
+.app-container .nav-box .my-nav {
+  display: inline-block;
+  background: #5fca71;
+  border-radius: 5px;
+  width: 90px;
+  height: 35px;
+  color: white;
+  text-align: center;
+  line-height: 35px;
+  margin-right: 10px;
+}
+
+.breadcrumb {
+  font-size: 16px;
+  color: gray;
+}
+.table {
+  width: 100%;
+  text-align: left;
+  border-radius: 2px 2px 0 0;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+.th {
+  color: rgba(0, 0, 0, 0.85);
+  font-weight: 500;
+  text-align: left;
+  background: #fafafa;
+  border-bottom: 1px solid #f0f0f0;
+  transition: background 0.3s ease;
+}
+.th.num-th {
+  flex: 1.5;
+}
+.th {
+  text-align: center;
+}
+.th:nth-child(4),
+.th:nth-child(5),
+.th:nth-child(6),
+.th:nth-child(7) {
+  text-align: center;
+}
+.th.th-pic {
+  flex: 1.3;
+}
+.th:nth-child(6) {
+  flex: 1.3;
+}
+
+.th,
+.td {
+  position: relative;
+  padding: 16px 16px;
+  overflow-wrap: break-word;
+  flex: 1;
+}
+.pick-td {
+  font-size: 14px;
+}
+.main,
+.empty {
+  border: 1px solid #f0f0f0;
+  margin-top: 10px;
+}
+.tr {
+  display: flex;
+  cursor: pointer;
+  border-bottom: 1px solid #ebeef5;
+}
+.tr.active {
+  background-color: #f5f7fa;
+}
+.td {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.table img {
+  width: 100px;
+  height: 100px;
+}
+
+button {
+  outline: 0;
+  box-shadow: none;
+  color: #fff;
+  background: #d9363e;
+  border-color: #d9363e;
+  color: #fff;
+  background: #d9363e;
+  border-color: #d9363e;
+  line-height: 1.5715;
+  position: relative;
+  display: inline-block;
+  font-weight: 400;
+  white-space: nowrap;
+  text-align: center;
+  background-image: none;
+  border: 1px solid transparent;
+  box-shadow: 0 2px 0 rgb(0 0 0 / 2%);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  touch-action: manipulation;
+  height: 32px;
+  padding: 4px 15px;
+  font-size: 14px;
+  border-radius: 2px;
+}
+button.pay {
+  background-color: #3f85ed;
+  margin-left: 20px;
+}
+
+.bottom {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 20px;
+  border: 1px solid #f0f0f0;
+  border-top: none;
+  padding-left: 20px;
+}
+.right-box {
+  display: flex;
+  align-items: center;
+}
+.check-all {
+  cursor: pointer;
+}
+.price {
+  color: hotpink;
+  font-size: 30px;
+  font-weight: 700;
+}
+.price-box {
+  display: flex;
+  align-items: center;
+}
+.empty {
+  padding: 20px;
+  text-align: center;
+  font-size: 30px;
+  color: #909399;
+}
+.my-input-number {
+  display: flex;
+}
+.my-input-number button {
+  height: 40px;
+  color: #333;
+  border: 1px solid #dcdfe6;
+  background-color: #f5f7fa;
+}
+.my-input-number button:disabled {
+  cursor: not-allowed!important;
+}
+.my-input-number .my-input__inner {
+  height: 40px;
+  width: 50px;
+  padding: 0;
+  border: none;
+  border-top: 1px solid #dcdfe6;
+  border-bottom: 1px solid #dcdfe6;
+}
