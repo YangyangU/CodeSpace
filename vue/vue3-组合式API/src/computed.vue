@@ -1,6 +1,7 @@
 <template>
     <div>
         原始数据:{{list}}
+        过滤后的数据：{{ computedList }}
     </div>
 </template>
 

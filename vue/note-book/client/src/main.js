@@ -5,9 +5,10 @@ import './assets/style/reset.css'
 import { Button, Form, Field, CellGroup } from 'vant';
 import 'vant/lib/index.css';
 import router from './router';
+import { Icon } from 'vant';
 
 
-createApp(App).use(Button).use(Form).use(Field).use(CellGroup).use(router).mount('#app')
+createApp(App).use(Icon).use(Button).use(Form).use(Field).use(CellGroup).use(router).mount('#app')
 
 // 1. 引入你需要的组件
 // 2. 引入组件样式

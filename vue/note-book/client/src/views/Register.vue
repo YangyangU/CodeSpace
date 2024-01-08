@@ -3,8 +3,7 @@
         <h1>注册</h1>
         <div class="login-wrapper">
             <div class="avatar">
-                <img src="D:\CodeSpace\vue\note-book\client\src\assets\img\raw_1512446162.png"
-                    alt="">
+                <img src="D:\CodeSpace\vue\note-book\client\src\assets\img\raw_1512446162.png" alt="">
             </div>
             <van-form @submit="onSubmit">
                 <van-cell-group inset>
@@ -14,7 +13,7 @@
                         :rules="[{ required: true, message: '请填写用户名' }]" />
                     <van-field v-model="state.password" type="password" name="密码" label="密码" placeholder="密码"
                         :rules="[{ required: true, message: '请填写密码' }]" />
-                    </van-cell-group>
+                </van-cell-group>
                 <div style="margin: 16px;">
                     <van-button round block color="#7232dd" native-type="submit">
                         确认注册
@@ -29,16 +28,29 @@
 <script setup>
 import { reactive } from 'vue';
 import { useRouter } from 'vue-router';
+import axios from '../api';
+import { showSuccessToast } from 'vant';
 
 const router = useRouter()
 
 const state = reactive({
+    nickname: '',
     username: '',
     password: '',
 })
 
-const onSubmit = () => {
-    console.log(state.nickname,state.password);
+const onSubmit = async () => {
+    // console.log(state.nickname,state.password);
+    const data = await axios.post('./register', {
+        nickname: state.nickname,
+        username: state.username,
+        password: state.password,
+    })
+    // console.log(data);
+    // showSuccessToast('注册成功')
+    setTimeout(() => {
+        router.push('/login')
+    }, 1500)
 }
 
 const login = () => {

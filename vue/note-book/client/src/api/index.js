@@ -15,7 +15,8 @@ axios.interceptors.response.use(res=>{
     }else{
         if(res.data.code!== '8000'){//逻辑错误
             showFailToast(res.data.msg)
-            return res.data
+            return Promise.reject(res)
+            // return res.data.msg
         }
         else{
             showFailToast(res.data.msg)

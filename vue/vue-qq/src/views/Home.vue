@@ -171,12 +171,18 @@ export default {
     background-color: #fff;
     opacity: 0.9;
     border-radius: 5px;
-    width: 80vw;
-    margin-left: 10%;
-    margin-right: 10%;
+    width: 100vw;
+    /* margin-left: 10%;
+    margin-right: 10%; */
     padding-top: 4.2%;
     display: flex;
     justify-content: space-between;
+    .foot-info{
+        margin-left: 40px;
+    }
+    .foot-zone{
+        margin-right: 40px;
+    }
 
     .foot-chil {
         color: #0c0c0c;

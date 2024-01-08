@@ -1,6 +1,8 @@
 <template>
   <div>
-    <router-view></router-view>
+    <Transition name="move">
+      <router-view></router-view>
+    </Transition>
   </div>
 </template>
 
@@ -8,4 +10,12 @@
 
 </script>
 
-<style lang="less" scoped></style>
+<style lang="less" scoped>
+.move-enter-active, .move-leave-active{
+  transition: all 0.5s ease-out;//淡出
+}
+.move-enter-from, .move-leave-to{
+  transform: translateX(20px);
+  opacity: 0;
+}
+</style>

@@ -43,17 +43,29 @@ const allService = {
 //登录的功能
 const userLogin = (username, password) => {
     //定义sql语句
-    let _sql = `SELECT * FROM USERS WHERE USERNAME = "${username}" AND PASSWORD = "${password}";`
+    let _sql = `SELECT * FROM USERS WHERE USERNAME="${username}" AND PASSWORD="${password}";`
+    return allService.query(_sql)
+}
+
+//校验
+const userFind = (username) => {
+    let _sql = `SELECT * FROM USERS WHERE USERNAME="${username}";`
     return allService.query(_sql)
 }
 
 //注册功能
-const userRegister = (username, password,nickname) => {
-    let _sql = `INSERT INTO USERS (USERNAME,PASSWORD,NICKNAME) VALUES ("${username}","${password}","${nickname}");`
-    return allService.query(_sql)
+
+// const userRegister = (username, password, nickname) => {
+//     let _sql = `INSERT INTO USERS (USERNAME,PASSWORD,NICKNAME) VALUES ("${username}","${password}","${nickname}");`
+//     return allService.query(_sql)
+// }
+const userRegister = (values) => { //values == [username, password, nickname]
+    let _sql = `INSERT INTO USERS set USERNAME=?,PASSWORD=?,NICKNAME=?;`
+    return allService.query(_sql,values)
 }
 
 module.exports ={
     userLogin,
+    userFind,
     userRegister
 }

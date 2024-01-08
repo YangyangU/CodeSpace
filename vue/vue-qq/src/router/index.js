@@ -4,6 +4,8 @@ import HomeBody from '../views/HomeChild/Home-Body.vue'
 import HomeContact from '../views/HomeChild/Home-Contact.vue'
 import HomeZore from '../views/HomeChild/Home-Zore.vue'
 import Self from '../views/Self.vue'
+import About from '../views/About.vue'
+
 
 const routes = [
     {
@@ -37,8 +39,12 @@ const routes = [
     },
     {
         path:'/self',
-        component:Self
-    }
+        component:Self,
+    },
+    {
+        path:'/about',
+        component:About
+    } 
 ]
 //定义一个变量调用createRouter
 const router = createRouter({

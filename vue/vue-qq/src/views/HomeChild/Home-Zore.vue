@@ -197,14 +197,15 @@ const input = ref('')
 </script>
 
 <style scoped>
+
 .container {
     background-color: rgb(246, 246, 246);
     height: 80%;
-    overflow: hidden;
+    overflow: auto;
 }
 
 .head {
-    margin: 12px 0;
+    padding: 12px 0 0 0;
     background-color: rgb(255, 255, 255);
 }
 
@@ -226,7 +227,7 @@ const input = ref('')
 
 .item {
     width: 100%;
-    padding: 10px;
+    padding: 10px 0;
     background-color: #fff;
     display: flex;
     justify-content: space-between;
@@ -234,7 +235,8 @@ const input = ref('')
 }
 
 i {
-    padding: 0 25px 0 8px;
+    color: rgb(55, 205, 251);
+    padding: 0 25px 0 20px;
 }
 
 .body {
