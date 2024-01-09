@@ -47,7 +47,7 @@ const onSubmit = async () => {
         password: state.password,
     })
     // console.log(data);
-    // showSuccessToast('注册成功')
+    showSuccessToast('注册成功')
     setTimeout(() => {
         router.push('/login')
     }, 1500)

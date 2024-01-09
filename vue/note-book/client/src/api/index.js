@@ -19,7 +19,7 @@ axios.interceptors.response.use(res=>{
             // return res.data.msg
         }
         else{
-            showFailToast(res.data.msg)
+            // showSuccessToast(res.data.msg)
             return res.data
         }
     }

@@ -4,7 +4,7 @@
       <header>
         <div @click="() => { state.isMenuShow = true }"><van-icon name="list-switch" /></div>
         <div>
-          <van-icon name="edit" />
+          <van-icon name="edit" @click="goPublish"/>
           <van-icon name="like-o" />
           <van-icon name="search" />
         </div>
@@ -41,6 +41,9 @@ const noteClassList = [
 ]
 const goNoteList = (title) => {
   router.push({path:'/noteList',query:{'title':title}})
+}
+const goPublish = () =>{
+  router.push('/notePublish')
 }
 </script>
 

@@ -29,3 +29,5 @@ https://127.0.0.1:3000/login
 解决：后端在响应体设置不用同源策略
 
 1. cors
+
+yarn add @vueup/vue-quill@latest 富文本编辑器

@@ -1,34 +1,23 @@
 <template>
     <div class="note-list">
-        <ul>
-            <li>
+        <ul v-if="state.noteList.length">
+            <li v-for="item in state.noteList" :key="item.id" @click="goNoteDetail(item.id)">
                 <div class="img">
-                    <img src="https://img1.baidu.com/it/u=3661057457,567145783&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500" alt="">
+                    <img :src="item.head_img" alt="">
                 </div>
-                <p class="time">2023/05/20</p>
-                <p class="title">今天去吃了华莱士今天去吃了华莱士今天去吃了华莱士</p>
-            </li>
-            <li>
-                <div class="img">
-                    <img src="https://img1.baidu.com/it/u=3661057457,567145783&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500" alt="">
-                </div>
-                <p class="time">2023/05/20</p>
-                <p class="title">今天去吃了华莱士</p>
-            </li>
-            <li>
-                <div class="img">
-                    <img src="https://img1.baidu.com/it/u=3661057457,567145783&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500" alt="">
-                </div>
-                <p class="time">2023/05/20</p>
-                <p class="title">今天去吃了华莱士</p>
+                <p class="time">{{ item.c_time }}</p>
+                <p class="title">{{ item.title}}</p>
             </li>
         </ul>
+        <p class="empty" v-else>当前分类还没有日记哦~~</p>
     </div>
 </template>
 
 <script setup>
 import { onBeforeMount,onMounted,onUnmounted } from 'vue';
-
+import {useRouter,useRoute} from 'vue-router'
+import axios from '../api'
+import { reactive } from 'vue';
 //生命周期介绍
 // console.log('hello world',document.querySelector('.note-list'));//编译
 
@@ -41,11 +30,25 @@ import { onBeforeMount,onMounted,onUnmounted } from 'vue';
 // onUnmounted(()=>{
 //     console.log('onUnmounted');//卸载 跳转到别的页面 卸载的时候清空定时器
 // })
-
-onMounted(()=>{
+const router = useRouter() //路由实例  跳转路由用这个
+const route = useRoute() //当前路由详情
+// console.log(router.currentRoute.value);
+// console.log(route.query.title);
+onMounted(async()=>{
 //页面加载中发请求，拿到当前分类的数据
-
+    const {data} = await axios.post('/findNoteListByType',{
+        note_type:route.query.title
+    })
+    // console.log(data);
+    state.noteList = data
 })
+const state = reactive({
+    noteList:[]
+})
+const goNoteDetail = (id)=>{
+    // router.push(`/noteDetail/${id}`)
+    router.push({path:'/noteDetail',query:{id:id}})
+}
 
 </script>
 
@@ -72,6 +75,7 @@ onMounted(()=>{
             img{
                 width: 100%;
                 // width: 2rem;
+                height: 4rem;
                 border-radius: 0.27rem;
             }
             .time{
