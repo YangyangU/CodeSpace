@@ -18,7 +18,7 @@
                     <van-button round block color="#7232dd" native-type="submit">
                         确认注册
                     </van-button>
-                    <p class="register" @click="login">新用户？点击注册</p>
+                    <p class="register" @click="login">已有账号？点击登录</p>
                 </div>
             </van-form>
         </div>
