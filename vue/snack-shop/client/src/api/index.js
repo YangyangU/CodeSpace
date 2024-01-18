@@ -11,8 +11,9 @@ axios.interceptors.response.use(res=>{
         showFailToast('服务端异常');
     }else{
         if(res.data.code!== '8000'){//逻辑错误
-            showFailToast(res.data.msg)
-            return Promise.reject(res)
+            // showFailToast(res.data.msg)
+            // return Promise.reject(res)
+            return res.data.msg
         }
         else{
             return res.data
