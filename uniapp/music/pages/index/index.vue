@@ -22,30 +22,63 @@
 				</swiper-item>
 			</swiper>
 		</view>
+		<!-- balls -->
+		<view class="balls">
+			<div class="balls-item" v-for="item in state.balls" :key="item.id">
+				<view class="icon">
+					<image :src="item.iconUrl" mode="aspectFill"></image>
+				</view>
+				<text>{{item.name}}</text>
+			</div>
+		</view>
+		
+		<!-- 专属推荐 -->
+		<songList :recommend ="state.recommend"/>
+		
+		<!-- 雷达歌单 -->
+		<songList :recommend ="state.recommend"/>
 	</view>
 </template>
 
 <script setup>
 // import wyheader from '../../components/wyheader/wyheader.vue'
-import {apiGetBanner} from '@/api/index.js'
+import {apiGetBanner,apiGetBall,apiGetRecommendList} from '@/api/index.js'
 import {onLoad} from '@dcloudio/uni-app'
 import {reactive} from 'vue'
 
 const state = reactive({
-	banners:[]
+	banners:[],
+	balls:[],
+	recommend:[]
 })
 
 onLoad(()=>{
 	getBanner()
+	getBall()
+	getRecommendList()
 })
 
-const getBanner =()=>{
+//获取banner图
+const getBanner = ()=>{
 	apiGetBanner({type:2}).then(res=>{
-		console.log(res.data.banners);
+		// console.log(res.data.banners);
 		state.banners = res.data.banners
 	})
 }
 
+//获取入口列表
+const getBall = async()=>{
+	const {data:{data:balls}} = await apiGetBall()//一层层结构得到数据
+	// console.log(balls);
+	state.balls = balls
+}
+
+//推荐歌单
+const getRecommendList = async()=>{
+	const {data:{recommend}} = await apiGetRecommendList()
+	// console.log(recommend);
+	state.recommend = recommend;
+}
 </script>
 
 <style lang="scss" scoped>
@@ -68,12 +101,44 @@ const getBanner =()=>{
 		overflow: hidden;
 		.swiper-item{
 			width: 740rpx;
-			margin: 0 5rpx;
+			// margin: 0 5rpx;
 			height: 100%;
 			image{
 				width: 100%;
 				height: 100%;
 			}
+		}
+	}
+	.balls{
+		display: flex;
+		overflow: scroll;
+		margin: 30rpx 0;
+		.balls-item{
+			flex:0 0 20%;
+			font-size: 20rpx;
+			text-align: center;
+			.icon{
+				width: 70rpx;
+				height: 70rpx;
+				margin: 0 auto;
+				margin-bottom: 14rpx;
+				background-color: #d81e06;
+				border-radius: 50%;
+				image{
+					width: 100%;
+					height: 100%;
+				}
+			}
+		}
+	}
+	.recommend{
+		.recommend-hd{
+			display: flex;
+			justify-content: space-between;
+			font-size: 30rpx;
+		}
+		.recommend-bd{
+			
 		}
 	}
 }
