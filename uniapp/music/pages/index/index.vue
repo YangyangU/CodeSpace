@@ -32,30 +32,37 @@
 			</div>
 		</view>
 		
-		<!-- 专属推荐 -->
-		<songList :recommend ="state.recommend"/>
+		<!-- 推荐歌单 -->
+		<songList :recommend ="state.recommend" title="推荐歌单"/>
+		
+		<!-- 推荐歌曲 -->
+		<recommendSong :songs ="state.songs"/>
 		
 		<!-- 雷达歌单 -->
-		<songList :recommend ="state.recommend"/>
+		<songList :recommend ="state.personalizedList" title="阳阳的雷达歌单"/>
 	</view>
 </template>
 
 <script setup>
 // import wyheader from '../../components/wyheader/wyheader.vue'
-import {apiGetBanner,apiGetBall,apiGetRecommendList} from '@/api/index.js'
+import {apiGetBanner,apiGetBall,apiGetRecommendList,apiGetRecommendSong,apiGetPersonalizedList} from '@/api/index.js'
 import {onLoad} from '@dcloudio/uni-app'
 import {reactive} from 'vue'
 
 const state = reactive({
 	banners:[],
 	balls:[],
-	recommend:[]
+	recommend:[],
+	songs:[],
+	personalizedList:[]
 })
 
 onLoad(()=>{
 	getBanner()
 	getBall()
 	getRecommendList()
+	getRecommendSong()
+	getPersonalizedList()
 })
 
 //获取banner图
@@ -78,6 +85,20 @@ const getRecommendList = async()=>{
 	const {data:{recommend}} = await apiGetRecommendList()
 	// console.log(recommend);
 	state.recommend = recommend;
+}
+
+//推荐歌曲
+const getRecommendSong = async()=>{
+	const res = await apiGetRecommendSong()
+	console.log(res.data.data.dailySongs);
+	state.songs = res.data.data.dailySongs
+}
+
+//雷达歌单
+const getPersonalizedList = async()=>{
+	const res = await apiGetPersonalizedList()
+	console.log(res.data.result);
+	state.personalizedList = res.data.result
 }
 </script>
 

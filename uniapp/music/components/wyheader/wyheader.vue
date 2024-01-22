@@ -31,7 +31,9 @@ const showMenu = () =>{
 
 <style lang="scss" scoped>
 .header{
-	height: 100rpx;
+	margin-bottom: 10rpx;
+	background-color: #fff;
+	height: 90rpx;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ajax业务封装流程</title>
+</head>
+<body>
+<script>
+function getDataByAjax(url){
+    return new Promise((resolve,reject)=>{
+        console.log('1111');
+    })
+}
+
+(async function(){
+    const data = await getDataByAjax('https://api.github.com/users/shunwuyu/repos')
+    console.log('2222');//请求未处理
+})()
+</script>
+    
+</body>
+</html>
