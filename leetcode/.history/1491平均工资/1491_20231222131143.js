@@ -1,3 +1,0 @@
-var average = function(salary) {
-
-};
