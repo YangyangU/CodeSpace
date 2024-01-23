@@ -1,5 +1,8 @@
 <template>
 	<view class="menu-left" :class="isShow ? 'show' : 'hide'" >
+		<view class="head">
+			
+		</view>
 		<!-- userInfo -->
 		<view class="menu-hd">
 			<view class="user-info">
@@ -44,10 +47,18 @@ const hideMenu = () =>{
 </script>
 
 <style lang="scss" scoped>
+	.head{
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 80rpx;
+		background-color: #fff;
+		z-index: 999;
+	}
 .menu-left{
 	position: fixed;
-	top: 0;
-	left: 0;
+	top: 80rpx;
 	z-index: 9999;
 	width: 620rpx;
 	height: 100%;

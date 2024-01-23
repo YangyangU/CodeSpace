@@ -18,7 +18,7 @@
 					已经登录
 				</view>
 				
-				<view class="user-outline" v-else>
+				<view class="user-outline" v-else  @click="login">
 					<text>立即登录</text>
 					<uni-icons type="right" size="16"></uni-icons>
 				</view>
@@ -35,11 +35,17 @@ const store = useStore()
 const isLogin = computed(()=>{
 	return store.state.loginState
 })
+
+const login = () =>{//跳页面
+	uni.reLaunch({
+		url:'/pages/login/login'
+	})
+}
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .mine-bd{
-	padding: 200rpx 30rpx 40rpx;
+	padding: 280rpx 30rpx 40rpx;
 	background-color: #93969d;
 	.user{
 		

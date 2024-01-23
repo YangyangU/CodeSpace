@@ -1,4 +1,5 @@
 <template>
+	<view class="head"></view>
 	<view class="header" :style="{backgroundColor: bgColor}">
 		<uni-icons type="bars" size="22" @click="showMenu"></uni-icons>
 		
@@ -38,6 +39,15 @@ const showMenu = () =>{
 </script>
 
 <style lang="scss" scoped>
+.head{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 80rpx;
+	background-color: #fff;
+	z-index: 999;
+}
 .header{
 	margin-bottom: 10rpx;
 	// background-color: #fff;//有些页面不希望是白色
@@ -47,13 +57,13 @@ const showMenu = () =>{
 	align-items: center;
 	padding: 0 15rpx;
 	position: fixed;
-	top: 0;
+	top: 80rpx;
 	left: 0;
 	width: 100%;
 	box-sizing: border-box;
 	z-index: 999;
 }
 .box{
-	height: 100rpx;
+	height: 180rpx;
 }
 </style>
