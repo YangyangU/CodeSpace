@@ -30,7 +30,7 @@ import {useStore} from 'vuex'
 
 const store = useStore()
 
-console.log(store);
+// console.log(store);
 
 
 const isShow = computed(()=>{
