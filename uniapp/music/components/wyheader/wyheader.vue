@@ -1,5 +1,5 @@
 <template>
-	<view class="head"></view>
+	<view class="head" v-if="needBox"></view>
 	<view class="header" :style="{backgroundColor: bgColor}">
 		<uni-icons type="bars" size="22" @click="showMenu"></uni-icons>
 		
@@ -30,7 +30,8 @@ defineProps({
 	needBox:{
 		type:Boolean,
 		default:true
-	}
+	},
+	fontColor:String
 })
 
 const showMenu = () =>{
@@ -46,12 +47,11 @@ const showMenu = () =>{
 	width: 100%;
 	height: 80rpx;
 	background-color: #fff;
-	z-index: 999;
+	z-index: 9999;
 }
 .header{
-	margin-bottom: 10rpx;
 	// background-color: #fff;//有些页面不希望是白色
-	height: 90rpx;
+	height: 100rpx;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -62,6 +62,10 @@ const showMenu = () =>{
 	width: 100%;
 	box-sizing: border-box;
 	z-index: 999;
+	color: v-bind(fontColor); //在css中用js
+	:deep(.uni-icons){
+		color: v-bind(fontColor) !important;
+	}
 }
 .box{
 	height: 180rpx;
