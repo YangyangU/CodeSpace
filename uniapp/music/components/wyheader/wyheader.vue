@@ -1,5 +1,7 @@
 <template>
+	<!-- #ifndef H5 -->
 	<view class="head" v-if="needBox"></view>
+	<!-- #endif -->
 	<view class="header" :style="{backgroundColor: bgColor}">
 		<uni-icons type="bars" size="22" @click="showMenu"></uni-icons>
 		
@@ -14,29 +16,28 @@
 </template>
 
 <script setup>
-import {useStore} from 'vuex';
-
-const store = useStore()
-
-defineProps({
-	icon:{
-		type:String,
-		default:'mic'
-	},
-	bgColor:{
-		type:String,
-		default:'#fff'
-	},
-	needBox:{
-		type:Boolean,
-		default:true
-	},
-	fontColor:String
-})
-
-const showMenu = () =>{
-	store.commit('changeIsShowMenu',true)
-}
+	import { useStore } from 'vuex';
+	const store = useStore()
+	
+	defineProps({
+		icon: {
+			type: String,
+			default: 'mic'
+		},
+		bgColor: {
+			type: String,
+			default: '#fff'
+		},
+		needBox: {
+			type: Boolean,
+			default: true
+		},
+		fontColor: String
+	})
+	
+	const showMenu = () => {
+		store.commit('changeIsShowMenu', true)
+	}
 </script>
 
 <style lang="scss" scoped>
@@ -50,24 +51,34 @@ const showMenu = () =>{
 	z-index: 9999;
 }
 .header{
-	// background-color: #fff;//有些页面不希望是白色
+	// background-color: #fff;
 	height: 100rpx;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	padding: 0 15rpx;
 	position: fixed;
+	// #ifdef H5
+	top: 0;
+	// #endif
+	// #ifndef H5
 	top: 80rpx;
+	// #endif
 	left: 0;
 	width: 100%;
 	box-sizing: border-box;
 	z-index: 999;
-	color: v-bind(fontColor); //在css中用js
+	color: v-bind(fontColor);
 	:deep(.uni-icons){
 		color: v-bind(fontColor) !important;
 	}
 }
 .box{
+	// #ifdef H5
+	height: 100rpx;
+	// #endif
+	// #ifndef H5
 	height: 180rpx;
+	// #endif
 }
 </style>

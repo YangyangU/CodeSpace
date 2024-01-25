@@ -55,4 +55,38 @@
 <style>
 	/*每个页面公共css */
 	@import url('https://at.alicdn.com/t/c/font_4416383_jl3c3um40wp.css');
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	html,body{
+		width: 100%;
+		height: 100%;
+	}
+	#app{
+		height: 100%;
+	}
+	uni-page-body{
+		height: 100%;
+		overflow-y: scroll;
+	}
+	.boxShadow{
+		position: relative;
+		z-index: 1;
+		perspective: 400px;
+		transform-style: preserve-3d;
+	}
+	.boxShadow::after{
+		content: '';
+		display: block;
+		width: 95%;
+		height: 100%;
+		position: absolute;
+		z-index: -1;
+		top: -16rpx;
+		left: 2.5%;
+		background-color: #6e9d8b;
+		border-radius: 8px;
+		transform: translateZ(-30rpx);
+	}
 </style>
