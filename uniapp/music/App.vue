@@ -26,7 +26,7 @@
 			})
 		},
 		onShow: function() {
-			console.log('App Show')
+			// console.log('App Show')
 		},
 		onHide: function() {
 			console.log('App Hide')
@@ -54,7 +54,7 @@
 
 <style>
 	/*每个页面公共css */
-	@import url('https://at.alicdn.com/t/c/font_4416383_jl3c3um40wp.css');
+	@import url('http://at.alicdn.com/t/c/font_4416383_527ai7giiz.css');
 	*{
 		margin: 0;
 		padding: 0;
@@ -74,17 +74,18 @@
 		position: relative;
 		z-index: 1;
 		perspective: 400px;
+		border-radius: 8px;
 		transform-style: preserve-3d;
 	}
 	.boxShadow::after{
 		content: '';
 		display: block;
-		width: 95%;
+		width: 90%;
 		height: 100%;
 		position: absolute;
 		z-index: -1;
 		top: -16rpx;
-		left: 2.5%;
+		left: 5%;
 		background-color: #6e9d8b;
 		border-radius: 8px;
 		transform: translateZ(-30rpx);
