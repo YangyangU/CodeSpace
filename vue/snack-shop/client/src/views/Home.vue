@@ -25,7 +25,7 @@ const images = [
 .home-warp {
     background-color: #217d70;
     .view{
-        width:100vw;
+        width:100%;
         height: 5rem;
         overflow: hidden;
         img{
