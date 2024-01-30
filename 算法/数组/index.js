@@ -58,3 +58,15 @@ console.log(array);
 //数组reduce()求和方法，两个参数，每次将结果传回形参
 arr.reduce((pre,cur)=>pre+cur)
 //https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce
+
+
+// arr.filter
+
+var filter = function (arr, fn) {
+    const nums = [];
+    for (let i = 0; i < arr.length; i++) {
+      if (fn(arr[i], i)) nums.push(arr[i]);
+    }
+    return nums;
+  };
+  
