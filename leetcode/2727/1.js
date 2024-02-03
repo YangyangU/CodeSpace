@@ -6,3 +6,4 @@ var isEmpty = function(obj) {
 var isEmpty = function(obj) {
     return JSON.stringify(obj).length === 2
 };//{}
+
