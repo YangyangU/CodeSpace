@@ -1,50 +1,24 @@
 <template>
-    <div class="tabbar">
-        <div class="item-container">
-            <div class="item">
-                <img src="./assets/images/shouye.png" alt="">
-            </div>
-            <div class="item">
-                <img src="./assets/images/shouye.png" alt="">
-            </div>
-            <div class="item">
-                <img src="./assets/images/shouye.png" alt="">
-            </div>
-            <div class="item">
-                <img src="./assets/images/shouye.png" alt="">
-            </div>
-        </div>
-    </div>
+    <van-tabbar v-model="active">
+        <van-tabbar-item>
+            <span>自定义</span>
+            <template #icon="props">
+                <img :src="props.active ? icon.active : icon.inactive" />
+            </template>
+        </van-tabbar-item>
+        <van-tabbar-item icon="search">标签</van-tabbar-item>
+        <van-tabbar-item icon="setting-o">标签</van-tabbar-item>
+    </van-tabbar>
 </template>
 
 <script setup>
+import { ref } from 'vue';
 
+const active = ref('home');
+const icon = {
+    active: 'https://fastly.jsdelivr.net/npm/@vant/assets/user-active.png',
+    inactive:'https://fastly.jsdelivr.net/npm/@vant/assets/user-inactive.png',
+};
 </script>
 
-<style lang="less" scoped>
-.tabbar {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
-    height: 50px;
-    background-color: #000;
-    .item-container {
-        height: 100%;
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        .item {
-            height: 30px;
-            width: 30px;
-
-            img {
-                height: 100%;
-                width: 100%;
-            }
-        }
-    }
-
-}
-</style>
+<style lang="less" scoped></style>

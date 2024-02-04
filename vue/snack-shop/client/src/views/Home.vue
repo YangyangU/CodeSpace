@@ -9,10 +9,12 @@
             </van-swipe>
         </div>
     </div>
+    <Foot />
 </template>
 
 <script setup>
 import Search from '../components/Search.vue'
+import Foot from '../components/Foot.vue'
 const images = [
     'src/assets/images/home1.jpg',
     'src/assets/images/home2.jpg',
