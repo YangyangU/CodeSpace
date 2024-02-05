@@ -2,14 +2,13 @@
     <div class="home-warp">
         <Search />
         <div class="view">
-            <van-swipe class="my-swipe" :autoplay="3000" indicator-color="white">
+            <van-swipe :autoplay="3000" loop indicator-color="#217d70">
                 <van-swipe-item v-for="image in images" :key="image">
                     <img :src="image" />
                 </van-swipe-item>
             </van-swipe>
         </div>
     </div>
-    <Foot />
 </template>
 
 <script setup>
@@ -30,8 +29,10 @@ const images = [
         width:100%;
         height: 5rem;
         overflow: hidden;
+        display: flex;
         img{
-            height: 5rem;
+            height: 100%;
+            width: 100%;
         }
     }
 }

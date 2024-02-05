@@ -29,6 +29,30 @@ const routes = [
             title:'首页'
         }
     },
+    {
+        path: '/cart',
+        name: 'Cart',
+        component: () => import('../views/Cart.vue'),
+        meta:{
+            title:'购物车'
+        }
+    },
+    {
+        path: '/mine',
+        name: 'Mine',
+        component: () => import('../views/Mine.vue'),
+        meta:{
+            title:'我的'
+        }
+    },
+    {
+        path: '/shops',
+        name: 'Shops',
+        component: () => import('../views/Shops.vue'),
+        meta:{
+            title:'我的'
+        }
+    },
 ]
 
 const router = createRouter({
