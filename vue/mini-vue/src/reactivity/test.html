@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 可以写import -->
+    <script type="module">
+        import { reactive } from "./reactive.js";
+        import { effect } from "./effect.js";
+
+        const state = reactive({
+            name:'阳阳',
+            age:18
+        })
+
+        effect(
+            ()=>{
+                console.log(`${state.name}今年${state.age}岁了`);
+            },
+            {lazy:false}
+        )
+
+
+        // console.log(state.age);//代理值读不到
+        // console.log(state.name)
+
+        setInterval(()=>{
+            state.age++
+        },2000)
+
+        // state.age++  //把用到这个值的地方全部重新执行一遍
+    </script>
+</body>
+</html>
