@@ -15,6 +15,7 @@ export function effect(fn, options = {}) {
     if(!options.lazy){
         effectFn();//如果lazy为false会立即执行一次
     }
+    effectFn.scheduler = options.scheduler
     return effectFn;//把函数体传出来
 }
 

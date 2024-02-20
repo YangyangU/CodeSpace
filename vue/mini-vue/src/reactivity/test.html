@@ -20,7 +20,12 @@
             ()=>{
                 console.log(`${state.name}今年${state.age}岁了`);
             },
-            {lazy:false}
+            {
+                lazy:false,
+                scheduler(){
+                    console.log('调度器执行了');
+                }
+            }
         )
 
 
