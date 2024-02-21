@@ -17,8 +17,5 @@
 </template>
 
 <style>
-  #app{
-    text-align: center;
-    font-size: 40px;
-  }
+
 </style>
