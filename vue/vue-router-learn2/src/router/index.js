@@ -1,22 +1,25 @@
-import { createRouter,createWebHistory } from "vue-router";
-
-// 定义路由配置数组，包含的每个对象代表一个路由规则
+import { createRouter,createWebHistory,createMemoryHistory,createWebHashHistory } from "vue-router";
 const routes = [
     {
-        path: '/about',
-        name: 'about',
-        component: () => import('../views/About.vue'),// 组件懒加载
+        path: '/home',
+        component: () => import('../views/Home.vue'),
+        children:[
+            {
+                path:'child',
+                component: () => import('../views/Child.vue'),
+            }
+        ]
     },
     {
-        path: '/home',
-        name: 'home',
-        component: () => import('../views/Home.vue'),
+        path: '/about',
+        component: () => import('../views/About.vue')
     }
 ]
 
-// 创建路由器实例，并设置模式为WebHistory
 const router = createRouter({
-    history: createWebHistory(),
+    history: createWebHistory(), //使用HTML5模式
+    // history: createMemoryHistory(), //使用Memory模式
+    // history: createWebHashHistory(), //使用Hash模式
     routes
 })
 
