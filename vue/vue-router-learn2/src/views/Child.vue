@@ -1,6 +1,4 @@
 <template>
-        
-
     <div>
         这是Child页面
     </div>
