@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vite App</title>
+</head>
+<body>
+    <div id="app"></div>
+    <!-- vite比传统的Webpack工程化工具更快更优秀的，需要转成require -->
+    <!-- main.ts单点入口，整理依赖关系 Vue App.vue Vue-Router Pinia -->
+    <script type="module" src="/src/main.js"></script>
+    <!-- ESModule 较新，告诉浏览器用ESModule 来解析文件的依赖关系 main.js -->
+</body>
+</html>
