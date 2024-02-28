@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <!-- 引入 ECharts 源码 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js"></script>
+    <!-- 定义具备大小的DOM容器 -->
+    <div class="box" style="width: 400px;height: 400px;"></div>
+    <script>
+        //初始化echarts实例对象
+        var myEchart = echarts.init(document.querySelector('.box'));
+        
+        //指定配置项和数据
+        var option = {
+            title: {
+                text: 'ECharts 入门示例'
+            },
+            tooltip: {},
+            legend: {
+                data: ['销量']
+            },
+            xAxis: {
+                data: ['衬衫', '羊毛衫', '雪纺衫', '裤子', '高跟鞋', '袜子']
+            },
+            yAxis: {},
+            series: [
+                {
+                    name: '销量',
+                    type: 'bar',
+                    data: [5, 20, 36, 10, 10, 20]
+                }
+            ]
+        };
+        //将配置项传echarts实例对象
+        myEchart.setOption(option);
+    </script>
+</body>
+</html>
