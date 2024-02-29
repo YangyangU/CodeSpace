@@ -5,3 +5,5 @@
 - npm install -D unplugin-vue-components unplugin-auto-import
 
 - npm install sass -D
+
+- npm i axios
