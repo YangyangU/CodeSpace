@@ -2,7 +2,7 @@
 
 //js不能脸上数据库
 
-// npm i mysql
+// npm i mysql2
 const mysql = require('mysql2');
 const config = require('../config');
 
