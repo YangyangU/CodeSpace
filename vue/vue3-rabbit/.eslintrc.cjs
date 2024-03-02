@@ -12,3 +12,5 @@ module.exports = {
     'vue/multi-word-component-names':0 //不强求组件名
   }
 }
+
+
