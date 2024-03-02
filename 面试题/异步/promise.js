@@ -104,7 +104,7 @@ class MyPromise {
 
             // 遍历Promise数组
             for (let i = 0; i < promises.length; i++) {
-                Promise.resolve(promises[i]).then(
+                promises[i].then(
                     (value) => {
                         values[i] = value;
                         resolvedCount++;
@@ -117,6 +117,29 @@ class MyPromise {
                     (reason) => {
                         // 如果任何一个Promise被拒绝，则立即reject整个all的结果
                         reject(reason);
+                    },
+                );
+            }
+        });
+    }
+
+
+    static any(promises) {//静态方法
+        return new MyPromise((resolve, reject) => {
+            let resolvedCount = 0;
+            let reasons = [];
+
+            for (let i = 0; i < promises.length; i++) {
+                promises[i].then(
+                    (value) => {
+                        resolve(value);
+                    },
+                    (reason) => {
+                        reasons[i] = reason
+                        resolvedCount++;
+                        if (resolvedCount === promises.length) {
+                            reject(new AggregateError(reasons));
+                        }
                     },
                 );
             }
@@ -138,8 +161,8 @@ const a = () =>{
 const b = () =>{
     return new MyPromise((resolve, reject) =>{
         setTimeout(()=>{
-            resolve('ok2')
-            // reject('error2')
+            // resolve('ok2')
+            reject('error2')
         },500)
     })
 }
@@ -148,7 +171,9 @@ const p = new MyPromise((resolve, reject) => {
     resolve('success');
 })
 
-console.log(p)
+// console.log(p)
 
-MyPromise.race([a(),b()]).then((res) =>{console.log(res);})//ok2
-MyPromise.all([a(),b()]).then((res) =>{console.log(res);})//[ 'ok', 'ok2' ]
+// MyPromise.race([a(),b()]).then((res) =>{console.log(res);})//ok2
+// MyPromise.all([a(),b()]).then((res) =>{console.log(res);})//[ 'ok', 'ok2' ]
+MyPromise.any([a(),b()]).then(() =>{},(res)=>{console.log(res);})//
+

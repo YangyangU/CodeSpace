@@ -55,3 +55,11 @@ bar(foo);
     3. 可以知道是否执行完毕
     4. 可以借助Thunk 和 co 模块处理异步，但是写法复杂，所以generator函数的意义其实是为了打造async await
         npm init -y  npm i co
+
+
+4. async/await
+    1. es2017提供的一种新的处理异步代码的方案
+    2. 优点:好用
+       缺点:没有错误捕获机制,只能使用try/catch
+
+    3. async/await 本质上是由promise 和 generator来实现的,在generator的基础上通过递归的方式来自动化执行一个又一个next函数,当done为true时,结束递归,拿到最终结果
