@@ -11,17 +11,27 @@
 <body>
     <div id="app">
         <ul>
-            <li v-for="item in list" :key="item.index">{{item}}</li>
+            <li v-for="item in list" :key="item.id">{{item.name}}</li>
         </ul>
+        <button @click="add">添加</button>
     </div>
     <script>
         const { createApp, ref } = Vue
 
         createApp({
             setup() {
-                const list = ref(['html', 'css', 'js'])
+                const list = ref(
+                    [
+                        { name: "html", id: 1 },
+                        { name: "css", id: 2 },
+                        { name: "js", id: 3 },
+                    ]);
+                const add = () => {
+                    list.value.unshift({ name: '阳阳羊', id: 4 });
+                }
                 return {
-                    list
+                    list,
+                    add
                 }
             }
         }).mount('#app')
@@ -61,7 +71,7 @@
 
 
     </script>
-    
+
 </body>
 
 </html>

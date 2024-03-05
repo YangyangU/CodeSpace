@@ -1,23 +1,32 @@
-let newDom = [
-    {
-        tagName: 'li',
-        props: {
-            class: 'item'
-        },
-        chilren: ['html']
+
+let newVDom = {
+    tagName: 'ul',
+    props: {
+        class: 'list',
     },
-    {
-        tagName: 'li',
-        props: {
-            class: 'item'
+    chilren: [
+        {
+            tagName: 'li',
+            props: {
+                class: 'item'
+            },
+            chilren: ['html']
         },
-        chilren: ['css']
-    },
-    {
-        tagName: 'li',
-        props: {
-            class: 'item'
+        {
+            tagName: 'li',
+            props: {
+                class: 'item'
+            },
+            chilren: ['css']
         },
-        chilren: ['js']
-    }
-]
+        {
+            tagName: 'li',
+            props: {
+                class: 'item'
+            },
+            chilren: ['vue']
+        }
+    ]
+}
+
+

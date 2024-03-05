@@ -1,9 +1,8 @@
-//compiler 编译器
-let Dom = {
+
+let oldVDom = {
     tagName: 'ul',
     props: {
         class: 'list',
-        id: 'list'
     },
     chilren: [
         {
