@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="item in list" :key="item.index">{{item}}</li>
+        </ul>
+    </div>
+    <script>
+        const { createApp, ref } = Vue
+
+        createApp({
+            setup() {
+                const list = ref(['html', 'css', 'js'])
+                return {
+                    list
+                }
+            }
+        }).mount('#app')
+    </script>
+    <script>
+        //compiler 编译器
+        let Dom = { //虚拟dom
+            tagName: 'ul',
+            props: {
+                class: 'list',
+                id: 'list'
+            },
+            chilren: [
+                {
+                    tagName: 'li',
+                    props: {
+                        class: 'item'
+                    },
+                    chilren: ['html']
+                },
+                {
+                    tagName: 'li',
+                    props: {
+                        class: 'item'
+                    },
+                    chilren: ['css']
+                },
+                {
+                    tagName: 'li',
+                    props: {
+                        class: 'item'
+                    },
+                    chilren: ['js']
+                }
+            ]
+        }
+
+
+    </script>
+    
+</body>
+
+</html>
