@@ -2,57 +2,35 @@ import { createRouter,createWebHistory } from "vue-router";
 
 const routes = [
     {
-        path:'/',
-        redirect:'/login'
-    },
-    {
         path: '/login',
-        name: 'Login',
-        component: () => import('../views/Login.vue'),
-        meta:{
-            title:'登录'
-        }
+        component: () => import('../views/Login/index.vue'),
     },
     {
         path: '/register',
-        name: 'Register',
-        component: () => import('../views/Register.vue'),
-        meta:{
-            title:'注册'
-        }
+        component: () => import('../views/Register/index.vue'),
     },
     {
-        path: '/home',
-        name: 'Home',
-        component: () => import('../views/Home.vue'),
-        meta:{
-            title:'首页'
-        }
-    },
-    {
-        path: '/cart',
-        name: 'Cart',
-        component: () => import('../views/Cart.vue'),
-        meta:{
-            title:'购物车'
-        }
-    },
-    {
-        path: '/mine',
-        name: 'Mine',
-        component: () => import('../views/Mine.vue'),
-        meta:{
-            title:'我的'
-        }
-    },
-    {
-        path: '/shops',
-        name: 'Shops',
-        component: () => import('../views/Shops.vue'),
-        meta:{
-            title:'我的'
-        }
-    },
+        path:'/layout',
+        component: () => import('../views/Layout/index.vue'),
+        children:[
+            {
+                path: '/home',
+                component: () => import('../views/Home/index.vue'),
+            },
+            {
+                path: '/cart',
+                component: () => import('../views/Cart/index.vue'),
+            },
+            {
+                path: '/mine',
+                component: () => import('../views/Mine/index.vue'),
+            },
+            {
+                path: '/shops',
+                component: () => import('../views/Shops/index.vue'),
+            },
+        ]
+    }
 ]
 
 const router = createRouter({

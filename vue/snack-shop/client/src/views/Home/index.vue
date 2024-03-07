@@ -12,7 +12,8 @@
 </template>
 
 <script setup>
-import Search from '../components/Search.vue'
+import Search from '../../components/Search.vue'
+
 const images = [
     'src/assets/images/home1.jpg',
     'src/assets/images/home2.jpg',
