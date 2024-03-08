@@ -48,4 +48,8 @@ css像素 === 1px
 dpr(设备像素比) === 设备像素/ 设备独立像素
 ppi === 像素密度
 
-# CSS中有哪些方式可以隐藏页面元素？区别是什么？
+# 5. CSS中有哪些方式可以隐藏页面元素？区别是什么？
+1. display: none;
+2. visibility: hidden;
+3. position:absolute;z-index: -999;
+4. opacity: 0;
