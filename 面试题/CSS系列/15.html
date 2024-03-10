@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .box{
+            width: 50px;
+            height: 50px;
+            box-sizing: border-box;
+            /* 或者不加边框 */
+            border: 50px solid;
+            border-color: transparent transparent #000 #000;
+        }
+        .box::after{
+            content: "";
+            position: absolute;
+            border: 44px solid;
+            border-color: transparent transparent #fff #fff;
+            top: 343px;
+            left: 474px;
+        }
+        .box1{
+            border: 40px solid;
+            border-color: transparent transparent #75fcb8 #7ce5f8;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <div class="box1"></div>
+</body>
+</html>

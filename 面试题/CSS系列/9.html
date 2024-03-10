@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            display: flex;
+            height: 400px;
+            background-color: antiquewhite;
+            /* flex-direction: column;主轴方向 */
+            /* flex-wrap: wrap; */
+            /* flex-flow: row wrap;主轴方向换行 */
+            /* justify-content: center; 居中对齐 start居左对齐*/
+            /* justify-content: space-around;每个元素都被空白环绕 */
+            /* align-items: end;交叉轴方向居尾部  */
+            /* align-content:start; */
+            /* content相当于用一行,多个item */
+        }
+        ul li{
+            list-style: none;  
+            width: 200px;
+            height: 50px; 
+            background-color: aqua;
+            text-align: center;
+        }
+        li{
+            /* flex-grow: 1; 若父容器空间富足，按数值等比增大*/
+            /* flex-shrink: 1; 若父容器空间不足，按数值等比缩小 */
+            /* flex-basis: 250px;初始尺寸 */
+            /* flex: 1 1 250px;前三个和 */
+        }
+        /* .item1{
+            order: 2;子元素order越小排越前面
+            flex-grow: 2;
+            flex-shrink: 2;
+        } */
+    </style>
+</head>
+<body>
+    <ul>
+        <li class="item1">1</li>
+        <li class="item2">2</li>
+        <li class="item3">3</li>
+    </ul>
+</body>
+</html>
