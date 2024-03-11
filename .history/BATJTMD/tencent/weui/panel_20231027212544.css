@@ -1,9 +1,0 @@
-.weui-panel{
-    background-color: var(--weui-BG-2);
-    margin-top: 10px;
-    position: relative;
-    overflow: hidden;/*超出隐藏*/
-}
-.weuipanel:first-child{/*限定第一个跟上面没间隙*/
-    margin-top: 0px;
-}

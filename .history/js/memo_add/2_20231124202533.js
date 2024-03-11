@@ -1,3 +1,0 @@
-var fibonacci = function(n){
-    
-}

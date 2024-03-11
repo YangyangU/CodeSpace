@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">获取数据</button>
+    <!-- <script src="http://localhost:3000"></script> -->
+    <script>
+        // 1. 借助script的src属性给后端发送一个请求，并且携带一个参数('callback')
+        // 2. 前端在window添加了一个callback函数
+        // 3. 后端接收到这个参数'callback'后，将返回给前端的数据data和这个'callback'进行拼接，成'callback(data)'并返回
+        // 4. 因为window上已经有一个callback函数，后端又返回一个形如'callback(data)'，浏览器会将该字符串执行成callback的调用
+
+        function jsonp(url,cb){
+            return new Promise(function(resolve, reject){
+                //原理
+                const script = document.createElement("script");
+                script.src = `${url}?cb=${cb}`;//http://localhost:3000?cb=callback
+                document.body.appendChild(script);//自动请求src内容
+                
+                window[cb] = function(data){
+                    resolve(data);
+                }
+            })
+        }
+        let btn = document.getElementById('btn');
+        btn.addEventListener('click',()=>{
+            // fetch('http://localhost:3000')
+            // .then(res=>res.json())
+            // .then(data=>{
+            //     console.log(data);
+            // })
+            jsonp('http://localhost:3000','callback')
+            .then(res=>{
+                console.log('后端:',res);
+            })
+        })
+    </script>
+</body>
+</html>

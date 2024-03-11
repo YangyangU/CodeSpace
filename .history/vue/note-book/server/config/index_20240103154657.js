@@ -1,5 +1,0 @@
-const config = {
-    database:{
-        DATABASE:''
-    }
-}

@@ -1,3 +1,0 @@
-var deleteDuplicates = function(head) {
-
-};

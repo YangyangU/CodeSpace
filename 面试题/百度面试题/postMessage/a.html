@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>a.html</h2>
+    <iframe src="http://127.0.0.1:5501/%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%99%BE%E5%BA%A6%E9%9D%A2%E8%AF%95%E9%A2%98/postMessage/b.html" frameborder="0" id="iframe"></iframe>
+
+    <script>
+        let iframe = document.getElementById('iframe');
+        iframe.onload = function () {
+            let data = {
+                name:'Tom'
+            }
+            iframe.contentWindow.postMessage(JSON.stringify(data),'http://127.0.0.1:5501');
+        }
+
+        //监听b传过来的值
+        window.addEventListener('message',(e)=>{
+            console.log(e.data);
+        })
+    </script>
+
+
+</body>
+</html>
