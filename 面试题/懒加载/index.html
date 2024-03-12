@@ -35,7 +35,7 @@
                 if(rect.top < viewHeight) {
                     let image = new Image()
                     image.src = el.dataset.original//data-original
-                    image.onload = function() {
+                    image.onload = function() {//创建完成时赋值
                         el.src = image.src
                     }
                     el.removeAttribute('data-original')
