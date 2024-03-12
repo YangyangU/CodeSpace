@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //后端返回的就是列表项
+        //前端要自行转树形结构
+        const list = [
+            {
+                id: 1001,
+                parentId: 0,
+                name: "AA",
+            },
+            {
+                id: 1002,
+                parentId: 1001,
+                name: "BB",
+            },
+            {
+                id: 1003,
+                parentId: 1001,
+                name: "CC",
+            },
+            {
+                id: 1004,
+                parentId: 1003,
+                name: "DD",
+            },
+            {
+                id: 1005,
+                parentId: 1003,
+                name: "EE",
+            },
+            {
+                id: 1006,
+                parentId: 1002,
+                name: "FF",
+            },
+            {
+                id: 1007,
+                parentId: 1002,
+                name: "GG",
+            },
+            {
+                id: 1008,
+                parentId: 1004,
+                name: "HH",
+            },
+            {
+                id: 1009,
+                parentId: 1005,
+                name: "II",
+            },
+        ];
+
+        //暴力解法
+        function listToSimpleTree(data) {
+            const res = []
+            data.forEach((item) => {
+                const parent = data.find((node) => node.id === item.parentId);
+                if (parent) {
+                    parent.children = parent.children || [];
+                    parent.children.push(item);
+                } else {
+                    // * 根节点
+                    res.push(item);
+                }
+            });
+            return res;
+        }
+        // console.log(listToSimpleTree(list));
+
+
+        //优化时间复杂度 用空间换时间 空间冗余
+        function listToTree(data) {
+            // * 先生成parent建立父子关系
+            const obj = {};
+            data.forEach((item) => {
+                obj[item.id] = item;
+            });
+            const parentList = [];
+            data.forEach((item) => {
+                const parent = obj[item.parentId];
+                if (parent) {
+                    // * 当前项有父节点
+                    parent.children = parent.children || [];
+                    parent.children.push(item);
+                } else {
+                    // * 当前项没有父节点 -> 顶层
+                    parentList.push(item);
+                }
+            });
+            return parentList;
+        }
+
+        function recursiveToTree(data) {
+            function loop(key) {
+                const arr = [];
+                data.forEach((item) => {
+                    if (item.parentId === key) {
+                        item.children = loop(item.id);
+                        arr.push(item);
+                    }
+                });
+                return arr;
+            }
+            return loop(1);
+        }
+
+
+        console.time("原始方法")
+        const resSimple = listToSimpleTree(list);
+        console.timeEnd("原始方法")
+
+        console.time("HashMap方法")
+        const resSimple2 = listToTree(list);
+        console.timeEnd("HashMap方法")
+
+        console.time("递归方法")
+        const resSimple3 = recursiveToTree(list);
+        console.timeEnd("递归方法")
+    </script>
+</body>
+
+</html>
