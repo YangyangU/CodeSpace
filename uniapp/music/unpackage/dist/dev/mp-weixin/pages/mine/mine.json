@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "wyheader": "../../components/wyheader/wyheader",
+    "menu-left": "../../components/menuLeft/menuLeft",
+    "uni-icons": "../../uni_modules/uni-icons/components/uni-icons/uni-icons",
+    "music-player": "../../components/musicPlayer/musicPlayer"
+  }
+}

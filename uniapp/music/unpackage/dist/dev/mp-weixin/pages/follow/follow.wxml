@@ -1,0 +1,1 @@
+<view class="follow"><wyheader wx:if="{{a}}" u-s="{{['content']}}" u-i="2af15826-0" bind:__l="__l" u-p="{{a}}"><text slot="content">动态</text></wyheader> 关注 </view>
