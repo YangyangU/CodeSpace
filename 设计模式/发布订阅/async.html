@@ -1,0 +1,21 @@
+<script>
+    function fnA(){
+        setTimeout(()=>{
+            console.log('fnA');
+            window.dispatchEvent(finish)
+        },1000)
+    }
+    function fnB(){
+        setTimeout(()=>{
+            console.log('fnB');
+        },500)
+    }
+    //a先执行b再执行
+    //a执行完发布一个订阅b才能执行
+    let finish = new Event('finish')
+    fnA()
+    window.addEventListener('finish',()=>{
+        fnB()
+    })
+
+</script>

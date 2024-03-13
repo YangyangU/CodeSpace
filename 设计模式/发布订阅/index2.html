@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+
+    </div>
+    <script>
+
+        let ev = new Event('look',{ bubbles:true,cancelable:false,composed:false })//创建look事件启动冒泡,且可以被取消
+
+        let box = document.getElementById('box');
+
+        let boxShadow = box.attachShadow({mode:'open',delegatesFocus:false})
+        boxShadow.innerHTML = '<div class="title">我是影子dom</div>'
+
+        box.addEventListener('look',(event)=>{
+            if(event.cancelable){
+                event.preventDefault();//取消事件
+            }else{
+                console.log('box上触发了look事件');
+            }
+        })
+
+        let boxChild = box.shadowRoot.querySelector('.title');
+
+        boxChild.dispatchEvent(ev);
+    </script>
+</body>
+</html>

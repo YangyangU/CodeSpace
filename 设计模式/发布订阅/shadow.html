@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .title{
+            color: red;
+            font-size: 26px;
+        }
+        body{
+            /* 定义变量 */
+            --color:green;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div class="title">我是真实的标题</div>
+    </div>
+    <div id="root"></div>
+    <script>
+        let root = document.getElementById("root");
+        //创建影子dom                       //允许拿到dom结构   //点击影子聚焦input
+        let rootShadow = root.attachShadow({mode:'open',delegatesFocus:true});
+        rootShadow.innerHTML = `
+            <input/>
+            <div class="title shadow">我是影子标题</div>
+            <style>
+                :host{
+                    color: var(--color);
+                }
+            </style>
+        `
+        console.log(root.shadowRoot);
+            // 影子dom样式隔离 例如封装ui库
+    </script>
+</body>
+</html>

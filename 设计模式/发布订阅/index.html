@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+
+    </div>
+    <script>
+        let box = document.getElementById('box');
+        // box.addEventListener('click',()=>{
+        //     console.log('box');
+        // })
+
+        let ev = new Event('look',{ bubbles:true,cancelable:true,composed:true })//创建look事件启动冒泡,且可以被取消
+
+        //订阅事件
+        box.addEventListener('look',(event)=>{
+            // console.log(event);
+            if(event.cancelable){
+                event.preventDefault();//取消事件
+            }else{
+                console.log('box上触发了look事件');
+            }
+        })
+
+        // window.addEventListener('look',()=>{//允许冒泡会执行
+        //     console.log('window上触发了look事件');
+        // })
+
+        box.dispatchEvent(ev);//在box上发布look事件     发布在最后
+        
+    </script>
+</body>
+</html>
