@@ -21,29 +21,32 @@ const updateList = ()=>{
     // listItem.scrollIntoView({behavior: 'smooth'})//通过js滚动到某一个DOM结构
     //没有滚到最后一个li
 
-    // nextTick (()=>{//在nextTick中执行
-    //     const listItem = document.querySelector('li:last-child')
-    //     listItem.scrollIntoView({behavior: 'smooth'})
-    // })
-
-    //手写nextTick
-    myNextTick(()=>{
+    nextTick (()=>{//在nextTick中执行
         const listItem = document.querySelector('li:last-child')
         listItem.scrollIntoView({behavior: 'smooth'})
     })
+
+    //手写nextTick
+    // myNextTick(()=>{
+    //     const listItem = document.querySelector('li:last-child')
+    //     listItem.scrollIntoView({behavior: 'smooth'})
+    // })
 }
 
-myNextTick(()=>{
-    console.log('nextTick');
-})
-onMounted(()=>{
-    console.log('onMounted');
-})
+// myNextTick(()=>{
+//     console.log('nextTick');
+// })
+// onMounted(()=>{
+//     console.log('onMounted');
+// })
 
 </script>
 
 <style lang="css" scoped>
+
 li{
+    list-style: none;
+    font-size: 64px;
     height: 100px;
     background-color: #42b883aa;
     margin: 10px;

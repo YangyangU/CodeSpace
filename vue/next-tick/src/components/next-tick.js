@@ -11,7 +11,7 @@ export function myNextTick(fn){
         // console.log(123);//DOM结构变化函数执行
 
         //当被监听的DOM结构变化后，执行回调函数
-        console.log(el);
+        // console.log(el);
         fn()
     })
     observer.observe(app,observerOptions)//监听上某一个dom节点及子节点
