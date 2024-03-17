@@ -20,4 +20,11 @@
     3. 手敲一个
 
 # 4. 让代码成立
-    
+
+for of 只能遍历具有可迭代对象
+for in 会遍历到原型
+
+Object.keys(obj)//返回一个数组存key
+Object.values(obj)//返回一个数组存value
+
+- 打造一个迭代器
