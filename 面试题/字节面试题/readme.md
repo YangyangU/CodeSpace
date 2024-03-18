@@ -28,3 +28,7 @@ Object.keys(obj)//返回一个数组存key
 Object.values(obj)//返回一个数组存value
 
 - 打造一个迭代器
+
+# 5. js中如何实现并发任务的控制
+
+定时器是浏览器的方法，不是js的方法，单线程不能并发

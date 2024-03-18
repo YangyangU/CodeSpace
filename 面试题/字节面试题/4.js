@@ -15,3 +15,15 @@ console.log(a,b);
 // }
 
 // arr[Symbol.iterator]
+
+
+function* foo(){
+    yield 1
+    yield 2
+    yield 3
+    yield 4
+}
+
+let gen = foo()  //迭代器
+
+gen.next()
