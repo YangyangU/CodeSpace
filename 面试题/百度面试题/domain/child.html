@@ -3,14 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>子级页面</title>
 </head>
 <body>
     <h2>子级页面</h2>
     <script>
         document.domain = '127.0.0.1';
-
-        console.log(window.parent.user);
+        // 监听来自父页面的消息
+        window.addEventListener('message', function(e) {
+            if (e.origin === 'http://127.0.0.1:5501') {
+                console.log('子页面接收：', e.data);
+            }
+        });
     </script>
 </body>
 </html>

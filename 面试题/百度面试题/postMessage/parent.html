@@ -6,19 +6,17 @@
     <title>Document</title>
 </head>
 <body>
-    <h2>a.html</h2>
-    <iframe src="http://127.0.0.1:5501/%E9%9D%A2%E8%AF%95%E9%A2%98/%E7%99%BE%E5%BA%A6%E9%9D%A2%E8%AF%95%E9%A2%98/postMessage/b.html" frameborder="0" id="iframe"></iframe>
-
+    <h2>父级页面</h2>
+    <iframe src="http://127.0.0.1:5501/postMessage/child.html" id="iframe" width="100px" height="100px"></iframe>
     <script>
         let iframe = document.getElementById('iframe');
         iframe.onload = function () {
             let data = {
-                name:'Tom'
+                msg:'父页面的数据'
             }
             iframe.contentWindow.postMessage(JSON.stringify(data),'http://127.0.0.1:5501');
         }
-
-        //监听b传过来的值
+        //监听子页面传过来的数据
         window.addEventListener('message',(e)=>{
             console.log(e.data);
         })

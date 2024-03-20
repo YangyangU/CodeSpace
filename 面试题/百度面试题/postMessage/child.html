@@ -6,15 +6,14 @@
     <title>Document</title>
 </head>
 <body>
-    <h2>b.html</h2>
-
+    <h2>子级页面</h2>
     <script>
         window.addEventListener("message", function (e) {
-            console.log(JSON.stringify(e.data));
+            console.log(JSON.parse(e.data));
             if(e.data){
                 setTimeout(()=>{
-                    window.parent.postMessage('接收到','http://127.0.0.1:5501')
-                },2000)
+                    window.parent.postMessage('子页面的数据','http://127.0.0.1:5501')
+                },1000)
             }
         })
     </script>

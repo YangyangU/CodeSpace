@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>父级页面</title>
+</head>
+<body>
+    <h2>父级页面</h2>
+    <iframe src="http://127.0.0.1:5501/domain/child.html" width="100px" height="100px"></iframe>
+    <script>
+        document.domain = '127.0.0.1';
+        window.onload = function() {
+            // 确保子页面加载完成后再设置数据
+            window.frames[0].postMessage('来自父页面的数据', 'http://127.0.0.1:5501');
+        };
+    </script>
+</body>
+</html>

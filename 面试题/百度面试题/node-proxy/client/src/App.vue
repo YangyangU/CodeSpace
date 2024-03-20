@@ -7,15 +7,15 @@
       <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
     </a>
   </div>
-  <HelloWorld msg="Vite + Vue" />
+  <!-- <HelloWorld msg="Vite + Vue" /> -->
 </template>
-
+<!-- app.vue -->
 <script setup>
 import { onMounted } from 'vue';
 import axios from 'axios';
 
 onMounted(()=>{
-  axios.get('http://localhost:3000').then((res)=>{
+  axios.get('/api').then((res)=>{
     console.log(res)
   })
 })
