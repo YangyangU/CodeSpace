@@ -7,22 +7,21 @@
 
 <script setup>
 import { ref, onBeforeMount, nextTick, onMounted } from 'vue';
-import {myNextTick} from './next-tick.js'
+import { myNextTick } from './next-tick.js'
 
 const message = ref('初始消息');
 
 const refP = ref(null)//获取DOM结构
 const updateMsg = () => {
-  console.log(message.value, '同步任务');
-  setTimeout(() => {
-    console.log(message.value, '异步宏任务——setTimeout'); // <p>...</p>
-  }, 0)
-
-  myNextTick(() => {//对比可知是异步
-    console.log(message.value, '异步微任务——myNextTick'); // <p>...</p>
-  })
   message.value = '修改后的消息';
 }
+console.log(refP.value, '同步任务');
+setTimeout(() => {
+  console.log(refP.value, '异步宏任务——setTimeout'); // <p>...</p>
+}, 0)
+myNextTick(() => {//对比可知是异步
+  console.log(refP.value, '异步微任务——myNextTick'); // <p>...</p>
+})
 // console.log(refP.value);//null //无法将延迟的DOM 节点解析为有效的节点。
 
 
