@@ -7,12 +7,14 @@
 </head>
 <body>
     <script>
-        fetch('http://localhost:3000')
-        .then(res=>{
-            document.cookie = res.headers.get('Set-Cookie');
-            return res.json()
+        fetch('http://localhost:3000',{
+            credentials: 'include'
         })
-        .then(data=>console.log(data))
+            .then(res => {
+                document.cookie = res.headers.get('Set-Cookie');
+                return res.json();
+            })
+            .then(data => console.log(data))
     </script>
 </body>
 </html>
