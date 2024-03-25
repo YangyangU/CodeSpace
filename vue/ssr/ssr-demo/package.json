@@ -1,0 +1,17 @@
+{
+  "name": "ssr-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@vue/server-renderer": "^3.4.21",
+    "express": "^4.19.1",
+    "nodemon": "^3.1.0"
+  }
+}
