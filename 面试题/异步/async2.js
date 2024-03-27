@@ -43,7 +43,6 @@ function generatorToAsync(generatorFn) {//把generatorFn变成
                     return resolve(value)
                 }else{
                     Promise.resolve(value).then(val=> loop('next',val))//继续递归
-                    // prom
                 }
             }
             loop('next')

@@ -28,7 +28,7 @@
         let viewHeight = window.innerHeight
         // console.log(viewHeight);
         function lazyLoad(){
-            let imgs = document.querySelectorAll('img[data-original]')//拿到这个属性的img标签
+            let imgs = document.querySelectorAll('img[data-original]')//拿到有这个属性的img标签
             imgs.forEach(el => {
                 let rect = el.getBoundingClientRect()//获取容器的几何信息
                 //top<virwHight

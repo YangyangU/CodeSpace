@@ -34,7 +34,6 @@
 
 const co = require('co');
 
-
 function a(){
     return new Promise((resolve, reject) =>{
         setTimeout(()=>{
@@ -60,3 +59,11 @@ function* g(){
 
 co(g)
 
+// const gen = g();
+// const p1 = gen.next().value;
+// p1.then(res => {
+//     const p2 = gen.next(res).value;
+//     p2.then(res => {
+//         gen.next(res);
+//     });
+// });

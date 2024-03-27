@@ -34,5 +34,19 @@ const c = () =>{
 //     ()=>{c()}
 // )
 
-// Promise.all([a(),b()]).then((res)=>{console.log(res)})
-Promise.any([a(),b()]).then(()=>{},(res)=>{console.log(res)})
+// Promise.all([a(),b()]).then(()=>{},(res)=>console.log(res))
+// Promise.any([a(),b()]).then(()=>{},(res)=>console.log(res))
+
+let p1 = Promise.resolve(1);
+let p2 = Promise.reject(2);
+let p3 = Promise.reject(3);
+
+Promise.all([p1,p2,p3])
+.then(
+    (val)=>{
+        console.log(val)
+    },
+    (res)=>{
+        console.log(res) // 2
+    }
+)
