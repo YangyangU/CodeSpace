@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .v-scroll{
+            width: 300px;
+            height: 400px;
+            border: 1px solid #000;
+            margin: 100px 0 0 100px;
+        }
+        li{
+            list-style: none;
+            padding-left: 20px;
+            height: 40px;
+            line-height: 40px;
+            border-bottom: 1px solid #d5cece;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div class="v-scroll" ref="scrollBox">
+            <ul>
+                <li v-for="(item,index) in currentList" :key="index">{{index + 1}} -- {{item}}</li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        const {createApp,ref,onMounted} = Vue
+        createApp({
+            setup(){
+                const allList = ref([])
+                const currentList = ref(['html'])
+
+                const getAllList = (count)=>{
+                    for(let i = 0; i < count; i++){
+                        allList.value.push(`我是列表${i+1}项`)
+                    }
+                }
+
+                getAllList(100)
+
+                const boxHeight = ref(0)//可视区域的高度
+                const itemHeight = ref(40)
+                const scrollBox = ref(null)//
+
+                onMounted(()=>{
+                    boxHeight.value = scrollBox.value.clientHeight
+                    console.log(scrollBox.value);
+                })
+
+                const itemNum = computed(()=>{
+                    return ~~(boxHeight.value / itemHeight.value) + 2
+                })
+                const startIndex = ref(0)
+
+                return{
+                    allList,
+                    boxHeight,
+                    itemHeight,
+                    scrollBox,
+                    currentList
+                }
+            }
+        }).mount('#app')
+    </script>
+</body>
+
+</html>
