@@ -4,8 +4,6 @@ const path = require('path')// path 解析路径 解析绝对相对
 const fs = require('fs') // 文件模块
 const mime = require('mime-types')
 
-const { log } = require('console')
-
 const server = http.createServer((req, res) => {
     // 将前端请求的地址转换成真实的url，再拼接www这个路径，最后读取整个文件的绝对路径
     let filePath = path.resolve(__dirname, path.join('www', url.fileURLToPath(`file:/${req.url}`))) // __dirname 绝对路径
@@ -22,7 +20,7 @@ const server = http.createServer((req, res) => {
             //读取资源文件向前端返回
             const content = fs.readFileSync(filePath)
             const {ext} = path.parse(filePath)
-            console.log(ext);//后缀
+            // console.log(ext);//后缀
 
             // if(ext === '.jpg'){
             //     res.writeHead(200,{"Content-Type": "image/jpg"})//返回图片格式
@@ -30,12 +28,12 @@ const server = http.createServer((req, res) => {
             //     res.writeHead(200,{"Content-Type": "text/html;charset=utf-8"})
             // }
 
-            //避免反复if/else
+            //避免反复if/else（ext）
             res.writeHead(200,{"Content-Type": mime.lookup(ext)})
             // return res.end(content)
 
-            const fileStream = fs.createReadStream(filePath)//读取文件将文件读成流类型
-            fileStream.pipe(res)//将流类型资源汇入到响应体中
+            // const fileStream = fs.createReadStream(filePath)//读取文件将文件读成流类型
+            // fileStream.pipe(res)//将流类型资源汇入到响应体中
         }
     }
 

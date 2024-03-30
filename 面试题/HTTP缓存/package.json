@@ -1,6 +1,7 @@
 {
   "description": "",
   "dependencies": {
+    "checksum": "^1.0.0",
     "mime-types": "^2.1.35"
   }
 }
