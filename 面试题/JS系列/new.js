@@ -1,11 +1,11 @@
-function Car(){
+function Car(name){
     this.name = name
 }
 
-function myNew (...args){//数组
+function myNew (construtor,...args){
     let obj = {}
-    obj.__proto__ = args[0].prototype
-    let res = args[0].call(obj,...args.slice(1))//其他参数
+    obj.__proto__ = construtor.prototype
+    let res = construtor.call(obj,...args)
     return res instanceof Array ? res : obj
 }
 

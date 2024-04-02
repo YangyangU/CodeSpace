@@ -16,11 +16,15 @@ function deepCopy(obj) {
     })
 }
 
-async function fn(){
-    let newObj = await deepCopy(obj)
-    obj.b.n = 100
-    console.log(newObj);
-    process.exit ()
-}
+let obj2 = deepCopy(obj).then((res)=>{
+    console.log(res);
+    process.exit()
+})
+// async function fn(){
+//     let newObj = await deepCopy(obj)
+//     obj.b.n = 100
+//     console.log(newObj);
+//     process.exit()
+// }
 
-fn()
+// fn()

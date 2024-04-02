@@ -1,5 +1,5 @@
-Parent.prototype.getName = function(){
-    return this.name
+Parent.prototype.say = function(){
+    console.log('hello');
 }
 
 function Parent(name){
