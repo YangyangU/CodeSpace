@@ -1,6 +1,6 @@
 <template>
     <div class="login">
-        <h1>注册</h1>
+        <div class="flicker">注册</div>
         <div class="login-wrapper">
             <div class="avatar">
                 <img src="D:\CodeSpace\vue\note-book\client\src\assets\img\raw_1512446162.png" alt="">
@@ -68,11 +68,30 @@ const login = () => {
     overflow: hidden;
     position: relative;
 
-    h1 {
+    .flicker {
         height: 0.6933rem;
         text-align: center;
         margin-top: 1.12rem;
-        font-size: 0.48rem;
+        font-size: 0.8rem;
+        color: #5274fb;
+        /*设置文字颜色*/
+        font-weight: bolder;
+        /*设置字体粗细*/
+        -webkit-animation: flicker 2s infinite;
+        /*设置动画*/
+    }
+
+    @-webkit-keyframes flicker {
+        /*创建动画*/
+        0% {
+            opacity: 1;
+        }
+        50% {
+            opacity: 0.5;
+        }
+        100% {
+            opacity: 1;
+        }
     }
 
     .login-wrapper {

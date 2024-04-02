@@ -5,9 +5,9 @@
       </div>
       <section class="header">
         <div class="avatar">
-          <img src="https://ts1.cn.mm.bing.net/th/id/R-C.d0cdb390350600169835c8343480b0af?rik=gLkyDf9xwbXdQg&riu=http%3a%2f%2finews.gtimg.com%2fnewsapp_match%2f0%2f15103659087%2f0&ehk=zK0MTj34tChhjHcpXaZER22pNZjchBBOnrkMTllNa0w%3d&risl=&pid=ImgRaw&r=0" alt="">
+          <img src="https://img1.baidu.com/it/u=3661057457,567145783&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500" alt="">
         </div>
-        <p class="user">坤坤</p>
+        <p class="user">阳阳羊</p>
       </section>
       <div class="setting">
         <div class="set-item">
@@ -16,20 +16,25 @@
         </div>
         <div class="set-item">
           <van-icon name="bullhorn-o" size="0.4rem"/>
-          <span>通知</span>
+          <span>消息通知</span>
         </div>
         <div class="set-item">
           <van-icon name="revoke" size="0.4rem"/>
-          <span>退出登录</span>
+          <span @click="backToLogin">退出登录</span>
         </div>
       </div>
     </div>
   </template>
 
 <script setup>
+import { useRouter } from 'vue-router'
+const router = useRouter()
 const emit = defineEmits(['hidden'])//
 const hideMenu = ()=>{
-    emit('hidden',false)
+  emit('hidden',false)
+}
+const backToLogin = ()=>{
+  router.push('/login')
 }
 </script>
 

@@ -80,7 +80,8 @@ body {
       margin: 10px 0;
 
       .van-icon {
-        margin-left: 10px;
+        font-size: 0.6rem;
+        margin:0 10px;
       }
     }
 
@@ -97,9 +98,10 @@ body {
         box-shadow: 0 0 10px 2px #ccc;
         overflow: hidden;
 
+        
         .title {
           color: #fff;
-          font-size: 0.5333rem;
+          font-size: 0.7rem;
           text-align: center;
           display: block;
           margin-top: 0.5333rem;

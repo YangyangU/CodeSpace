@@ -1,6 +1,6 @@
 <template>
     <div class="login">
-        <h1>登录</h1>
+        <div class="flicker">登录</div>
         <div class="login-wrapper">
             <div class="avatar">
                 <img src="https://img1.baidu.com/it/u=3661057457,567145783&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500"
@@ -36,20 +36,20 @@ const router = useRouter()
 // const password = ref('')
 
 const state = reactive({
-    username: '',
-    password: '',
+    username: 'wn',
+    password: '123',
 })
 
 const onSubmit = async () => {
     //发请求，将state.username,state.password传给后端
     // console.log(state.username,state.password);
-    const res = await axios.post('/login',{//封装好会给你拼上localhost...
-        username:state.username,
-        password:state.password
+    const res = await axios.post('/login', {//封装好会给你拼上localhost...
+        username: state.username,
+        password: state.password
     })
     // console.log(res);
     //保存用户信息
-    sessionStorage.setItem('userInfo',JSON.stringify(res.data))//存入会话存储，键值，只能传字符串
+    sessionStorage.setItem('userInfo', JSON.stringify(res.data))//存入会话存储，键值，只能传字符串
     router.push('/noteClass')
 }
 
@@ -68,11 +68,31 @@ const register = () => {
     overflow: hidden;
     position: relative;
 
-    h1 {
+    .flicker {
         height: 0.6933rem;
         text-align: center;
         margin-top: 1.12rem;
-        font-size: 0.48rem;
+        font-size: 0.8rem;
+        color: #5274fb;
+        /*设置文字颜色*/
+        //    font-size:64px; /*设置字体大小*/
+        font-weight: bolder;
+        /*设置字体粗细*/
+        -webkit-animation: flicker 2s infinite;
+        /*设置动画*/
+    }
+
+    @-webkit-keyframes flicker {
+        /*创建动画*/
+        0% {
+            opacity: 1;
+        }
+        50% {
+            opacity: 0.5;
+        }
+        100% {
+            opacity: 1;
+        }
     }
 
     .login-wrapper {
@@ -113,7 +133,7 @@ const register = () => {
 </style>
 
 <style>
-.van-cell__title.van-field__label{
+.van-cell__title.van-field__label {
     width: 45px;
 }
 </style>
