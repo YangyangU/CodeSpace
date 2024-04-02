@@ -7,9 +7,10 @@ function myNew(Fn){
 }
 
 
-function myNew2(construtor,...args){
+function myNew2(Fn,...args){
+    // let obj = Object.create(Fn.prototype)
     let obj = {}
-    obj.__proto__ = construtor.prototype
-    let res = construtor.call(obj,...args)
+    obj.__proto__ = Fn.prototype
+    let res = Fn.call(obj,...args)
     return res instanceof Array ? res : obj
 }

@@ -1,4 +1,3 @@
-
 let val = 'wdawd'
 function getType(val){
     if(val === null){
