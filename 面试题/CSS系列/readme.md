@@ -158,3 +158,25 @@ ppi === 像素密度
 目前最新版本的谷歌和edge浏览器都能显示任意大小
 1. zoom: 0.25 用于元素或者页面的缩放 以前ie独有，现在只用火狐不支持
 2. tansform: scale(0.25) 
+
+
+# 17. 怎么实现文字超出隐藏
+1. white-space: nowrap; 文字不换行
+2. overflow: hidden; 超出隐藏
+3. text-overflow: ellipsis; 超出部分显示省略号
+
+# 18. 脱离文档流
+- 是什么
+    脱离文档流：元素从文档流中脱离，不在占据页面空间，元素上设置的样式将失效，无法响应事件
+    
+- 怎么脱离文档流
+    1. position:absolute; 脱离文档流，无法响应事件
+    2. position:fixed; 脱离文档流，无法响应事件
+    3. float:left; 脱离文档流，无法响应事件
+    4. display:none; 脱离文档流，无法响应事件
+    5. visibility:hidden; 脱离文档流，无法响应事件
+    6. overflow:hidden; 脱离文档流，无法响应事件
+    7. clip-path:circle(50%); 脱离文档流，无法响应事件
+
+- 怎么回到文档流
+    1. position:static; 回到文档流，无法响应事件
