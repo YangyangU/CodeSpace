@@ -1,0 +1,22 @@
+@width: 100px;
+@height: @width + 100px;
+
+.p {
+    width: 100px;
+    height: 100px;
+    background-color: #f00;
+    @media (min-width: 768px) {
+      width: 200px;
+      height: 200px;
+      background-color: #f00;
+
+      @media  (min-resolution: 192dpi) {
+        background-color: #c37a7a;
+      }
+    }
+    @media (min-width: 1280px) {
+      width: 300px;
+      height: 300px;
+    }
+  }
+  
