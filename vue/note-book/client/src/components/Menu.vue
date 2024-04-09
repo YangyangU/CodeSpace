@@ -29,7 +29,7 @@
 <script setup>
 import { useRouter } from 'vue-router'
 const router = useRouter()
-const emit = defineEmits(['hidden'])//
+const emit = defineEmits(['hidden'])
 const hideMenu = ()=>{
   emit('hidden',false)
 }
