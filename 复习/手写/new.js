@@ -14,3 +14,10 @@ function myNew2(Fn,...args){
     let res = Fn.call(obj,...args)
     return res instanceof Array ? res : obj
 }
+
+function myNew3(fn,...args){
+    let obj = {}
+    obj.__proto__ = fn.prototype
+    let res = fn.call(obj,...args)
+    return Array.isArray(obj) ? res : obj
+}

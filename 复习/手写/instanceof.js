@@ -1,8 +1,8 @@
 
 
-function myInstanceof(son,far){
-    let Son = son.__proto__
-    let Far = far.prototype
+function myInstanceof(left,right){
+    let Son = left.__proto__
+    let Far = right.prototype
     while(Son !== null){
         if(Son === Far) return true
         Son = Son.__proto__

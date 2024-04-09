@@ -4,7 +4,7 @@ function throttle(fn,delay){
     return function(...args){
         if(timer) return
         timer = setTimeout(()=>{
-            fn.call(this,args)
+            fn.apply(this,args)
             timer = null
         },delay)
     }
@@ -20,3 +20,26 @@ throttleFn()
 setTimeout(()=>{
     throttleFn()
 },1200)
+
+
+// function throttle(fn,delay){
+//     let timer = null
+//     return function(...args){
+//         if(timer) return
+//         timer = setTimeout(()=>{
+//             fn.apply(this,args)
+//             timer = null
+//         })
+//     }
+// }
+
+// function throttle2(fn,delay){
+//     let oldTime = Date.now()
+//     return function(...args){
+//         let newTime = Date.now()
+//         if(newTime - oldTime > delay){
+//             fn.apply(this,args)
+//             oldTime = Date.now()
+//         }
+//     }
+// }
