@@ -1,1 +1,0 @@
-<view class="content"><image class="logo" src="/static/logo.png"></image><view class="text-area"><text class="title" bindtap="{{b}}">{{a}}</text><text bindtap="{{d}}">{{c}}</text></view><view><text>{{e}}</text></view></view>
