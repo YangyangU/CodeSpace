@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>全球新冠疫情数据统计</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+  <link rel="stylesheet" type="text/css" href="css/style.css" />
+  <script src="js/axios.js"></script>
+  <script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+  <script src="js/echarts.min.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body>
+  <div id="app">
+    <header>
+      <div>
+        全球新冠疫情数据统计
+      </div>
+    </header>
+    <main>
+      <!-- TODO: 请修改以下代码实现不同国家的数据展示功能 -->
+      <div class="title">
+        <h2>{{ currentCity ?  currentCity : "请输入国家"}}
+        </h2>
+      </div>
+      <div class="boxes">
+        <div class="box1">
+          <h3>确诊</h3>
+          <div class="number">
+            <span class="font-bold">新增:</span>
+            {{currentCity ? currentDatas[0].NewConfirmed: 0 }}
+          </div>
+          <div class="number">
+            <span class="font-bold">总计:</span>
+            {{currentCity ? currentDatas[0].TotalConfirmed: 0 }}
+          </div>
+        </div>
+        <div class="box2">
+          <h3>死亡</h3>
+          <div class="number">
+            <span class="font-bold">新增:</span>
+            {{currentCity ? currentDatas[0].NewDeaths: 0 }}    
+          </div>
+          <div class="number">
+            <span class="font-bold">总计:</span>
+            {{currentCity ? currentDatas[0].TotalDeaths: 0 }}      
+          </div>
+        </div>
+      </div>
+      <select v-model="currentCity">
+        <option value="">Select Country</option>
+        <!-- 请在此渲染所有国家选项 -->
+        <option :value="item.Country" v-for="item in totalDatas">{{item.Country}}</option>
+      </select>
+      <div id="chart" style="width: 100%; height: 50vh;"></div>
+    </main>
+  </div>
+</body>
+
+<script>
+  var vm = new Vue({
+    el: "#app",
+    data: {
+      totalDatas: [], //请求的总体数据
+      currentCity: '', //当前选中的城市
+      currentDatas: [],//当前选中城市的数据
+    },
+    watch:{
+      currentCity(newValue,oldValue){
+        // console.log(newValue,oldValue);
+          this.currentDatas = this.totalDatas.filter(item=>item.Country == newValue)
+          console.log(this.currentDatas);
+      }
+    },
+    methods: {
+      // TODO: 请修改该函数代码实现题目要求
+      initChart() {
+        // 初始化图表
+        this.chart = echarts.init(document.getElementById("chart"));
+        this.chartOptions = {
+          title: {
+            text: "全球感染人数前30国家累计确诊人数统计",
+            x: 'center',
+          },
+          tooltip: {
+            trigger: 'axis',
+            axisPointer: {
+              type: 'shadow',
+              label: {
+                show: true
+              }
+            }
+          },
+          // 设置x轴数据
+          xAxis: {
+            // 这里需要显示国家名称缩写，因为有些国家的全称太长，会导致界面不美观
+            data: this.totalDatas.map(i=>i.CountryCode),
+            axisLabel: {
+              show: true,
+              interval: 0,
+            }
+          },
+          yAxis: {
+            type: 'value',
+            name: '确诊数量',
+          },
+          // 设置y轴数据
+          series: [
+            {
+              data: this.totalDatas.map(i=>i.TotalConfirmed),
+              type: 'bar',
+              itemStyle: {
+                normal: {
+                  color: '#a90000'
+                }
+              }
+            },
+          ],
+        };
+        // 调用此方法设置 echarts 数据
+        this.chart.setOption(this.chartOptions);
+      },
+    },
+    // TODO: 请在此添加代码实现组件加载时数据请求的功能
+    mounted() {
+      axios.get('./js/covid-data.json').then(res=>{
+        console.log(res.data);
+        this.totalDatas = res.data
+        this.initChart();
+      })
+      
+    },
+  });
+</script>
+
+</html>

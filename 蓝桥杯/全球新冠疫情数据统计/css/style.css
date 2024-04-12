@@ -1,0 +1,98 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .font-bold {
+    font-weight: 700;
+  }
+  
+  header {
+    text-align: center;
+    background-color: #b91c1c;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    color: white;
+  }
+  
+  header div {
+    font-size: 2.5rem;
+    line-height: 1;
+    font-weight: bold;
+  }
+  
+  .title {
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  .title h2 {
+    font-size: 1.6rem;
+    line-height: 2rem;
+    font-weight: 700;
+  }
+  
+  main {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 2rem;
+    padding-left: 2rem;
+    max-width: 768px;
+  }
+  
+  .boxes {
+    display: grid;
+    gap: 1rem;
+  }
+  
+  .box1,
+  .box2 {
+    padding: 1rem;
+    border-radius: 0.25rem;
+    text-align: center;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+      0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+  
+  .box1 h3,
+  .box2 h3 {
+    color: #991b1b;
+    margin-bottom: .5rem;
+    font-weight: 700;
+    font-size: 1.5rem;
+    line-height: 1.75rem;
+  }
+  
+  .box1 .number,
+  .box2 .number {
+    font-size: 1.1rem;
+    line-height: 1.5rem;
+  }
+  
+  .box1 {
+    background-color: #fee2e2;
+  }
+  
+  .box2 {
+    background-color: #fecaca;
+  }
+  
+  select {
+    width: 100%;
+    padding: 0.75rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    display: block;
+    border-width: 1px;
+    border-radius: .25rem;
+    border-style: solid;
+    border-color: #e5e7eb;
+    font-size: 100%;
+  }
+  
+  @media (min-width: 768px) {
+    .boxes {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
