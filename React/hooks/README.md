@@ -7,3 +7,6 @@
     1) 可以充当 componentDidMount 
     2) 可以充当 componentDidUpdate 
     3) 可以充当 componentWillUnmount （return出来的函数）
+
+3. useRef() 在函数组件中获取dom结构
+4. useContext() createContext 创建的上下文对象，用于父组提供数据，子组件通过useContext(context)来接受数据
