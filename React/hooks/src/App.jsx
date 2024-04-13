@@ -5,7 +5,8 @@
 // import Ref from "./components/Ref";
 // import Context from "./components/Context";
 import Con from "./_context";
-import Antd from "./components/UseAntd";
+// import Antd from "./components/UseAntd";
+import TodoList from "./todo/TodoList";
 
 const App = () => {
     return (
@@ -17,7 +18,8 @@ const App = () => {
             {/* <State2 num={10}></State2> */}
             {/* <Ref></Ref> */}
             {/* <Context></Context> */}
-            <Antd></Antd>
+            {/* <Antd></Antd> */}
+            <TodoList></TodoList>
         </div>
         </Con.Provider>
     );
