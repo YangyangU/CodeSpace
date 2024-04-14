@@ -2,7 +2,7 @@ function reverseList(head) {
     let prev = null;
     let current = head;
     while (current != null) {
-        let nextTemp = current.next;
+        let nextTemp = current.next;//存储下一个节点
         current.next = prev;
         prev = current;
         current = nextTemp;
