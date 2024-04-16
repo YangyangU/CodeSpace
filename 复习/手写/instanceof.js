@@ -1,11 +1,11 @@
 
 
 function myInstanceof(left,right){
-    let Son = left.__proto__
-    let Far = right.prototype
-    while(Son !== null){
-        if(Son === Far) return true
-        Son = Son.__proto__
+    let Left = left.__proto__
+    let Right = right.prototype
+    while(Left !== null){
+        if(Left === Right) return true
+        Left = Left.__proto__
     }
     return false
 }
