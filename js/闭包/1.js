@@ -8,7 +8,7 @@
 
 var arr= []
 
-for(var i=0; i<10;i++){//i为全局
+for(var i=0; i<5;i++){//i为全局
 
     (function a(j){
     arr[i]= function(){//函数未执行，i++
