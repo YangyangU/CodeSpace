@@ -1,7 +1,7 @@
 Function.prototype.myBind = function(context,...args) {
     const fn = this;
     return function() {
-        return fn.apply(context, [...args]);
+        return fn.apply(context, args);
     };
 };
 var obj ={
