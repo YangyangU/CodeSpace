@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Article = () => {
+const employment = () => {
     return (
         <div>
-            文章页面
+            employment
         </div>
     );
 };
 
-export default Article;
+export default employment;

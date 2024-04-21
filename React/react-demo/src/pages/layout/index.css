@@ -1,0 +1,27 @@
+.layout{
+    width: 100vw;
+    height: 100vh;
+}
+.ant-layout{
+    height: 100%;
+}
+.hd{
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.side{
+    color: #fff;
+}
+.aside-item{
+    text-align: center;
+    padding: 15px 0;
+    cursor: pointer;
+}
+.aside-item:hover{
+    background-color: #2282dd;
+}
+.aside-item.active{
+    background-color: #2282dd;
+}

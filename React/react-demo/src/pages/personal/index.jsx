@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Publish = () => {
+const personal = () => {
     return (
         <div>
-            发布页面
+            personal
         </div>
     );
 };
 
-export default Publish;
+export default personal;
