@@ -11,7 +11,6 @@ const server = http.createServer((req, res) => {
 
     if (fs.existsSync(filePath)) {
         const stats = fs.statSync(filePath) 
-
         const isDir = stats.isDirectory()
 
         if (isDir) {
@@ -19,39 +18,40 @@ const server = http.createServer((req, res) => {
         }
         if (!isDir || fs.existsSync(filePath)) {
 
-            // const content = fs.readFileSync(filePath)
-            // const {ext} = path.parse(filePath)
-            // const timeStamp = req.headers['if-modified-since']
-            // let status = 200
-            // if(timeStamp && Number(timeStamp) === stats.mtimeMs) {
-            //     status = 304//资源未修改
-            // }
+            const content = fs.readFileSync(filePath)
+            const {ext} = path.parse(filePath)
+            const timeStamp = req.headers['if-modified-since']
+            let status = 200
+            if(timeStamp && Number(timeStamp) === stats.mtimeMs) {
+                status = 304//资源未修改
+            }
 
 
-            // res.writeHead(status,{
-            //     "Content-Type": mime.lookup(ext),
-            //     'cache-control':'max-age=86400',//一天,第一次请求,后面一天都被缓存
-            //     // 'last-modified':'stats.mtimeMs'//时间戳
-            //     'etag':`${content}`//签名
-            // })
-            // return res.end(content)
-            
-            checksum.file(filePath,(err,sum)=>{
-                const resStream = fs.createWriteStream(filePath)
-                sum = `"${sum}"`
-                if(req.headers['if-none-match'] === sum){
-                    res.writeHead(304,{
-                        'Content-Type': mime.lookup(ext),
-                        'etag':sum
-                    })
-                }else{
-                    res.writeHead(200,{
-                        'Content-Type': mime.lookup(ext),
-                        'etag':sum
-                    })
-                    return resStream,pipe(res)
-                }
+            res.writeHead(status,{
+                "Content-Type": mime.lookup(ext),
+                // 'cache-control':'max-age=86400',//一天,第一次请求,后面一天都被缓存
+                // 'Expires': 'Mon Apr 22 2024 21:03:31 GMT+0800'
+                'last-modified':stats.mtimeMs//时间戳
+                // 'etag':`${content}`//签名
             })
+            return res.end(content)
+            
+            // checksum.file(filePath,(err,sum)=>{
+            //     const resStream = fs.createWriteStream(filePath)
+            //     sum = `"${sum}"`
+            //     if(req.headers['if-none-match'] === sum){
+            //         res.writeHead(304,{
+            //             'Content-Type': mime.lookup(ext),
+            //             'etag':sum
+            //         })
+            //     }else{
+            //         res.writeHead(200,{
+            //             'Content-Type': mime.lookup(ext),
+            //             'etag':sum
+            //         })
+            //         return resStream,pipe(res)
+            //     }
+            // })
 
         }
 
