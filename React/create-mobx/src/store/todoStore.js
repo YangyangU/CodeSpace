@@ -9,8 +9,21 @@ class TodoStore {
         makeAutoObservable(this)
     }
 
-    checkItem(id){
-
+    addTodo(msg){
+        this.list.push({id:+new Date(),name:msg,isDone:false})
+    }
+    deleteTodo(id){
+        this.list = this.list.filter(item=>item.id!==id)
+    }
+    toggleAll(){
+        this.list.forEach(item=>item.isDone = true)
+    }
+    toggleTodo(id){
+        this.list.forEach(item=>{
+            if(item.id===id){
+                item.isDone = !item.isDone
+            }
+        })
     }
 }
 
