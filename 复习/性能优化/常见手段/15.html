@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background-color: brown;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <script>
+        let box = document.querySelector('.box');
+        let left = 0
+        // setInterval(()=>{
+        //     left++
+        //     box.style.left = left + 'px'
+        // },16)
+
+        function fn(){
+            left++
+            box.style.left = left + 'px'
+            window.requestAnimationFrame(fn)
+        }
+        window.requestAnimationFrame(fn)
+    </script>
+</body>
+</html>

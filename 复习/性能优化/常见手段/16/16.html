@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+    <h2>hello world</h2>
+    <img src="" alt="" id="previewImage">
+    <input type="file" id="imageInput">
+    <h3>web worker</h3>
+
+    <script>
+        const previewImage = document.getElementById('previewImage')
+        const imageInput = document.getElementById('imageInput')
+
+        imageInput.addEventListener('change', (e) => {
+            const file = e.target.files[0]
+            if(file){
+                const reader = new FileReader()
+                reader.readAsArrayBuffer(file)
+                reader.onload = (e) =>{
+                    // console.log(e.target.result);
+                    const worker = new Worker('./worker.js')
+
+                    const imageData = e.target.result
+                    createImageBitmap(new Blob([imageData])).then((imageBitmap)=>{
+                        // console.log(imageBitmap);
+                        //将目前的图片数据传给第二个线程
+                        worker.postMessage({imageBitmap},[imageBitmap])
+                        //从第二个线程中获取数据
+                        worker.onmessage = (e) =>{
+                            //黑白照片
+                            // console.log(e.data.processImageBitmap);
+                            const processImageBitmap = e.data.processImageBitmap
+                            const previewCanvas = document.createElement('canvas')
+                            previewCanvas.width = processImageBitmap.width
+                            previewCanvas.height = processImageBitmap.height
+                            const previewCanvasContext = previewCanvas.getContext('2d')
+                            previewCanvasContext.drawImage(processImageBitmap,0,0)
+                            previewImage.src = previewCanvas.toDataURL()
+                            // console.log(previewCanvas.toDataURL());
+                        }
+                    })
+                }
+            }
+        })
+    </script>
+</body>
+</html>
