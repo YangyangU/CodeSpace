@@ -1,0 +1,1 @@
+System.register([],(function(e,t){"use strict";return{execute:function(){var e=function(){document.body.insertAdjacentHTML("beforeend","<h2>我是m1添加的h2</h2>")};document.body.insertAdjacentHTML("beforeend","<h1>Hello Vite!</h1>"),e()}}}));

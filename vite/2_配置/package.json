@@ -1,0 +1,11 @@
+{
+  "name": "demo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "@vitejs/plugin-legacy": "^5.3.2",
+    "terser": "^5.30.4",
+    "vite": "^5.2.10"
+  }
+}
