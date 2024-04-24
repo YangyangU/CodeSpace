@@ -1,0 +1,1 @@
+document.body.onclick((function(){alert("hello webpack"),console.log("hello webpack")}));
