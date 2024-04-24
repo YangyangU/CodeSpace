@@ -11,29 +11,28 @@ const Login = () => {
     const navigate = useNavigate()
     const [messageApi, contextHolder] = message.useMessage();
 
-    // const onFinish = async(values) => {
-    //     // console.log('Success:', values);
-    //     try {
-    //         await loginStore.login(values)
-    //         navigate('/')
-    //     } catch (error) {
-    //         messageApi.open({
-    //             type: 'error',
-    //             content: error.response?.data?.message || '登录失败',
-    //         })
-    //     }
-    // };
-    const onFinish = (values) => {
-        loginStore.login(values).then((res) => {
-            console.log(res);
+    const onFinish = async(values) => {
+        try {
+            await loginStore.login(values)
             navigate('/')
-        }).catch(error => {
+        } catch (error) {
             messageApi.open({
                 type: 'error',
                 content: error.response?.data?.message || '登录失败',
             })
-        })
+        }
     };
+    // const onFinish = (values) => {
+    //     loginStore.login(values).then((res) => {
+    //         console.log(res);
+    //         navigate('/')
+    //     }).catch(error => {
+    //         messageApi.open({
+    //             type: 'error',
+    //             content: error.response?.data?.message || '登录失败',
+    //         })
+    //     })
+    // };
     return (
         <div className='login'>
             {contextHolder}
