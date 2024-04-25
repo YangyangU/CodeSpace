@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .watermark {
+            position: relative;
+            display: inline-block;
+        }
+
+        .watermark::after {
+            content: 'Watermark';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="watermark">
+        <img src="./1.jpg" alt="">
+    </div>
+</body>
+</html>

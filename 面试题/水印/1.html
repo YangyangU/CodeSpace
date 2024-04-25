@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Upload with Watermark</title>
+    <style>
+        #preview {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <input id="fileInput" type="file" accept="image/*" onchange="previewFile(event)">
+    <div id="preview"></div>
+
+    <script>
+        function previewFile(event) {
+            var file = event.target.files[0];
+            var reader = new FileReader();
+
+            reader.onload = function() {
+                var img = new Image();
+                img.src = reader.result;
+
+                var preview = document.getElementById('preview');
+                preview.innerHTML = ''; // 清空之前的预览
+
+                // 添加水印
+                var watermark = document.createElement('div');
+                watermark.innerText = 'Watermark';
+                watermark.style.position = 'absolute';
+                watermark.style.bottom = '10px';
+                watermark.style.right = '10px';
+                watermark.style.color = 'rgba(255, 255, 255, 0.5)'; // 设置水印颜色和透明度
+                watermark.style.fontSize = '24px';
+                watermark.style.pointerEvents = 'none'; // 使水印不影响点击事件
+
+                var container = document.createElement('div');
+                container.style.position = 'relative';
+                container.appendChild(img);
+                container.appendChild(watermark);
+
+                preview.appendChild(container);
+            }
+
+            if (file) {
+                reader.readAsDataURL(file);
+            }
+        }
+    </script>
+</body>
+</html>
