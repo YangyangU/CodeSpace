@@ -1,5 +1,2 @@
 
-document.body.onclick(()=>{
-    alert('hello webpack')
-    console.log('hello webpack');
-})
+document.body.insertAdjacentHTML('afterbegin','<h2>hello webpack</h2>')

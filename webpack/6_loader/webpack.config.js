@@ -37,7 +37,7 @@ module.exports = {
         rules:[
             {
                 test:/\.css$/, //匹配文件
-                use:['style-loader','css-loader'] //从后往前执行,有顺序要求
+                use:['css-loader'] //从后往前执行,有顺序要求
             },
             {
                 test:/\.jpg$/,
