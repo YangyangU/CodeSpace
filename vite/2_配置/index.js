@@ -1,5 +1,7 @@
-import m1 from './m1.js';
+// import './index.css'
 
-document.body.insertAdjacentHTML('beforeend','<h1>Hello Vite!</h1>');
+// document.body.insertAdjacentHTML('beforeend','<h2>hello vite</h2>');
 
-m1.setH2();
+document.body.onclick=()=>{
+    alert('hello vite');
+}
