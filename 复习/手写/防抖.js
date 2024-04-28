@@ -1,9 +1,9 @@
 function debounce(fn, delay) {
     let timer = null;
-    return function (...args) {
+    return function () {
         if (timer) clearTimeout(timer);
         timer = setTimeout(() => {
-            fn.call(this, args);
+            fn.apply(this,arguments);
         }, delay);
     }
 } 
@@ -13,19 +13,10 @@ function fn(a){
 }
 
 let debounceFn = debounce(fn, 1000);
-debounceFn()
+debounceFn(0)
 setTimeout(()=>{
-    debounceFn()
-},900)
+    debounceFn(0)
+},2200)
 
 
 
-function debounce(fn, delay) {
-    let timer = null
-    return function (...args) {
-        if (timer) clearTimeout(timer)
-        timer = setTimeout(() => {
-            fn.apply(this, args)
-        }, delay)
-    }
-}

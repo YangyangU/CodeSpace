@@ -1,10 +1,10 @@
 
 function throttle(fn,delay){
     let timer = null
-    return function(...args){
+    return function(){
         if(timer) return
         timer = setTimeout(()=>{
-            fn.apply(this,args)
+            fn.apply(this,arguments)
             timer = null
         },delay)
     }
@@ -16,9 +16,9 @@ function fn(a){
 }
 
 let throttleFn = throttle(fn, 1000);
-throttleFn()
+throttleFn(0)
 setTimeout(()=>{
-    throttleFn()
+    throttleFn(0)
 },1200)
 
 
