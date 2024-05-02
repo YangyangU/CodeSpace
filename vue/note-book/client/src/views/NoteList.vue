@@ -9,8 +9,13 @@
                 <p class="title">{{ item.title}}</p>
             </li>
         </ul>
-        <p class="empty" v-else>当前分类还没有日记哦~~</p>
-    </div>
+        <div class="empty" v-else>
+            <p>当前分类还没有日记哦~~</p>
+            <p>快去写一篇吧~~</p>
+            <p>(´･ω･`)</p>
+            <img src="../assets/img/empty.jpg" alt="">
+        </div>
+</div>
 </template>
 
 <script setup>
@@ -54,6 +59,8 @@ const goNoteDetail = (id)=>{
 
 <style lang="less" scoped>
 .note-list{
+    background: #f5f5f5;
+    height: 100vh;
     width: 100%;
     padding: 1rem 0.667rem 0;
     box-sizing: border-box;
@@ -92,6 +99,11 @@ const goNoteDetail = (id)=>{
                 text-overflow: ellipsis;
             }
         }
+    }
+    .empty{
+        font: bolder 0.533rem '微软雅黑';
+        color: rgba(16,16,16,1);
+        text-align: center;
     }
 }
 </style>

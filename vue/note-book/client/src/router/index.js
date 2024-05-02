@@ -52,6 +52,22 @@ const routes = [
         meta:{
             title:'笔记发布'
         }
+    },
+    {
+        path:'/mine',
+        name: 'mine',
+        component:()=>import('../views/Mine.vue'),
+        meta:{
+            title:'个人主页'
+        }
+    },
+    {
+        path:'/message',
+        name: 'message',
+        component:()=>import('../views/Message.vue'),
+        meta:{
+            title:'我的消息'
+        }
     }
 ]
 

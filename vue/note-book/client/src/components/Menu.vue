@@ -12,11 +12,11 @@
       <div class="setting">
         <div class="set-item">
           <van-icon name="contact" size="0.4rem"/>
-          <span>个人主页</span>
+          <span @click="toMine">个人主页</span>
         </div>
         <div class="set-item">
           <van-icon name="bullhorn-o" size="0.4rem"/>
-          <span>消息通知</span>
+          <span @click="toMessage">消息通知</span>
         </div>
         <div class="set-item">
           <van-icon name="revoke" size="0.4rem"/>
@@ -35,12 +35,22 @@ const hideMenu = ()=>{
 }
 const backToLogin = ()=>{
   router.push('/login')
+  sessionStorage.removeItem('userInfo')
+  hideMenu()
+}
+const toMine = ()=>{
+  router.push('/mine')
+  hideMenu()
+}
+const toMessage = ()=>{
+  router.push('/message')
+  hideMenu()
 }
 </script>
 
 <style lang="less" scoped>
 .menu-wrap{
-  background-color: #e8e6e8;
+  background-color: #eeecee;
   padding: 1.4rem 1rem;
   box-sizing: border-box;
   .back{
