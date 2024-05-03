@@ -3,10 +3,24 @@ import { showFailToast } from 'vant';
 
 axios.defaults.baseURL = 'http://47.96.29.195:8889'
 axios.defaults.headers.post['Content-Type'] = 'application/json'
+axios.defaults.headers['token']=localStorage.getItem('token')||'';
+
 
 
 //请求拦截
-
+axios.interceptors.request.use(
+    (config)=>{
+        let token = localStorage.getItem('token')
+        if(token){
+            config.headers.Authorization = token
+        }
+        return config
+    },
+    (error)=>{
+        //请求错误时做些什么
+        return Promise.reject(error)
+    }
+)
 
 //响应拦截
 axios.interceptors.response.use(res=>{
@@ -24,5 +38,6 @@ axios.interceptors.response.use(res=>{
         }
     }
 })
+
 
 export default axios  //抛出封装后的axios
