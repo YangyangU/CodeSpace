@@ -1,4 +1,5 @@
 const Router = require('@koa/router'); //放在这里更清晰
+const { sign, verify } = require('../utils/jwt.js')
 
 const router = new Router();
 
@@ -17,10 +18,12 @@ router.post('/login', async (ctx) => {  //登录一般用post  前端请求，�
                 nickname: result[0].nickname,
                 username: result[0].username
             }
+            let token = sign(data) //生成token
             ctx.body = {
                 code: '8000',
                 data: data,
-                msg: '登录成功'
+                msg: '登录成功',
+                token: token
             }
         } else {
             ctx.body = {
@@ -97,5 +100,7 @@ router.post('/register', async (ctx) => {
         }
     }
 })
+
+
 
 module.exports = router //commonJS 抛出
