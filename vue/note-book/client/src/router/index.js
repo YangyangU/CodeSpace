@@ -77,19 +77,19 @@ const router = createRouter({
 })
 
 //路由守卫  没登陆不让去登录，注册以外的页面
-// const whitePath = ['/login','/register']
+const whitePath = ['/login','/register']
 router.beforeEach((to,from,next)=>{
 
     document.title = to.meta.title//路由守卫一般做页面标题，大场面用不上
 
-    // if(!whitePath.includes(to.path)){ //你想去详情页
-        // if(!sessionStorage.getItem('userInfo')){ //没登陆
-            // router.push('/login')
-            // return
-        // }
-        // next();
-        // return 
-    // }
+    if(!whitePath.includes(to.path)){ //你想去详情页
+        if(localStorage.getItem('my-app-store') == null){ //没登陆
+            router.push('/login')
+            return
+        }
+        next();
+        return 
+    }
     // console.log(to,from);
     next();
 })

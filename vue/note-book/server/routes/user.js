@@ -1,5 +1,5 @@
 const Router = require('@koa/router'); //放在这里更清晰
-const { sign, verify } = require('../utils/jwt.js')
+const { sign, verify } = require('../config/jwt.js')
 
 const router = new Router();
 
@@ -79,10 +79,12 @@ router.post('/register', async (ctx) => {
         //     changedRows: 0
         //   }
         if (registerRes.affectedRows > 0) {
+            let token = sign(data)
             ctx.body = {
                 code: '8000',
                 data: 'success',
-                msg: '注册成功'
+                msg: '注册成功',
+                token: token
             }
         } else {
             ctx.body = {

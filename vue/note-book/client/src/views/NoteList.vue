@@ -39,6 +39,7 @@ const router = useRouter() //路由实例  跳转路由用这个
 const route = useRoute() //当前路由详情
 // console.log(router.currentRoute.value);
 // console.log(route.query.title);
+
 onMounted(async()=>{
 //页面加载中发请求，拿到当前分类的数据
     const {data} = await axios.post('/findNoteListByType',{

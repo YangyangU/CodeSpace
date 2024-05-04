@@ -2,6 +2,7 @@ const Router = require('@koa/router')
 const router = new Router()
 const {findNoteListByType,findNoteDetailById,notePublish} = require('../controllers/mysqlControl.js')
 const {formateDate} = require('../config/utils.js')
+const { verify } = require('../config/jwt.js')
 
 router.post('/findNoteListByType',async ctx=>{
     const {note_type} = ctx.request.body
@@ -15,6 +16,7 @@ router.post('/findNoteListByType',async ctx=>{
             data:result
         }
         //没找到返回空数组
+        
 
     } catch (error) {
         ctx.body = {
@@ -29,7 +31,7 @@ router.post('/findNoteDetailById',async ctx=>{
     const {id} = ctx.request.body
     try {
         const result = await findNoteDetailById(id)
-        console.log(result);
+        // console.log(result);
         if(result.length) {
             ctx.body = {
                 code:'8000',

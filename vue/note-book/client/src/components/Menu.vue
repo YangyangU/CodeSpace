@@ -7,7 +7,7 @@
         <div class="avatar">
           <img src="https://img1.baidu.com/it/u=3661057457,567145783&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500" alt="">
         </div>
-        <p class="user">阳阳羊</p>
+        <p class="user">{{store.state.nickname}}</p>
       </section>
       <div class="setting">
         <div class="set-item">
@@ -28,6 +28,7 @@
 
 <script setup>
 import { useRouter } from 'vue-router'
+import store from '../store';
 const router = useRouter()
 const emit = defineEmits(['hidden'])
 const hideMenu = ()=>{
@@ -35,7 +36,8 @@ const hideMenu = ()=>{
 }
 const backToLogin = ()=>{
   router.push('/login')
-  sessionStorage.removeItem('userInfo')
+  // sessionStorage.removeItem('userInfo')
+  localStorage.removeItem('my-app-store')//触发清空用户数据
   hideMenu()
 }
 const toMine = ()=>{

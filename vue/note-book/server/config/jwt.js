@@ -6,11 +6,12 @@ const sign=(option)=>{
     });
 }
 
-const verify=()=>(ctx,next)=>{ 
+const verify=()=>(ctx,next)=>{
     let jwtToken = ctx.req.headers.authorization
+    // console.log(jwtToken);
     if (jwtToken){
         //校验
-        jwt.verify(jwtToken,'666',(err,decode)=>{
+        jwt.verify(jwtToken,'666',(err)=>{
             if(err){
                 ctx.body = {
                     status: 401,

@@ -1,16 +1,16 @@
 import axios from 'axios';
 import { showFailToast } from 'vant';
+import store from '../store';
+import router from '../router';
 
-axios.defaults.baseURL = 'http://47.96.29.195:8889'
+
+axios.defaults.baseURL = 'http://localhost:3000'
 axios.defaults.headers.post['Content-Type'] = 'application/json'
-axios.defaults.headers['token']=localStorage.getItem('token')||'';
-
-
 
 //请求拦截
 axios.interceptors.request.use(
     (config)=>{
-        let token = localStorage.getItem('token')
+        let token = store.state.token
         if(token){
             config.headers.Authorization = token
         }
@@ -23,21 +23,32 @@ axios.interceptors.request.use(
 )
 
 //响应拦截
-axios.interceptors.response.use(res=>{
-    if(res.status!==200){//程序错误
-        showFailToast('服务端异常');
-    }else{
-        if(res.data.code!== '8000'){//逻辑错误
-            showFailToast(res.data.msg)
-            return Promise.reject(res)
-            // return res.data.msg
+axios.interceptors.response.use(
+    (res)=>{
+        if(res.status!==200){//程序错误
+            showFailToast('服务端异常');
         }
         else{
-            // showSuccessToast(res.data.msg)
-            return res.data
+            if(res.data.code!== '8000'){//逻辑错误
+                if(res.data.status === 401){
+                    localStorage.removeItem('my-app-store')
+                    router.push('/login')
+                    showFailToast(res.data.message);
+                }else{
+                    showFailToast(res.data.msg)
+                    return Promise.reject(res)
+                }
+            }
+            else{
+                // showSuccessToast(res.data.msg)
+                return res.data
+            }
         }
+    },
+    (error)=>{
+        return Promise.reject(error)
     }
-})
+)
 
 
 export default axios  //抛出封装后的axios

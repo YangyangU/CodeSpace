@@ -28,6 +28,7 @@
 import { reactive } from 'vue'; //reactive将引用类型变成响应式  多个变量
 import { useRouter } from 'vue-router';
 import axios from '../api';//引入封装好的axios
+import store from '../store';
 
 const router = useRouter()
 //ref 原始类型变成响应式 一个一个
@@ -48,8 +49,12 @@ const onSubmit = async () => {
         password: state.password
     })
     // console.log(res);
+    store.commit('getUserInfo', res.data)//将用户信息存入vuex
+    store.commit('getToken', res.token)//将token存入vuex
+    // console.log(store.state.token);
     //保存用户信息
-    sessionStorage.setItem('userInfo', JSON.stringify(res.data))//存入会话存储，键值，只能传字符串
+    // localStorage.setItem('userInfo', JSON.stringify(res.data))//存入会话存储，键值，只能传字符串
+    // localStorage.setItem('token', JSON.stringify(res.token))
     router.push('/noteClass')
 }
 
