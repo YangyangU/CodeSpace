@@ -38,15 +38,12 @@ const backToLogin = ()=>{
   router.push('/login')
   // sessionStorage.removeItem('userInfo')
   localStorage.removeItem('my-app-store')//触发清空用户数据
-  hideMenu()
 }
 const toMine = ()=>{
   router.push('/mine')
-  hideMenu()
 }
 const toMessage = ()=>{
   router.push('/message')
-  hideMenu()
 }
 </script>
 
@@ -75,6 +72,7 @@ const toMessage = ()=>{
       }
     }
     .user{
+      font: bolder 0.4rem/1.5 "PingFang SC";
       color: #101010;
       font-size: 0.37333rem;
     }

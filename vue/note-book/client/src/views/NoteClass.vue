@@ -74,11 +74,13 @@ body {
 
     header {
       display: flex;
+      position: sticky;
+      top: 0;
+      background-color: #fff;
       justify-content: space-between;
-      height: 1.2rem;
-      line-height: 1.2rem;
-      margin: 10px 0;
-
+      line-height: 1.5rem;
+      margin: 20px -10px;
+      
       .van-icon {
         font-size: 0.6rem;
         margin:0 10px;
