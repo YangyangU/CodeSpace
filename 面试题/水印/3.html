@@ -6,30 +6,31 @@
     <title>Document</title>
 </head>
 <body>
-    <img id="image" src="./1.jpg" alt="" style="display: none;">
-    <canvas id="canvas" style="display: none;"></canvas>
+    <img id="image" src="./1.jpg" alt="">
     <script>
         var image = document.getElementById('image');
-        var canvas = document.getElementById('canvas');
-        var ctx = canvas.getContext('2d');
+        const img = new Image();
+        img.src = image.src;
 
         // 图片加载完成后执行合并操作
-        image.onload = function() {
-            canvas.width = image.width;
-            canvas.height = image.height;
-            ctx.drawImage(image, 0, 0);
+        img.onload = function () {
 
-            // 添加水印
-            ctx.fillStyle = 'rgba(255, 255, 255, 0.5)'; // 水印颜色和透明度
-            ctx.font = '40px Arial'; // 水印字体样式
-            ctx.fillText('Watermark', canvas.width-200, canvas.height-50); // 水印位置
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
 
-            // 将合成后的图片显示在页面上
-            var mergedImage = canvas.toDataURL();
-            // console.log(mergedImage);
-            var mergedImageElement = document.createElement('img');
-            mergedImageElement.src = mergedImage;
-            document.body.appendChild(mergedImageElement);
+            canvas.width = img.width;
+            canvas.height = img.height;
+
+            ctx.drawImage(img, 0, 0);
+
+            ctx.font = '200px Arial';
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.5)';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText('版权所有', canvas.width / 2, canvas.height / 2);
+
+            // 将 Canvas 中的图像输出到 img 元素
+            image.src = canvas.toDataURL();
         };
     </script>
 </body>
