@@ -41,7 +41,7 @@
                         <div ref="echarts2" style="height: 236px;"></div>
                     </el-card>
                     <el-card style="height: 220px;">
-                        <div ref="echarts3" style="height: 200px;"></div>
+                        <div ref="echarts3" style="height: 220px;"></div>
                     </el-card>
                 </div>
             </el-col>
@@ -101,13 +101,13 @@ onMounted(async () => {
         //柱状图
         let echartsTwo = echarts.init(echarts2.value)
         let optionTwo = {
-            legend:{
-                textStyle:{
+            legend: {
+                textStyle: {
                     color: '#333'
                 }
             },
-            grid:{
-                left:'20%'
+            grid: {
+                left: '20%'
             },
             tooltip: {
                 trigger: 'axis'
@@ -133,13 +133,13 @@ onMounted(async () => {
                     }
                 }
             },
-            color:['#2ec7c9','#b6a2de'],
+            color: ['#2ec7c9', '#b6a2de'],
             series: [
                 {
                     name: '新增用户',
                     type: 'bar',
                     data: data.data.data.userData.map(item => item.new),
-                    
+
                 },
                 {
                     name: '活跃用户',
@@ -156,17 +156,34 @@ onMounted(async () => {
             tooltip: {
                 trigger: 'item'
             },
-            color: [
-                '#0f78f4',
-                '#dd536b',
-                '#9462e5',
-                '#a6a6a6',
-                '#e1bb22',
-                '#39c363',
-                '#3ed1cf'
-            ],
+            legend: {
+                top:'-3%',
+                left: 'center'
+            },
             series: [
                 {
+                    type: 'pie',
+                    radius: ['40%', '70%'],
+                    avoidLabelOverlap: false,
+                    itemStyle: {
+                        borderRadius: 10,
+                        borderColor: '#fff',
+                        borderWidth: 2
+                    },
+                    label: {
+                        show: false,
+                        position: 'center'
+                    },
+                    emphasis: {
+                        label: {
+                            show: true,
+                            fontSize: 40,
+                            fontWeight: 'bold'
+                        }
+                    },
+                    labelLine: {
+                        show: false
+                    },
                     data: data.data.data.videoData,
                     type: 'pie'
                 }
