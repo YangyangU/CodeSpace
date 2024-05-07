@@ -71,7 +71,6 @@ onMounted(async () => {
         let echartsOne = echarts.init(echarts1.value)
         let order = data.data.data.lineData[0]
         // console.log(order.data);
-        let xData = order.date
         let optionOne = {
             legend: {
                 data: Object.keys(order.data[0])
@@ -80,7 +79,7 @@ onMounted(async () => {
                 trigger: 'item'
             },
             xAxis: {
-                data: xData
+                data: order.date
             },
             yAxis: {
                 type: 'value'

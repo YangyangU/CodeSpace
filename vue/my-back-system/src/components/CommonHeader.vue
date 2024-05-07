@@ -1,10 +1,16 @@
 <template>
     <div class="header-container">
         <div class="l-content">
-            <el-icon size="20px" class="icon" @click="handler">
-                <Fold />
-            </el-icon>
-            <span class="text">首页</span>
+            <div class="icon">
+                <el-icon size="20px" @click="handler">
+                    <Fold />
+                </el-icon>
+            </div>
+            <div class="breadcrumb">
+                <el-breadcrumb separator="/">
+                    <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
+                </el-breadcrumb>
+            </div>
         </div>
         <div class="r-content">
             <el-dropdown>
@@ -25,7 +31,7 @@
 <script setup>
 import { useStore } from '../store';
 const store = useStore()
-const handler = () =>{
+const handler = () => {
     store.changeCollapse()
 }
 </script>
@@ -40,14 +46,20 @@ const handler = () =>{
     align-items: center;
     padding: 0 20px;
 
-    .icon {
-        cursor: pointer;
-    }
+    .l-content {
+        display: flex;
+        align-items: center;
 
-    .text {
-        font-size: 14px;
-        margin-left: 20px;
-        vertical-align: super;
+        .icon {
+            cursor: pointer;
+        }
+        
+        .breadcrumb {
+            margin-left: 20px;
+            :deep(.el-breadcrumb__inner){//样式穿透
+                color: #666;
+            }
+        }
     }
 
     .user {
