@@ -1,7 +1,7 @@
 <template>
     <div>
         <el-row>
-            <el-col :span="8">
+            <el-col :span="8" style="padding-right:10px">
                 <el-card class="box-card">
                     <div class="user">
                         <img src="@/assets/images/user.jpg" alt="">
@@ -21,16 +21,27 @@
                     </el-table>
                 </el-card>
             </el-col>
-            <el-col :span="16">
+            <el-col :span="16" style="padding-left:10px">
                 <div class="num">
-                    <el-card v-for="item in countData" :key="item.name" :body-style="{display:'flex'}">
+                    <el-card v-for="item in countData" :key="item.name" :body-style="{ display: 'flex', padding: 0 }">
                         <el-icon class="icon" :style="{ backgroundColor: item.color }">
-                            <component :is='item.icon'/>
+                            <component :is='item.icon' />
                         </el-icon>
                         <div class="detail">
                             <p class="price">￥{{ item.value }}</p>
                             <p class="desc">{{ item.name }}</p>
                         </div>
+                    </el-card>
+                </div>
+                <el-card style="height: 226px;">
+                    <div ref="echarts1" style="height: 236px;"></div>
+                </el-card>
+                <div class="graph">
+                    <el-card style="height: 220px;">
+                        <div ref="echarts2" style="height: 236px;"></div>
+                    </el-card>
+                    <el-card style="height: 220px;">
+                        <div ref="echarts3" style="height: 200px;"></div>
                     </el-card>
                 </div>
             </el-col>
@@ -39,98 +50,139 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { nextTick, onMounted, ref } from 'vue'
+import { getData } from '@/api';
+import * as echarts from 'echarts'
 
-const tableData = ref([
-    {
-        name: 'oppo',
-        todayBuy: 100,
-        monthBuy: 300,
-        totalBuy: 800
-    },
-    {
-        name: 'vivo',
-        todayBuy: 100,
-        monthBuy: 300,
-        totalBuy: 800
-    },
-    {
-        name: '苹果',
-        todayBuy: 100,
-        monthBuy: 300,
-        totalBuy: 800
-    },
-    {
-        name: '小米',
-        todayBuy: 100,
-        monthBuy: 300,
-        totalBuy: 800
-    },
-    {
-        name: '三星',
-        todayBuy: 100,
-        monthBuy: 300,
-        totalBuy: 800
-    },
-    {
-        name: '魅族',
-        todayBuy: 100,
-        monthBuy: 300,
-        totalBuy: 800
-    },
-    {
-        name: '华为',
-        todayBuy: 100,
-        monthBuy: 300,
-        totalBuy: 800
-    },
-])
+let echarts1 = ref(null)
+let echarts2 = ref(null)
+let echarts3 = ref(null)
 
-const tableLabel = ref({
-    name: '课程',
-    todayBuy: '今日购买',
-    monthBuy: '本月购买',
-    totalBuy: '总购买'
+onMounted(async () => {
+    const data = await getData()//拿到数据
+    // console.log(data.data.data.orderData[0].data[0]);
+    tableData.value = data.data.data.tableData
+    tableLabel.value = data.data.data.tableLabel
+    countData.value = data.data.data.countData
+
+    nextTick(() => {//拿到dom
+
+        //折线图
+        let echartsOne = echarts.init(echarts1.value)
+        let order = data.data.data.lineData[0]
+        // console.log(order.data);
+        let xData = order.date
+        let optionOne = {
+            legend: {
+                data: Object.keys(order.data[0])
+            },
+            tooltip: {
+                trigger: 'item'
+            },
+            xAxis: {
+                data: xData
+            },
+            yAxis: {
+                type: 'value'
+            },
+            series: []
+        }
+        Object.keys(order.data[0]).forEach(key => {
+            optionOne.series.push({
+                name: key,
+                type: 'line',
+                data: order.data.map(item => item[key])
+            })
+        })
+        // console.log(optionOne.series);
+        echartsOne.setOption(optionOne)
+
+
+        //柱状图
+        let echartsTwo = echarts.init(echarts2.value)
+        let optionTwo = {
+            legend:{
+                textStyle:{
+                    color: '#333'
+                }
+            },
+            grid:{
+                left:'20%'
+            },
+            tooltip: {
+                trigger: 'axis'
+            },
+            xAxis: {
+                type: 'category',
+                data: data.data.data.userData.map(item => item.date),
+                axisLine: {
+                    lineStyle: {
+                        color: '#17b3a3'
+                    }
+                },
+                axisLabel: {
+                    interval: 0,
+                    color: '#333'
+                }
+            },
+            yAxis: {
+                type: 'value',
+                axisLine: {
+                    lineStyle: {
+                        color: '#17b3a3'
+                    }
+                }
+            },
+            color:['#2ec7c9','#b6a2de'],
+            series: [
+                {
+                    name: '新增用户',
+                    type: 'bar',
+                    data: data.data.data.userData.map(item => item.new),
+                    
+                },
+                {
+                    name: '活跃用户',
+                    type: 'bar',
+                    data: data.data.data.userData.map(item => item.active)
+                }
+            ]
+        }
+        echartsTwo.setOption(optionTwo)
+
+        //饼状图
+        let echartsThree = echarts.init(echarts3.value)
+        let optionThree = {
+            tooltip: {
+                trigger: 'item'
+            },
+            color: [
+                '#0f78f4',
+                '#dd536b',
+                '#9462e5',
+                '#a6a6a6',
+                '#e1bb22',
+                '#39c363',
+                '#3ed1cf'
+            ],
+            series: [
+                {
+                    data: data.data.data.videoData,
+                    type: 'pie'
+                }
+            ]
+        }
+        echartsThree.setOption(optionThree)
+
+    })
 })
 
-const countData = ref([
-    {
-        name: '今日支付订单',
-        value: 1234,
-        icon: 'SuccessFilled',
-        color: '#2ec7c9'
-    },
-    {
-        name: '今日收藏订单',
-        value: 210,
-        icon: 'StarFilled',
-        color: '#ffb980'
-    },
-    {
-        name: '今日未支付订单',
-        value: 1234,
-        icon: 'GoodsFilled',
-        color: '#5ab1ef'
-    },
-    {
-        name: '本月支付订单',
-        value: 1234,
-        icon: 'SuccessFilled',
-        color: '#2ec7c9'
-    },
-    {
-        name: '本月收藏订单',
-        value: 210,
-        icon: 'StarFilled',
-        color: '#ffb980'
-    },
-    {
-        name: '本月未支付订单',
-        value: 1234,
-        icon: 'GoodsFilled',
-        color: '#5ab1ef'
-    }
-])
+
+const tableData = ref([])
+
+const tableLabel = ref({})
+
+const countData = ref([])
 </script>
 
 <style lang="less" scoped>
@@ -177,32 +229,41 @@ const countData = ref([
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+
+    .el-card__body {
+        padding: 0 !important;
+    }
+
     .icon {
-        width: 80px;
-        height: 80px;
+        width: 70px;
+        height: 70px;
         font-size: 30px;
         text-align: center;
         line-height: 80px;
         color: #fff;
     }
-    .detail{
+
+    .detail {
         display: flex;
         flex-direction: column;
         justify-content: center;
-        margin-left: 15px;
-        .price{
-            font-size: 30px;
+        margin-left: 20px;
+
+        .price {
+            font-size: 28px;
             margin-bottom: 10px;
             line-height: 30px;
             height: 30px;
         }
-        .desc{
+
+        .desc {
             font-size: 14px;
             color: #999;
             text-align: center;
         }
     }
-    .el-card{
+
+    .el-card {
         width: 32%;
         margin-bottom: 20px;
     }
@@ -213,7 +274,7 @@ const countData = ref([
     justify-content: space-between;
     margin-top: 20px;
 
-    .el-card{
+    .el-card {
         width: 48%;
     }
 }
