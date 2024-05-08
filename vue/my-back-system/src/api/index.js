@@ -12,10 +12,10 @@ export const addUser = (data)=>{
     return http.post('/user/add',data)
 }
 
-export const deleteUser = ()=>{
-    return http.post('/user/delete',params)
+export const deleteUser = (data)=>{
+    return http.post('/user/delete',data)
 }
 
-export const updateUser = ()=>{
-    return http.post('/user/update',params)
+export const updateUser = (data)=>{
+    return http.post('/user/update',data)
 }
