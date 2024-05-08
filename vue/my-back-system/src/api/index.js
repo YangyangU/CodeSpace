@@ -19,3 +19,7 @@ export const deleteUser = (data)=>{
 export const updateUser = (data)=>{
     return http.post('/user/update',data)
 }
+
+export const getMenu = (params)=>{
+    return http.post('/permission/getMenu',params)
+}

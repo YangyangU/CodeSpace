@@ -21,57 +21,14 @@
 </template>
 
 <script setup>
-import { computed, ref } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 import { useStore } from '@/store';
 
 const store = useStore()
 
-const list = ref([
-    {
-        path: '/',
-        name: 'home',
-        label: '首页',
-        icon: 'HomeFilled',
-        url: 'Home/Home'
-    },
-    {
-        path: '/mall',
-        name: 'mall',
-        label: '商品管理',
-        icon: 'VideoPlay',
-        url: 'MallManage/MallManage'
-    },
-    {
-        path: '/user',
-        name: 'user',
-        label: '用户管理',
-        icon: 'UserFilled',
-        url: 'UserManage/UserManage'
-    },
-    {
-        label: '其他',
-        icon: 'LocationFilled',
-        children: [
-            {
-                path: '/page1',
-                name: 'page1',
-                label: '页面1',
-                icon: 'Setting',
-                url: 'Other/PageOne'
-            },
-            {
-                path: '/page2',
-                name: 'page2',
-                label: '页面2',
-                icon: 'Setting',
-                url: 'Other/PageTwo'
-            }
-        ]
-    }
-])
-
-const nochildList = computed(() => list.value.filter(item => !item.children))
-const haschildList = computed(() => list.value.filter(item => item.children))
+const nochildList = computed(() => menuList.value.filter(item => !item.children))
+const haschildList = computed(() => menuList.value.filter(item => item.children))
+const menuList = computed(() => JSON.parse(localStorage.getItem('menu'))||store.menuList)
 </script>
 
 <style lang="less" scoped>

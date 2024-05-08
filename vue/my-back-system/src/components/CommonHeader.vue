@@ -19,8 +19,8 @@
                 </span>
                 <template #dropdown>
                     <el-dropdown-menu>
-                        <el-dropdown-item>Action 1</el-dropdown-item>
-                        <el-dropdown-item>退出登录</el-dropdown-item>
+                        <el-dropdown-item>个人中心</el-dropdown-item>
+                        <el-dropdown-item @click="logOut">退出登录</el-dropdown-item>
                     </el-dropdown-menu>
                 </template>
             </el-dropdown>
@@ -30,9 +30,17 @@
 
 <script setup>
 import { useStore } from '../store';
+import { useRouter } from 'vue-router';
+
+const router = useRouter()
+
 const store = useStore()
 const handler = () => {
     store.changeCollapse()
+}
+const logOut =()=>{
+    localStorage.removeItem('token')
+    router.push('/login')
 }
 </script>
 

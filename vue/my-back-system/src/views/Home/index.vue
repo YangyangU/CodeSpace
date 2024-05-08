@@ -215,13 +215,11 @@ const countData = ref([])
         border-radius: 50%;
         margin-right: 40px;
     }
-
     .userinfo {
         .name {
             font-size: 32px;
             margin-bottom: 10px;
         }
-
         .access {
             color: #999999;
         }
