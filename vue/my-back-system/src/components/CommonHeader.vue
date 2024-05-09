@@ -40,6 +40,7 @@ const handler = () => {
 }
 const logOut =()=>{
     localStorage.removeItem('token')
+    localStorage.removeItem('menu')
     router.push('/login')
 }
 </script>

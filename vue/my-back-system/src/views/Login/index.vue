@@ -45,8 +45,9 @@ const handleLogin = () => {
                 if (res.data.code === 20000) {
                     store.getMenuList(res.data.data.menu)
                     // console.log(router);
+                    store.addRouter(router)
                     localStorage.setItem('token', res.data.data.token)
-                    router.push('/main')
+                    router.push('/home')
                     ElMessage({
                         message: res.data.data.message,
                         type: 'success',

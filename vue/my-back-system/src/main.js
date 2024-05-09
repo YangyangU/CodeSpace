@@ -17,13 +17,14 @@ router.beforeEach((to, from, next) => {
   if(!token && to.path !== '/login'){
     next('/login')
   }else if(token && to.path === '/login'){
-    next('/main')
+    next('/home')
   }else{
     next() 
   }
 })
+app.use(pinia).use(router)
 
-app.use(pinia).use(router).mount('#app')
+app.mount('#app')
 for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
   app.component(key, component)
 }

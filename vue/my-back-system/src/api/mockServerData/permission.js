@@ -11,25 +11,25 @@ export default {
         data: {
           menu: [
             {
-                path: '/',
+                path: '/home',
                 name: 'home',
                 label: '首页',
                 icon: 'HomeFilled',
-                url: 'Home/Home'
+                url: 'Home'
             },
             {
                 path: '/mall',
                 name: 'mall',
                 label: '商品管理',
                 icon: 'VideoPlay',
-                url: 'MallManage/MallManage'
+                url: 'Mall'
             },
             {
                 path: '/user',
                 name: 'user',
                 label: '用户管理',
                 icon: 'UserFilled',
-                url: 'UserManage/UserManage'
+                url: 'User'
             },
             {
                 label: '其他',
@@ -40,14 +40,14 @@ export default {
                         name: 'page1',
                         label: '页面1',
                         icon: 'Setting',
-                        url: 'Other/PageOne'
+                        url: 'PageOne'
                     },
                     {
                         path: '/page2',
                         name: 'page2',
                         label: '页面2',
                         icon: 'Setting',
-                        url: 'Other/PageTwo'
+                        url: 'PageTwo'
                     }
                 ]
             }
@@ -62,18 +62,18 @@ export default {
         data: {
           menu: [
             {
-                path: '/',
+                path: '/home',
                 name: 'home',
                 label: '首页',
                 icon: 'HomeFilled',
-                url: 'Home/Home'
+                url: 'Home'
             },
             {
                 path: '/mall',
                 name: 'mall',
                 label: '商品管理',
                 icon: 'VideoPlay',
-                url: 'MallManage/MallManage'
+                url: 'Mall'
             },
             {
                 label: '其他',
@@ -84,14 +84,14 @@ export default {
                         name: 'page1',
                         label: '页面1',
                         icon: 'Setting',
-                        url: 'Other/PageOne'
+                        url: 'PageOne'
                     },
                     {
                         path: '/page2',
                         name: 'page2',
                         label: '页面2',
                         icon: 'Setting',
-                        url: 'Other/PageTwo'
+                        url: 'PageTwo'
                     }
                 ]
             }
