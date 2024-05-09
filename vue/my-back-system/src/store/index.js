@@ -25,6 +25,9 @@ export const useStore = defineStore("store", {
         addRouter(router){
             // 动态添加路由
             const menu = JSON.parse(localStorage.getItem('menu'))
+            if(menu === null){
+                return
+            }
             this.menuList = menu
             let routerList = []
             menu.forEach(item => {
