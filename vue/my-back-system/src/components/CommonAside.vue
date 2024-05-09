@@ -4,7 +4,7 @@
             :collapse="store.isCollapse">
             <h3>{{ store.isCollapse ? '后台' : '后台管理系统' }}</h3>
             <el-menu-item v-for="item in nochildList" :key="item.name" :index="item.name"
-                @click="$router.push({ name: item.name })">
+                @click="handlerClick(item)">
                 <el-icon><component :is="item.icon"/></el-icon>
                 <template #title>{{ item.label }}</template>
             </el-menu-item>
@@ -14,18 +14,24 @@
                     <span>{{ goods.label }}</span>
                 </template>
                 <el-menu-item v-for="item in goods.children" :key="item.name" :index="item.name"
-                    @click="$router.push({ name: item.name })">{{ item.name }}</el-menu-item>
+                    @click="handlerClick(item)">{{ item.name }}</el-menu-item>
             </el-sub-menu>
         </el-menu>
     </div>
 </template>
 
 <script setup>
-import { computed, onMounted, ref } from 'vue'
+import { computed, onBeforeMount, onMounted, ref } from 'vue'
 import { useStore } from '@/store';
-
+import { useRouter } from 'vue-router';
 const store = useStore()
-
+const router = useRouter()
+const handlerClick = (item) => {
+    // console.log(item);
+    // console.log(route);
+    router.push({ name: item.name })
+    store.addTabList(item)
+}
 const nochildList = computed(() => menuList.value.filter(item => !item.children))
 const haschildList = computed(() => menuList.value.filter(item => item.children))
 const menuList = computed(() => JSON.parse(localStorage.getItem('menu'))||store.menuList)

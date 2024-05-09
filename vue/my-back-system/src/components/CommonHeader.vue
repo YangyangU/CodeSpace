@@ -8,7 +8,8 @@
             </div>
             <div class="breadcrumb">
                 <el-breadcrumb separator="/">
-                    <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
+                    <el-breadcrumb-item :to="{ path: item.path }" v-for="item in store.tabList"
+                        :key="item.name" @click="handlerClick(item)">{{ item.label }}</el-breadcrumb-item>
                 </el-breadcrumb>
             </div>
         </div>
@@ -29,19 +30,23 @@
 </template>
 
 <script setup>
+import {ref} from 'vue'
 import { useStore } from '../store';
 import { useRouter } from 'vue-router';
 
 const router = useRouter()
-
 const store = useStore()
 const handler = () => {
     store.changeCollapse()
 }
-const logOut =()=>{
+const logOut = () => {
     localStorage.removeItem('token')
     localStorage.removeItem('menu')
     router.push('/login')
+}
+const handlerClick = (item)=>{
+    // console.log(item);
+    store.addTabList(item)
 }
 </script>
 
@@ -62,11 +67,13 @@ const logOut =()=>{
         .icon {
             cursor: pointer;
         }
-        
+
         .breadcrumb {
             margin-left: 20px;
-            :deep(.el-breadcrumb__inner){//样式穿透
-                color: #666;
+
+            :deep(.el-breadcrumb__inner) {
+                //样式穿透
+                color: #eee;
             }
         }
     }

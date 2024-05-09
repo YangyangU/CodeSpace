@@ -4,7 +4,13 @@ export const useStore = defineStore("store", {
     state(){
         return {
             isCollapse: false,
-            userInfo: {},
+            tabList: [{
+                path: '/home',
+                name: 'home',
+                label: '首页',
+                icon: 'HomeFilled',
+                url: 'Home'
+            },],
             menuList: [],
         }
     },
@@ -33,10 +39,31 @@ export const useStore = defineStore("store", {
                     routerList.push(item)
                 }
             })
-            console.log(routerList);
+            // console.log(routerList);
             routerList.forEach(item => {
                 router.addRoute('main', item)
             })
-        }
+        },
+
+        addTabList(item){
+            let home = {
+                path: '/home',
+                name: 'home',
+                label: '首页',
+                icon: 'HomeFilled',
+                url: 'Home'
+            }
+            let flag = this.tabList.some(item => item.name === item.name)
+            if(item.name === home.name){
+                return this.tabList = [home]
+            }
+            if(!item.children){
+                if(!flag){
+                    this.tabList.push(item)
+                    return 
+                }
+                return this.tabList = [home, item]
+            }
+        },
     },
 })
