@@ -3,7 +3,7 @@ const defaultAvatarUrl = 'https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia0
 
 Page({
   data: {
-    motto: 'Hello World',
+    motto: '我测你的木',
     userInfo: {
       avatarUrl: defaultAvatarUrl,
       nickName: '',
