@@ -4,5 +4,9 @@
     "editor.defaultFormatter": "formulahendry.auto-rename-tag",
     "[javascript]": {
         "editor.defaultFormatter": "vscode.typescript-language-features"
-    }
+    },
+    "[html]": {
+        "editor.defaultFormatter": "vscode.html-language-features"
+    },
+    "git.ignoreLimitWarning": true
 }
