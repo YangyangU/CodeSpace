@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>左右两栏布局</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .column {
+            width: 48%;
+            margin-bottom: 20px;
+        }
+
+        .text {
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .image {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+<div class="column">
+    <div class="text">
+        <h2>左侧文字1</h2>
+        <p>这是左侧第一个文字区域的内容。</p>
+    </div>
+    <img class="image" src="https://placeimg.com/800/400/arch" alt="左侧图片1">
+</div>
+
+<div class="column">
+    <img class="image" src="https://placeimg.com/800/400/nature" alt="右侧图片1">
+    <div class="text">
+        <h2>右侧文字1</h2>
+        <p>这是右侧第一个文字区域的内容。</p>
+    </div>
+</div>
+
+<div class="column">
+    <div class="text">
+        <h2>左侧文字2</h2>
+        <p>这是左侧第二个文字区域的内容。</p>
+    </div>
+    <img class="image" src="https://placeimg.com/800/400/city" alt="左侧图片2">
+</div>
+
+<div class="column">
+    <img class="image" src="https://placeimg.com/800/400/people" alt="右侧图片2">
+    <div class="text">
+        <h2>右侧文字2</h2>
+        <p>这是右侧第二个文字区域的内容。</p>
+    </div>
+</div>
+
+</body>
+</html>

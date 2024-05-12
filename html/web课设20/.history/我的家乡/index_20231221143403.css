@@ -1,0 +1,64 @@
+html{
+    font-size: 20px;
+}
+body {
+    font-family: '宋体', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-image: url('https://www.gov.cn/xinwen/2019-08/07/5419616/images/cb71398d28f742caab0cfaebf7011734.JPG');
+    color: #fff;
+    text-align: center;
+    height: 20em;
+    padding: 1em 0;
+    font-size: 1.em;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    display: inline;
+    margin-right: 20px;
+    color: #333;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+section {
+    margin: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+form {
+    max-width: 400px;
+    margin: 20px auto;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1em 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}

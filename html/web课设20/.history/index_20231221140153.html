@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>我的家乡</title>
+</head>
+<body>
+
+    <header>
+        <h1>欢迎来到我的家乡</h1>
+        <nav>
+            <ul>
+                <li><a href="#introduction">简介</a></li>
+                <li><a href="#places">景点</a></li>
+                <li><a href="#food">美食</a></li>
+                <li><a href="#form">联系我</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="introduction">
+        <h2>家乡简介</h2>
+        <p>在这里介绍你的家乡，包括位置、历史和特色。</p>
+    </section>
+
+    <section id="places">
+        <h2>家乡景点</h2>
+        <ul>
+            <li>景点1 - 描述</li>
+            <li>景点2 - 描述</li>
+            <!-- 添加更多景点 -->
+        </ul>
+    </section>
+
+    <section id="food">
+        <h2>家乡美食</h2>
+        <table>
+            <tr>
+                <th>美食名称</th>
+                <th>描述</th>
+            </tr>
+            <tr>
+                <td>美食1</td>
+                <td>描述1</td>
+            </tr>
+            <tr>
+                <td>美食2</td>
+                <td>描述2</td>
+            </tr>
+            <!-- 添加更多美食 -->
+        </table>
+    </section>
+
+    <section id="form">
+        <h2>联系我</h2>
+        <form action="submit_form.php" method="post">
+            <label for="name">姓名：</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">邮箱：</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">留言：</label>
+            <textarea id="message" name="message" required></textarea>
+
+            <input type="submit" value="提交">
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 我的家乡</p>
+    </footer>
+
+</body>
+</html>
