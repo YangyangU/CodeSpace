@@ -64,8 +64,8 @@ const afterRead = ()=>{
     // console.log(state.picture[0].content);//图片被读成base64
 }
 const onSubmit=async()=>{
-    const nickname = JSON.parse(sessionStorage.getItem('userInfo')).nickname
-    const userId = JSON.parse(sessionStorage.getItem('userInfo')).id
+    const nickname = JSON.parse(localStorage.getItem('my-app-store')).nickname
+    const userId = JSON.parse(localStorage.getItem('my-app-store')).id
 
     const res = await axios.post('/publish',{
         note_content: state.content,

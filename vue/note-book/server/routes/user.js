@@ -1,5 +1,5 @@
 const Router = require('@koa/router'); //放在这里更清晰
-const { sign, verify } = require('../config/jwt.js')
+const { sign } = require('../config/jwt.js')
 
 const router = new Router();
 
@@ -16,7 +16,8 @@ router.post('/login', async (ctx) => {  //登录一般用post  前端请求，�
             let data = {
                 id: result[0].id,
                 nickname: result[0].nickname,
-                username: result[0].username
+                username: result[0].username,
+                password: result[0].password,
             }
             let token = sign(data) //生成token
             ctx.body = {
@@ -46,6 +47,7 @@ router.post('/login', async (ctx) => {  //登录一般用post  前端请求，�
 
 // 定义注册接口
 router.post('/register', async (ctx) => {
+    // console.log(ctx.request.body);
     const { username, password, nickname } = ctx.request.body
     if (!username || !password || !nickname) {
         ctx.body = {
@@ -57,7 +59,7 @@ router.post('/register', async (ctx) => {
     try {
         //在数据库中校验username
         const findRes = await userFind(username)
-        console.log(findRes);
+        // console.log(findRes);
         if (findRes.length) {//账号已存在
             ctx.body = {
                 code: '8003',
@@ -67,7 +69,7 @@ router.post('/register', async (ctx) => {
             return
         }
         const registerRes = await userRegister([username, password, nickname])
-        // console.log(register);
+        // console.log(registerRes);
         //打印结果：
         // ResultSetHeader {
         //     fieldCount: 0,
@@ -78,8 +80,16 @@ router.post('/register', async (ctx) => {
         //     warningStatus: 0,
         //     changedRows: 0
         //   }
-        if (registerRes.affectedRows > 0) {
+        if (registerRes.affectedRows > 0 ) {
+            let data = {
+                id: registerRes.insertId,
+                nickname: nickname,
+                username: username,
+                password: password,
+            }
             let token = sign(data)
+            // console.log(token);
+
             ctx.body = {
                 code: '8000',
                 data: 'success',

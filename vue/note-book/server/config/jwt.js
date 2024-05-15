@@ -1,6 +1,7 @@
 const jwt = require('jsonwebtoken');
 
 const sign=(option)=>{
+    console.log(222);
     return jwt.sign(option,'666',{ //第二个参数是自定义加密
         expiresIn:60 //过期时间
     });

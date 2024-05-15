@@ -4,7 +4,7 @@
             <img src="https://img1.baidu.com/it/u=3661057457,567145783&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500"
                 alt="">
         </div>
-        <p class="user">蜗牛</p>
+        <p class="user">阳阳羊</p>
         <button class="change-btn" @click="changeAvatarAndName">更换头像昵称</button>
     </div>
 </template>

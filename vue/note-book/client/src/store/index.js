@@ -5,6 +5,7 @@ import createPersistedState from 'vuex-persistedstate'
 const store = createStore({
   state () {
     return {
+      id: 0,
       username: '',
       nickname: '',
       token:'',
@@ -15,6 +16,7 @@ const store = createStore({
       state.token = token
     },
     getUserInfo (state,{id,username, nickname}) {
+      state.id = id
       state.username = username
       state.nickname = nickname
     },
@@ -23,7 +25,7 @@ const store = createStore({
   plugins: [
     createPersistedState({
       key:'my-app-store',
-      paths: ['username', 'nickname','token']
+      paths: ['id','username', 'nickname','token']
     })
   ]
 })

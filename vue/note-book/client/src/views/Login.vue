@@ -37,7 +37,7 @@ const router = useRouter()
 // const password = ref('')
 
 const state = reactive({
-    username: 'wn',
+    username: 'xyy',
     password: '123',
 })
 
