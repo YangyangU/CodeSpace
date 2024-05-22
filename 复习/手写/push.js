@@ -1,9 +1,8 @@
 Array.prototype.myPush = function() {
     for (var i = 0; i < arguments.length; i++) {
-        console.log(this.length);
         this[this.length] = arguments[i];
     }
-    return this.length;
+    return this;
 }
 
 let arr = [1,2,3]

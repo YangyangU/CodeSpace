@@ -11,7 +11,6 @@ function throttle(fn,delay){
 }
 
 function fn(a){
-    a++
     console.log(a);
 }
 
@@ -19,7 +18,7 @@ let throttleFn = throttle(fn, 1000);
 throttleFn(0)
 setTimeout(()=>{
     throttleFn(0)
-},1200)
+},900)
 
 
 // function throttle(fn,delay){

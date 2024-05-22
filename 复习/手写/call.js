@@ -1,18 +1,20 @@
-Function.prototype.myCall = function(context,...args){
-    context = context || window;
-    const fn = Symbol();
-    context[fn] = this;
-    const result = context[fn](...args);
-    delete context[fn];
-    return result;
+
+Function.prototype.myCall = function (context, ...args) {
+    context = context || window
+    const fn = Symbol()
+    context[fn] = this
+    let res = context[fn](...args)
+    delete context[fn]
+    return res
 }
 
-var obj ={
-    a:1
-}
-var a = 2
 
-function fn(b,c){
-    console.log(this.a,b,c);
+let obj = {
+    a: 1
 }
-fn.myCall(obj,1,2)
+let a = 2
+
+function fn(b, c) {
+    return this.a + b + c
+}
+console.log(fn.myCall(obj, 1, 1));

@@ -42,7 +42,7 @@ function back(arr){
 //     // arr.forEach(function(item) {
 //     //     obj[item[0]] = item[1];
 //     //   });
-//     // console.log(Object.fromEntries(arr));
+//     // console.log(Object.entries(arr));
 //     return obj
 // }
 

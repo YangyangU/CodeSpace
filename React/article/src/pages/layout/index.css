@@ -1,0 +1,24 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header .logo {
+  width: 60px;
+  height: 60px;
+  background: url("@/assets/logo.jpg") no-repeat center center;
+  background-size: cover;
+}
+.header .user-info {
+  color: #fff;
+}
+.header .user-info .user-name {
+  margin-right: 20px;
+}
+.header .user-info .user-logout {
+  cursor: pointer;
+}
+
+.body {
+  height: calc(100vh - 64px);
+}

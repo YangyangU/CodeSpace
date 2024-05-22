@@ -1,13 +1,13 @@
 function add(a, b, c) {
-    return a + b + c;
-  }
-  
-  // 柯里化示例函数
+  console.log(a + b + c);
+}
 
-  function curry(fn, ...args) {
-    return fn.length <= args.length ? fn(...args) : curry.bind(null, fn, ...args);
-  }
+// 柯里化示例函数
+
+function curry(fn, ...args) {
+  return fn.length <= args.length ? fn(...args) : curry.bind(null, fn, ...args);
+}
 
 const curriedAdd = curry(add);
 
-console.log(curriedAdd(1,2,3));
+curriedAdd(1,2)(3)

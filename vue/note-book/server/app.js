@@ -7,7 +7,7 @@ const user = require('./routes/user.js');
 const note = require('./routes/note.js');
 
 app.use(cors()) //告诉浏览器允许跨域
-app.use(bodyParser())
+app.use(bodyParser({ limit: '50mb' }))
 //主要逻辑
 // const main = (ctx)=>{
 //     if(ctx.url.startsWith('/login')){

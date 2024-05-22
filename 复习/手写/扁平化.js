@@ -33,4 +33,16 @@ function flatArray5(arr){
     return res
 }
 
-console.log(flatArray5(arr)); // 输出: [ 1, 2, 3, 4 ]
+function flatArray6(arr){
+    let res = []
+    arr.forEach(element => {
+        if(Array.isArray(element)){
+            res = res.concat(flatArray6(element))
+        }else{
+            res.push(element)
+        }
+    });
+    return res
+}
+
+console.log(flatArray6(arr)); // 输出: [ 1, 2, 3, 4 ]

@@ -1,0 +1,27 @@
+.login {
+  width: 100vw;
+  height: 100vh;
+  background: center/cover #eee;
+}
+.login-container {
+  width: 440px;
+  height: 360px;
+  display: block;
+  margin: 0 auto 20px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
+}
+.login-container .login-logo {
+  width: 200px;
+  height: 60px;
+  display: block;
+  -o-object-fit: contain;
+     object-fit: contain;
+  margin: 0 auto 20px;
+}
+.login-container .login-checkbox-label {
+  color: #1890ff;
+}

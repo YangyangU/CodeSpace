@@ -55,6 +55,7 @@ router.post('/findNoteDetailById',async ctx=>{
 })
 
 router.post('/publish',async (ctx)=>{
+    console.log(111);
     const {note_content,title,head_img,note_type,nickname,userId} =ctx.request.body
     const c_time = formateDate(new Date())
     const m_time = formateDate(new Date())

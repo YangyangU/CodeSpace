@@ -16,10 +16,11 @@
 
 // 创建一个链表：1 -> 2 -> 3 -> 4 -> 5
 
+
 function reverseList(head){
     let pre = null
     let current = head
-    while(current != null){
+    while(current !== null){
         let temp = current.next
         current.next = pre
         pre = current

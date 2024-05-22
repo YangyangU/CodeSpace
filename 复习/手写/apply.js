@@ -7,21 +7,21 @@
 //     return result
 // }
 
-var obj ={
-    a:1
+var obj = {
+    a: 1
 }
 var a = 2
 
-Function.prototype.myApply = function (context,args){
-    // console.log(args);
+Function.prototype.myApply = function (context, ...args) {
+    let [arr] = args
     context = context || window
     const fn = Symbol()
     context[fn] = this
-    const result = context[fn](...args)
+    const result = context[fn](...arr)
     delete context[fn]
     return result
 }
-function fn(b,c){
-    console.log(this.a,b,c);
+function fn(b, c) {
+    return this.a + b + c
 }
-fn.myApply(obj,[1,2])
+console.log(fn.myApply(obj, [1, 1]));

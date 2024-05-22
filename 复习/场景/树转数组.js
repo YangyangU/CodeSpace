@@ -54,7 +54,7 @@ function deep1(tree){
     return res
 }
 
-function beep(tree){
+function deep3(tree){
     let res = []
     let queue = [tree]
     while(queue.length > 0){
@@ -67,4 +67,4 @@ function beep(tree){
     return res
 }
 
-console.log(beep(tree));
+console.log(deep3(tree));

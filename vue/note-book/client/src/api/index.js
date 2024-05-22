@@ -4,7 +4,7 @@ import store from '../store';
 import router from '../router';
 
 
-axios.defaults.baseURL = 'http://47.96.29.195'
+axios.defaults.baseURL = 'http://47.96.29.195:8889'
 axios.defaults.headers.post['Content-Type'] = 'application/json'
 
 //请求拦截

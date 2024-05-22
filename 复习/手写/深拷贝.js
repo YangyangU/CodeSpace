@@ -5,6 +5,21 @@ let obj = {
     }
 }
 
+// function deepClone(obj){
+//     let newObj = Array.isArray(obj) ? [] : {}
+//     for(let key in obj){
+//         if(obj.hasOnwProperty(key)){
+//             if(typeof key === 'object'){
+//                 newObj[key] = deepClone(obj[key])
+//             }else{
+//                 newObj[key] = obj[key]
+//             }
+//         }
+//     }
+//     return newObj
+// }
+
+
 // function deepClone(obj) {
 //     let newObj = Array.isArray(obj) ? [] : {};//创建一个新对象或数组
 //     for(let key in obj){//遍历这个对象
@@ -21,54 +36,28 @@ let obj = {
 // console.log(obj);
 
 
-// function deepClone(obj){
-//     return new Promise((resolve,reject)=>{
-//         const {port1,port2} = new MessageChannel();
-//         port1.postMessage(obj);
-//         port2.onmessage = (msg)=>{
-//             resolve(msg.data)
-//         }
-//     })
-// }
-
-// let obj2 = deepClone(obj).then(
-//     (val)=>{
-//         console.log(val)
-//         process.exit()
-// })
-
-
-// function deepClone(obj){
-//     let newObj = Array.isArray(obj) ? [] : {}
-//     for(let key in obj){
-//         if(obj.hasOwnProperty(key)){
-//             newObj[key] = typeof obj[key] == 'object' ? deepClone(obj[key]) : obj[key]
-//         }
-//     }
-//     return newObj
-// }
-
-// let obj2 = deepClone(obj)
-console.log(obj);
-// console.log(obj2);
-
-
 function deepClone(obj){
     return new Promise((resolve,reject)=>{
-        const {port1,port2} = new MessageChannel()
-        port1.postMessage(obj)
+        const {port1,port2} = new MessageChannel();
+        port1.postMessage(obj);
         port2.onmessage = (msg)=>{
             resolve(msg.data)
         }
     })
 }
 
-// async function fn(){
-//     let obj2 = await deepClone(obj)
-//     console.log(obj2);
-// }
-// fn()
-deepClone(obj).then((val)=>{
+function deepClone(obj){
+    return new Promise((resolve,reject)=>{
+        const {port1,port2} = new MessageChannel()
+        port1.postMessage(obj)
+        port2.onmessage = (res)=>{
+            resolve(res.data)
+        }
+    })
+}
+
+let obj2 = deepClone(obj).then((val)=>{
+    console.log(val);
     val.b.c = 123
     console.log(val);
     process.exit()

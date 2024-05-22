@@ -5,7 +5,6 @@ const fse = require('fs-extra')
 
 const UPLOAD_DIR = path.resolve(__dirname, '.', 'chunks') 
 
-
 const pipeStream = (filePath, writeStream) => {
   console.log(filePath);
   return new Promise((resolve, reject) => {
@@ -44,7 +43,7 @@ const mergeFileChunks = async(filePath, fileName, size) => {
   const arr = chunks.map((chunkPath, index) => {
     return pipeStream(
       path.resolve(filePath, chunkPath), 
-      fse.createWriteStream(path.resolve(filePath, fileName), {  // 
+      fse.createWriteStream(path.resolve(filePath, fileName), { //
         start: index * size,
         end: (index + 1) * size
       })
@@ -54,7 +53,6 @@ const mergeFileChunks = async(filePath, fileName, size) => {
   await Promise.all(arr)
 
 }
-
 
 
 const server = http.createServer(async(req, res) => {

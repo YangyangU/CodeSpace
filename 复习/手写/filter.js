@@ -1,10 +1,8 @@
 
 Array.prototype.myarray = function (cb) {
-  // TODO：待补充代码
   let res = []
-  let arr = this
   for (let i = 0; i < this.length; i++) {
-    if (cb(arr[i],i,arr)) {
+    if (cb(this[i],i,this)) {
       res.push(this[i])
     }
   }

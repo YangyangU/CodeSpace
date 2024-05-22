@@ -6,17 +6,19 @@ function debounce(fn, delay) {
             fn.apply(this,arguments);
         }, delay);
     }
-} 
+}
+
+
+
 function fn(a){
-    a++
     console.log(a);
 }
 
-let debounceFn = debounce(fn, 1000);
+let debounceFn = debounce(fn, 1200);
 debounceFn(0)
 setTimeout(()=>{
     debounceFn(0)
-},2200)
+},1000)
 
 
 
