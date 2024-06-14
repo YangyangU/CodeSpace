@@ -1,4 +1,3 @@
-import 'reset-css'
 
 const App = () => {
   return (
