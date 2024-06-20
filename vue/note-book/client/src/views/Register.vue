@@ -3,7 +3,7 @@
         <div class="flicker">注册</div>
         <div class="login-wrapper">
             <div class="avatar">
-                <img src="D:\CodeSpace\vue\note-book\client\src\assets\img\raw_1512446162.png" alt="">
+                <img src="../assets/img/user.png" alt="">
             </div>
             <van-form @submit="onSubmit">
                 <van-cell-group inset>

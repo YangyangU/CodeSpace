@@ -6,7 +6,7 @@
         </div>
         <div class="note-wrap">
             <div class="note-cell">
-                <van-field v-model="state.title" label="标题" placeholder="请输入用户名" />
+                <van-field v-model="state.title" label="标题" placeholder="请输入标题" />
             </div>
             <div class="note-cell">
                 <van-field label="图片">
