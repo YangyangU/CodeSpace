@@ -26,6 +26,7 @@ Commit 信息：
 %t：树对象的简短哈希字符串
 %P：父对象（parent）的完整哈希字符串
 %p：父对象的简短哈希字符串
+%B: raw body (unwrapped subject and body)
 
 作者/提交者信息：
 %an：作者名字
