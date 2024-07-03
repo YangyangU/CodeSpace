@@ -7,7 +7,7 @@
 
 <p align="left">
   <a href="https://skillicons.dev">
-    <img src="https://skillicons.dev/icons?i=c,java,js,nodejs,vue,pinia,webpack,vite,tailwind,less,git,mongodb,mysql&perline=6" />
+    <img src="https://skillicons.dev/icons?i=vue,react,ts,nodejs,pinia,webpack,vite,tailwind,less,mysql&perline=6" />
   </a>
 </p>
 
@@ -15,7 +15,7 @@
 
 <p align="left">
   <a href="https://skillicons.dev">
-    <img src="https://skillicons.dev/icons?i=py,ts,react&perline=6" />
+    <img src="https://skillicons.dev/icons?i=py,nextjs,nuxtjs,astro,docker&perline=6" />
   </a>
 </p>
 
