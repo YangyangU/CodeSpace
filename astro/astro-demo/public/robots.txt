@@ -1,0 +1,4 @@
+# 示例：允许所有机器人扫描并索引你的网站。
+# 完整语法：https://developers.google.com/search/docs/advanced/robots/create-robots-txt
+User-agent: *
+Allow: /
