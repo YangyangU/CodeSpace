@@ -5,7 +5,7 @@
   <img height=200 align="right" src="https://github-readme-stats.vercel.app/api/top-langs?username=YangyangU&layout=compact&langs_count=8&card_width=320" />
 </a>
 
-![](https://github-profile-trophy.vercel.app/?username=Yousazoe&column=7)
+![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=YangyangU&layout=compact)
 
 **Currently Learning:**
 
