@@ -5,6 +5,12 @@
   <img height=200 align="right" src="https://github-readme-stats.vercel.app/api/top-langs?username=YangyangU&layout=compact&hide=html&langs_count=8&card_width=320" />
 </a>
 
+<p align="left">
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=vue,react,ts,nodejs,pinia,webpack,vite,tailwind,less,mysql&perline=6" />
+  </a>
+</p>
+
 **Currently Learning:**
 
 <p align="left">
