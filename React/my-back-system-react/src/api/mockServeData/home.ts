@@ -1,52 +1,54 @@
-import Mock from 'mockjs'
+// mock数据模拟
+import Mock from 'mockjs';
 
-const list = []
+// 图表数据
+const List: Array<{ [key: string]: number }> = [];
 export default {
-    getData: () => {
-        for (let i = 0; i < 8; i++) {
-            list.push(Mock.mock({
-                苹果: Mock.Random.float(100, 1000, 0, 0),
-                vivo: Mock.Random.float(100, 1000, 0, 0),
-                oppo: Mock.Random.float(100, 1000, 0, 0),
-                魅族: Mock.Random.float(100, 1000, 0, 0),
-                荣耀: Mock.Random.float(100, 1000, 0, 0),
-                华为: Mock.Random.float(100, 1000, 0, 0),
-                小米: Mock.Random.float(100, 1000, 0, 0),
-            }))
+    getStatisticalData: () => {
+        //Mock.Random.float 产生随机数100到8000之间 保留小数 最小0位 最大0位
+        for (let i = 0; i < 7; i++) {
+            List.push(
+                Mock.mock({
+                    苹果: Mock.Random.float(100, 8000, 0, 0),
+                    vivo: Mock.Random.float(100, 8000, 0, 0),
+                    oppo: Mock.Random.float(100, 8000, 0, 0),
+                    魅族: Mock.Random.float(100, 8000, 0, 0),
+                    三星: Mock.Random.float(100, 8000, 0, 0),
+                    小米: Mock.Random.float(100, 8000, 0, 0),
+                }),
+            );
         }
         return {
             code: 20000,
             data: {
+                // 饼图
                 videoData: [
                     {
                         name: '小米',
-                        value: Mock.Random.integer(800, 1000)
-                    },
-                    {
-                        name: '华为',
-                        value: Mock.Random.integer(1000, 1500)
-                    },
-                    {
-                        name: '荣耀',
-                        value: Mock.Random.integer(500, 800)
+                        value: Mock.Random.integer(800, 1000),
                     },
                     {
                         name: '苹果',
-                        value: Mock.Random.integer(1000, 1500)
-                    },
-                    {
-                        name: 'oppo',
-                        value: Mock.Random.integer(200, 500)
+                        value: Mock.Random.integer(1000, 1500),
                     },
                     {
                         name: 'vivo',
-                        value: Mock.Random.integer(200, 500)
+                        value: Mock.Random.integer(200, 500),
+                    },
+                    {
+                        name: 'oppo',
+                        value: Mock.Random.integer(200, 500),
                     },
                     {
                         name: '魅族',
-                        value: Mock.Random.integer(100, 200)
-                    }
+                        value: Mock.Random.integer(100, 200),
+                    },
+                    {
+                        name: '华为',
+                        value: Mock.Random.integer(1000, 1500),
+                    },
                 ],
+                // 柱状图
                 userData: [
                     {
                         date: '周一',
@@ -82,14 +84,21 @@ export default {
                         date: '周日',
                         new: Mock.Random.integer(1, 1000),
                         active: Mock.Random.integer(1000, 1750),
-                    }
+                    },
                 ],
-                lineData: [
-                    {
-                        date: ['5月1日', '5月2日', '5月3日', '5月4日', '5月5日', '5月6日', '5月7日'],
-                        data: list
-                    }
-                ],
+                // 折线图
+                orderData: {
+                    date: [
+                        '5月1日',
+                        '5月2日',
+                        '5月3日',
+                        '5月4日',
+                        '5月5日',
+                        '5月6日',
+                        '5月7日',
+                    ],
+                    data: List,
+                },
                 tableData: [
                     {
                         name: 'oppo',
@@ -133,55 +142,46 @@ export default {
                         monthBuy: Mock.Random.integer(100, 1000),
                         totalBuy: Mock.Random.integer(1000, 10000),
                     },
-                ]
-                ,
+                ],
                 countData: [
                     {
                         name: '今日支付订单',
                         value: Mock.Random.integer(50, 100),
-                        icon: 'SuccessFilled',
-                        color: '#2ec7c9'
+                        icon: 'CheckCircleOutlined',
+                        color: '#2ec7c9',
                     },
                     {
                         name: '今日收藏订单',
                         value: Mock.Random.integer(100, 200),
-                        icon: 'StarFilled',
-                        color: '#ffb980'
+                        icon: 'ClockCircleOutlined',
+                        color: '#ffb980',
                     },
                     {
                         name: '今日未支付订单',
                         value: Mock.Random.integer(1, 50),
-                        icon: 'GoodsFilled',
-                        color: '#5ab1ef'
+                        icon: 'CloseCircleOutlined',
+                        color: '#5ab1ef',
                     },
                     {
                         name: '本月支付订单',
                         value: Mock.Random.integer(1000, 2000),
-                        icon: 'SuccessFilled',
-                        color: '#2ec7c9'
+                        icon: 'CheckCircleOutlined',
+                        color: '#2ec7c9',
                     },
                     {
                         name: '本月收藏订单',
                         value: Mock.Random.integer(2000, 3000),
-                        icon: 'StarFilled',
-                        color: '#ffb980'
+                        icon: 'ClockCircleOutlined',
+                        color: '#ffb980',
                     },
                     {
                         name: '本月未支付订单',
                         value: Mock.Random.integer(100, 200),
-                        icon: 'GoodsFilled',
-                        color: '#5ab1ef'
-                    }
+                        icon: 'CloseCircleOutlined',
+                        color: '#5ab1ef',
+                    },
                 ],
-                tableLabel: {
-                    name: '品牌',
-                    todayBuy: '今日销量',
-                    monthBuy: '本月销量',
-                    totalBuy: '总销量'
-                }
-            }
-        }
-    }
-
-}
-
+            },
+        };
+    },
+};
