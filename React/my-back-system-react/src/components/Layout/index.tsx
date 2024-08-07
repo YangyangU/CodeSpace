@@ -5,6 +5,7 @@ import Aside from '@/components/Aside';
 import Header from '@/components/Header';
 import { useSelector } from 'react-redux';
 import type { RootState } from '@/store';
+import Tag from '@/components/Tag';
 
 const View: React.FC = () => {
     const collapsed = useSelector((state: RootState) => state.tab.isCollapse);
@@ -17,6 +18,7 @@ const View: React.FC = () => {
             <Aside collapsed={collapsed}></Aside>
             <Layout>
                 <Header collapsed={collapsed}></Header>
+                <Tag />
                 <Layout.Content
                     style={{
                         margin: '24px 16px',

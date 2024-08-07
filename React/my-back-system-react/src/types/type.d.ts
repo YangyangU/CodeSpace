@@ -67,6 +67,17 @@ interface DataProps {
 
 type modalType = 'edit' | 'add';
 
-declare module 'pinyin' {
-    function match(input: string, keyword: string): boolean | number[];
-}
+type TagType = {
+    path: string;
+    name: string;
+    label: string;
+};
+
+type MenuType = {
+    path: string;
+    name?: string;
+    label: string;
+    icon: string;
+    url?: string;
+    children?: Array<MenuType>;
+};
