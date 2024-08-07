@@ -30,6 +30,7 @@ const View: React.FC = () => {
     const tagRender = (flag: boolean, item: TagType, index: number) => {
         return flag ? (
             <Tag
+                style={{ cursor: 'pointer' }}
                 color="#55acee"
                 closeIcon={item.name !== 'home'}
                 onClose={(e) => handleClose(e, item, index)}
@@ -38,7 +39,11 @@ const View: React.FC = () => {
                 {item.label}
             </Tag>
         ) : (
-            <Tag onClick={() => handleChange(item)} key={item.name}>
+            <Tag
+                style={{ cursor: 'pointer' }}
+                onClick={() => handleChange(item)}
+                key={item.name}
+            >
                 {item.label}
             </Tag>
         );

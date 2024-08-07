@@ -81,3 +81,8 @@ type MenuType = {
     url?: string;
     children?: Array<MenuType>;
 };
+
+type LoginType = {
+    username: string;
+    password: string;
+};

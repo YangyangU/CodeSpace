@@ -1,12 +1,14 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 interface TabsState {
+    menuList: MenuType[];
     isCollapse: boolean;
     tagList: TagType[];
     currentTab: TagType;
 }
 
 const initialState: TabsState = {
+    menuList: [],
     isCollapse: false,
     tagList: [
         {
@@ -16,9 +18,9 @@ const initialState: TabsState = {
         },
     ],
     currentTab: {
-        path: '',
-        name: '',
-        label: '',
+        path: '/home',
+        name: 'home',
+        label: '首页',
     },
 };
 
@@ -46,10 +48,18 @@ const tabsSlice = createSlice({
         setCurrentTab: (state, { payload }: PayloadAction<TagType>) => {
             state.currentTab = payload;
         },
+        setMenuList: (state, { payload }: PayloadAction<MenuType[]>) => {
+            state.menuList = payload;
+        },
     },
 });
 
-export const { collapseMenu, setTagList, closeTab, setCurrentTab } =
-    tabsSlice.actions;
+export const {
+    collapseMenu,
+    setTagList,
+    closeTab,
+    setCurrentTab,
+    setMenuList,
+} = tabsSlice.actions;
 
 export default tabsSlice.reducer;

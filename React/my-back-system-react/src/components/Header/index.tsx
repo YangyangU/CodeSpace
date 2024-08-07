@@ -6,20 +6,26 @@ import avatar from '@/assets/images/avatar.jpg';
 import { useDispatch } from 'react-redux';
 import type { AppDispatch } from '@/store';
 import { collapseMenu } from '@/store/reducers/tabs';
+import { useNavigate } from 'react-router-dom';
 
 const View: React.FC<{ collapsed: boolean }> = ({ collapsed }) => {
+    const navigate = useNavigate();
     const dispatch: AppDispatch = useDispatch();
     const logOut = () => {
-        console.log('退出登录');
+        navigate('/login');
+        localStorage.removeItem('token');
+    };
+    const goMine = () => {
+        navigate('/mine');
     };
     const items: MenuProps['items'] = [
         {
             key: '1',
             label: (
                 <a
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    href="https://www.antgroup.com"
+                    onClick={() => {
+                        goMine();
+                    }}
                 >
                     个人中心
                 </a>
@@ -29,9 +35,6 @@ const View: React.FC<{ collapsed: boolean }> = ({ collapsed }) => {
             key: '2',
             label: (
                 <a
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    href="https://www.aliyun.com"
                     onClick={() => {
                         logOut();
                     }}

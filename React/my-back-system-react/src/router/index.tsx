@@ -4,6 +4,7 @@ import Home from '@/pages/Home';
 import Mall from '@/pages/Mall';
 import User from '@/pages/User';
 import NotFound from '@/pages/404';
+import Login from '@/pages/Login';
 
 const routes = [
     {
@@ -40,6 +41,10 @@ const routes = [
                 ],
             },
         ],
+    },
+    {
+        path: '/login',
+        element: <Login />,
     },
     {
         path: '*',

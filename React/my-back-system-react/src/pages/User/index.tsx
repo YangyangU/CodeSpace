@@ -158,7 +158,7 @@ const User: React.FC = () => {
                 >
                     <Form.Item name="keyword">
                         <Input
-                            placeholder="请输入用户名"
+                            placeholder="请输入姓名或地址"
                             value={inputValue}
                             onChange={(e) => setInputValue(e.target.value)}
                         />

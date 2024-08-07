@@ -38,3 +38,15 @@ export const deleteUser: (config: userType) => Promise<{
 
     return data;
 };
+
+export const getMenu: (config: LoginType) => Promise<{
+    code: number;
+    data: {
+        menu: MenuType[];
+        token: string;
+        message: string;
+    };
+}> = async (config) => {
+    const { data } = await request.post('/permission/getMenu', config);
+    return data;
+};
