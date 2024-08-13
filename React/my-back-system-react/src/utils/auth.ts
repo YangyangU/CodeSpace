@@ -1,3 +1,3 @@
 export const isLogin = () => {
-    return localStorage.getItem('token') ? true : false;
+    return localStorage.getItem('my-back-token') ? true : false;
 };

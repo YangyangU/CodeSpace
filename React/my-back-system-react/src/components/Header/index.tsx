@@ -13,7 +13,7 @@ const View: React.FC<{ collapsed: boolean }> = ({ collapsed }) => {
     const dispatch: AppDispatch = useDispatch();
     const logOut = () => {
         navigate('/login');
-        localStorage.removeItem('token');
+        localStorage.removeItem('my-back-token');
     };
     const goMine = () => {
         navigate('/mine');

@@ -1,17 +1,16 @@
-import { PropsWithChildren, useEffect } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { PropsWithChildren } from 'react';
+import { Navigate, useLocation } from 'react-router-dom';
 import { isLogin } from '@/utils/auth';
-import { getCurrentRouterMap, routes } from './index';
+import { getCurrentRouterMap, routes } from './';
 
 const Auth = (props: PropsWithChildren) => {
     const location = useLocation();
-    const navigate = useNavigate();
-    useEffect(() => {
-        const router = getCurrentRouterMap(routes, location.pathname);
-        if (!isLogin && router.auth) {
-            navigate('/login');
-        }
-    }, [location.pathname]);
+    const router = getCurrentRouterMap(routes, location.pathname);
+    console.log(router);
+
+    if (!isLogin && router.auth) {
+        return <Navigate to="/login" />;
+    }
     return props.children;
 };
 

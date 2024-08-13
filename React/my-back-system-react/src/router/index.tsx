@@ -25,7 +25,7 @@ export const routes: Route[] = [
         children: [
             {
                 index: true,
-                element: <Navigate to="home" />,
+                element: <Navigate to="/login" />,
             },
             {
                 path: 'home',
@@ -34,10 +34,12 @@ export const routes: Route[] = [
             },
             {
                 path: 'mall',
+                auth: true,
                 element: <Mall />,
             },
             {
                 path: 'user',
+                auth: true,
                 element: <User />,
             },
             {
@@ -45,10 +47,12 @@ export const routes: Route[] = [
                 children: [
                     {
                         path: 'pageOne',
+                        auth: true,
                         element: <div>other1</div>,
                     },
                     {
                         path: 'pageTwo',
+                        auth: true,
                         element: <div>other2</div>,
                     },
                 ],
