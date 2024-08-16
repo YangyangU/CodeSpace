@@ -1,12 +1,9 @@
-import { useEffect } from 'react';
-import './App.css'
-import * as THREE from 'three';
+import Car from "./components/Car";
 
 function App() {
-  return (
-    <>app
-    </>
-  )
+  return <>
+    <Car></Car>
+  </>
 }
 
-export default App
+export default App;
