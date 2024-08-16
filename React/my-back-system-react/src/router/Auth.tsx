@@ -1,17 +1,47 @@
-import { PropsWithChildren } from 'react';
+import React, { PropsWithChildren } from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
-import { isLogin } from '@/utils/auth';
-import { getCurrentRouterMap, routes } from './';
+import { routes, RouterWithTabAuthObject } from './';
 
 const Auth = (props: PropsWithChildren) => {
     const location = useLocation();
-    const router = getCurrentRouterMap(routes, location.pathname);
-    console.log(router);
+    const token = localStorage.getItem('my-back-token');
 
-    if (!isLogin && router.auth) {
-        return <Navigate to="/login" />;
+    const normalizePath = (path: string) => {
+        return path.startsWith('/') ? path : `/${path}`;
+    };
+
+    const getRouteMeta = (
+        path: string,
+        routes: RouterWithTabAuthObject[],
+    ): RouterWithTabAuthObject | undefined => {
+        const normalizedPath = normalizePath(path);
+
+        for (const route of routes) {
+            const routePath = normalizePath(route.path || '');
+            if (routePath === normalizedPath) {
+                return route;
+            }
+            if (route.children) {
+                const childRoute = getRouteMeta(normalizedPath, route.children);
+                if (childRoute) return childRoute;
+            }
+        }
+        return undefined;
+    };
+
+    const currentRoute = getRouteMeta(location.pathname, routes);
+
+    console.log(currentRoute);
+
+    if (currentRoute?.meta?.title) {
+        document.title = currentRoute.meta.title;
     }
-    return props.children;
+
+    if (currentRoute?.meta?.needLogin && !token) {
+        return <Navigate to="/login" replace />;
+    }
+
+    return <>{props.children}</>;
 };
 
 export default Auth;

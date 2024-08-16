@@ -31,6 +31,13 @@ export default {
                             url: '/user/index',
                         },
                         {
+                            path: '/car',
+                            name: 'car',
+                            label: '3D看车',
+                            icon: 'CarOutlined',
+                            url: '/car/index',
+                        },
+                        {
                             path: '/other',
                             label: '其他',
                             icon: 'SettingOutlined',
@@ -72,6 +79,13 @@ export default {
                             label: '商品管理',
                             icon: 'ShopOutlined',
                             url: '/mall/index',
+                        },
+                        {
+                            path: '/car',
+                            name: 'car',
+                            label: '3D看车',
+                            icon: 'CarOutlined',
+                            url: '/car/index',
                         },
                     ],
                     token: Mock.Random.guid(),

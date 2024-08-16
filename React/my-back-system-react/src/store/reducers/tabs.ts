@@ -50,6 +50,7 @@ const tabsSlice = createSlice({
         },
         setMenuList: (state, { payload }: PayloadAction<MenuType[]>) => {
             state.menuList = payload;
+            localStorage.setItem('my-back-menu', JSON.stringify(payload));
         },
     },
 });
