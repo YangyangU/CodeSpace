@@ -25,7 +25,7 @@ const Car: React.FC = () => {
     // Load the GLTF model
     const loader = new GLTFLoader();
     loader.load(
-      "../assets/su7/scene.gltf",
+      "../../public/su7/scene.gltf",
       function (gltf) {
         scene.add(gltf.scene);
       },
