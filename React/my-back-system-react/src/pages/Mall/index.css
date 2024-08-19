@@ -1,0 +1,43 @@
+.container {
+    column-count: 4; /* 设置列数 */
+    column-gap: 15px; /* 设置列之间的间距 */
+    margin: 0 auto;
+}
+
+.item {
+    background-color: #fff;
+    display: inline-block;
+    margin-bottom: 15px;
+    width: 100%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    break-inside: avoid; /* 防止元素被剪裁 */
+}
+
+.item img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.item .content {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 10px;
+}
+
+.desc{
+    font-size: large;
+    font-weight: bolder;
+}
+
+.price{
+    font-size: large;
+    font-weight: bolder;
+    color: #a92112;
+}
+
+.product-image {
+    width: 100%;
+    height: auto;
+    background-color: #f0f0f0; /* 图片加载前的背景色 */
+}

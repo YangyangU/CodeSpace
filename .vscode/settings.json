@@ -8,5 +8,8 @@
     "[html]": {
         "editor.defaultFormatter": "vscode.html-language-features"
     },
-    "git.ignoreLimitWarning": true
+    "git.ignoreLimitWarning": true,
+    "[css]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    }
 }
