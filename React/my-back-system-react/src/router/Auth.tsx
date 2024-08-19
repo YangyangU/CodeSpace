@@ -31,14 +31,16 @@ const Auth = (props: PropsWithChildren) => {
 
     const currentRoute = getRouteMeta(location.pathname, routes);
 
-    console.log(currentRoute);
-
     if (currentRoute?.meta?.title) {
         document.title = currentRoute.meta.title;
     }
 
     if (currentRoute?.meta?.needLogin && !token) {
         return <Navigate to="/login" replace />;
+    }
+
+    if (currentRoute?.path == '/login' && token) {
+        return <Navigate to="/home" replace />;
     }
 
     return <>{props.children}</>;

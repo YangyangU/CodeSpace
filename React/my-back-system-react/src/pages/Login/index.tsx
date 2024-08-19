@@ -5,6 +5,7 @@ import { getMenu } from '@/api';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { setMenuList } from '@/store/reducers/tabs';
+import Auth from '@/router/Auth';
 
 const View: React.FC = () => {
     const dispatch = useDispatch();
@@ -39,29 +40,31 @@ const View: React.FC = () => {
             });
     };
     return (
-        <Form className="login-container" onFinish={handleSubmit}>
-            {contextHolder}
-            <div className="login-title">登录</div>
-            <Form.Item
-                label="账号"
-                name="username"
-                rules={[{ required: true, message: '请输入账号' }]}
-            >
-                <Input placeholder="账号" />
-            </Form.Item>
-            <Form.Item
-                name="password"
-                label="密码"
-                rules={[{ required: true, message: '请输入密码' }]}
-            >
-                <Input.Password placeholder="密码" />
-            </Form.Item>
-            <Form.Item className="login-button">
-                <Button type="primary" htmlType="submit">
-                    登录
-                </Button>
-            </Form.Item>
-        </Form>
+        <Auth>
+            <Form className="login-container" onFinish={handleSubmit}>
+                {contextHolder}
+                <div className="login-title">登录</div>
+                <Form.Item
+                    label="账号"
+                    name="username"
+                    rules={[{ required: true, message: '请输入账号' }]}
+                >
+                    <Input placeholder="账号" />
+                </Form.Item>
+                <Form.Item
+                    name="password"
+                    label="密码"
+                    rules={[{ required: true, message: '请输入密码' }]}
+                >
+                    <Input.Password placeholder="密码" />
+                </Form.Item>
+                <Form.Item className="login-button">
+                    <Button type="primary" htmlType="submit">
+                        登录
+                    </Button>
+                </Form.Item>
+            </Form>
+        </Auth>
     );
 };
 
