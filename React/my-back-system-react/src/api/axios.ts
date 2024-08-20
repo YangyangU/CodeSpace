@@ -46,39 +46,39 @@ const instance: AxiosInstance = axios.create({
 //     (error) => Promise.reject(error),
 // );
 
-// const whiteUrl = ['/admin/platform/applyQuota'];
-// instance.interceptors.response.use(
-//     (response) => {
-//         const { status, data, config } = response;
-//         if (status === 200 && status < 300) {
-//             if (whiteUrl.some((item) => config.url?.includes(item))) {
-//                 return data;
-//             }
-//             if (data?.code === 0) return data.data;
-//         }
-//         message.error(data.msg);
-//         return Promise.reject(data.msg); // 状态码非正常即报错
-//     },
-//     (error) => {
-//         const { status, data, config } = error.response || {};
-
-//         if (status && status === 400) {
-//             const _message =
-//                 typeof data.msg === 'string'
-//                     ? data.msg
-//                     : JSON.stringify(data.msg);
-//             message.error(_message);
-//         }
-//         if (status && status === 401) {
-//             Promise.reject({ message: '用户未登录' });
-//             if (/^\/admin\/platform\/login/.test(config.url)) {
-//                 // return errorHandler(data.loginUrl);
-//             } else {
-//                 // return login({ callbackUrl: VITE_API_URL });
-//             }
-//         }
-//         Promise.reject(error);
-//     },
-// );
+// const whiteUrl = ['/ai'];
+instance.interceptors.response.use(
+    (response) => {
+        const { status, data } = response;
+        if (status === 200 && status < 300) {
+            // if (whiteUrl.some((item) => config.url?.includes(item))) {
+            //     return data;
+            // }
+            // if (data?.code === 0) return data.data;
+            return data;
+        }
+        // message.error(data.msg);
+        return Promise.reject(data.msg); // 状态码非正常即报错
+    },
+    (error) => {
+        // const { status, data, config } = error.response || {};
+        // if (status && status === 400) {
+        //     const _message =
+        //         typeof data.msg === 'string'
+        //             ? data.msg
+        //             : JSON.stringify(data.msg);
+        //     // message.error(_message);
+        // }
+        // if (status && status === 401) {
+        //     Promise.reject({ message: '用户未登录' });
+        //     if (/^\/admin\/platform\/login/.test(config.url)) {
+        //         // return errorHandler(data.loginUrl);
+        //     } else {
+        //         // return login({ callbackUrl: VITE_API_URL });
+        //     }
+        // }
+        Promise.reject(error);
+    },
+);
 
 export { instance as request, axios };

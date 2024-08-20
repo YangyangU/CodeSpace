@@ -7,6 +7,7 @@ import User from '@/pages/User';
 import NotFound from '@/pages/404';
 import Login from '@/pages/Login';
 import Car from '@/pages/Car';
+import ChatBot from '@/pages/ChatBot';
 
 export type RouterWithTabAuthObject = Omit<RouteObject, 'children'> & {
     label?: string;
@@ -69,7 +70,7 @@ export const routes: RouterWithTabAuthObject[] = [
                             title: 'Chat Bot',
                             needLogin: true,
                         },
-                        element: <div>other1</div>,
+                        element: <ChatBot />,
                     },
                     {
                         path: 'pageTwo',
