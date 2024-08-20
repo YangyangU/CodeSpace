@@ -35,6 +35,10 @@ const Auth = (props: PropsWithChildren) => {
         document.title = currentRoute.meta.title;
     }
 
+    if (!token && currentRoute?.path !== '/login') {
+        return <Navigate to="/login" replace />;
+    }
+
     if (currentRoute?.meta?.needLogin && !token) {
         return <Navigate to="/login" replace />;
     }

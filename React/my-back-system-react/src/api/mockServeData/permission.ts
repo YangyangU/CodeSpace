@@ -1,6 +1,7 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import Mock from 'mockjs';
 export default {
-    getMenu: (config) => {
+    getMenu: (config: any) => {
         const { username, password } = JSON.parse(config.body);
         // 先判断用户是否存在
         // 判断账号和密码是否对应
@@ -45,8 +46,8 @@ export default {
                                 {
                                     path: '/other/pageOne',
                                     name: 'page1',
-                                    label: '页面1',
-                                    icon: 'SettingOutlined',
+                                    label: 'Chat Bot',
+                                    icon: 'RobotOutlined',
                                 },
                                 {
                                     path: '/other/pageTwo',
@@ -86,6 +87,19 @@ export default {
                             label: '3D看车',
                             icon: 'CarOutlined',
                             url: '/car/index',
+                        },
+                        {
+                            path: '/other',
+                            label: '其他',
+                            icon: 'SettingOutlined',
+                            children: [
+                                {
+                                    path: '/other/pageOne',
+                                    name: 'page1',
+                                    label: 'Chat Bot',
+                                    icon: 'RobotOutlined',
+                                },
+                            ],
                         },
                     ],
                     token: Mock.Random.guid(),

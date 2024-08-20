@@ -66,7 +66,7 @@ export const routes: RouterWithTabAuthObject[] = [
                     {
                         path: 'pageOne',
                         meta: {
-                            title: '用户列表',
+                            title: 'Chat Bot',
                             needLogin: true,
                         },
                         element: <div>other1</div>,
