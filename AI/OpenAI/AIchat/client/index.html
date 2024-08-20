@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://at.alicdn.com/t/c/font_4588603_j2uhmth77rj.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: rgb(16, 16, 20);
+        }
+
+        .chat-container {
+            width: 100%;
+            max-width: 100vw;
+            margin: auto;
+            border: 1px solid #ccc;
+            padding: 10px;
+            height: 600px;
+            overflow-y: scroll;
+            background-color: rgb(16, 16, 20);
+        }
+
+        .chat-message {
+            margin-bottom: 10px;
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+        .iconfont {
+            font-size: 20px;
+        }
+
+        .icfont {
+
+            color: #ccc;
+        }
+
+        .user-message {
+            position: relative;
+            left: 0;
+            text-align: right;
+            background-color: rgb(161, 220, 149);
+            color: #000;
+        }
+
+        .ai-message {
+            background-color: rgb(30, 30, 32);
+            color: rgb(235, 235, 235);
+            text-align: left;
+        }
+
+        .message {
+            display: inline-block;
+            max-width: 800px;
+            border-radius: 30px;
+            padding: 12px 25px;
+        }
+
+        .userOption {
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .styled-input {
+            flex-grow: 0;
+            width: 35vw;
+            padding: 10px;
+            /* margin-bottom: 10px; */
+            margin-right: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .styled-input:focus {
+            outline: none;
+            border-color: #007bff;
+        }
+
+        .styled-button {
+            padding: 10px 20px;
+            border: none;
+            color: black;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="chatBox">
+            <div class="chat-container" id="chatContainer">
+                <div class="chat-message">
+                    <div class="aiIconfont icfont">
+                        <i class="iconfont icon-ChatGPT"></i>
+                    </div>
+                    <div class="ai-message message">
+                        <p>你好！我是聊天助手。</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="userOption">
+            <input type="text" class="styled-input" id="inputBox" placeholder="输入内容...">
+            <button class="styled-button">提交</button>
+        </div>
+    </div>
+</body>
+<script>
+    let chatContainer = document.querySelector('#chatContainer');
+    let inputBox = document.querySelector('.styled-button');
+    let inputText = document.querySelector('.styled-input');
+    inputBox.addEventListener('click', () => {
+        let value = inputText.value.trim();
+        inputText.value = "";
+        if (value === '') return;
+        chatContainer.innerHTML += `<div class="chat-message">
+                            <div class="userIconfont icfont">
+                                <i class="iconfont icon-user"></i>
+                            </div>
+                            <div class="user-message message">
+                                <p>${value}</p>
+                            </div>
+                        </div>`;
+        inputBox.disabled = true;
+        fetch('http://localhost:3001/ai', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ value })
+
+        })
+            .then(res => res.json())
+            .then(data => {
+                inputBox.disabled = false;
+                console.log(data);
+                let { status, res } = data;
+
+                if (status == 500) {
+                    alert("服务器错误，请稍后重试！")
+                }
+                else {
+                    let str = `
+                        <div class="chat-message">
+                            <div class="aiIconfont icfont">
+                                <i class="iconfont icon-ChatGPT"></i>
+                            </div>
+                            <div class="ai-message message">
+                                <p>${res}</p>
+                            </div>
+                        </div>
+                        `
+                    chatContainer.innerHTML += str;
+                }
+            }).catch(err => {
+                inputBox.disabled = false;
+                let str = `
+                        <div class="chat-message">
+                            <div class="aiIconfont icfont">
+                                <i class="iconfont icon-ChatGPT"></i>
+                            </div>
+                            <div class="ai-message message">
+                                <p>对不起，无法访问服务器</p>
+                            </div>
+                        </div>
+                        `
+                chatContainer.innerHTML += str;
+            })
+
+
+    })
+</script>
+
+</html>
