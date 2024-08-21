@@ -48,7 +48,7 @@ const View: React.FC = () => {
     };
 
     return (
-        <div className="container">
+        <div className="ai-container">
             <div className="chat-container">
                 {messages.map((message, index) => (
                     <div key={index} style={{ display: 'flex' }}>
