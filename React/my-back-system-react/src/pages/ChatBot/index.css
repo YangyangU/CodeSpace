@@ -1,75 +1,67 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: rgb(16, 16, 20);
-  }
-  
-  .container {
+.container {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    height: 100vh;
-  }
-  
-  .chat-container {
     width: 100%;
-    max-width: 100vw;
-    margin: auto;
-    padding: 10px;
-    height: 600px;
-    overflow-y: scroll;
+    height: 100%;
+    border-radius: 20px;
     background-color: rgb(16, 16, 20);
-  }
-  
-  .chat-message {
-    margin-bottom: 10px;
-    padding: 5px;
+}
+
+.chat-container {
+    width: 100%;
+    padding: 20px;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.user-avatar {
+    background-image: url(@/assets/images/avatar.jpg);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-size: cover;
+}
+
+.ai-avatar {
+    background-image: url(@/assets/images/bot.png);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-size: cover;
+}
+
+.chat-message {
+    max-width: 500px;
+    margin: 0 0 10px 8px;
+    padding: 10px;
     border-radius: 5px;
-  }
-  
-  .user-message {
-    text-align: right;
+    text-align: left;
+}
+
+.user-message {
     background-color: rgb(161, 220, 149);
     color: #000;
-  }
-  
-  .ai-message {
-    text-align: left;
+}
+
+.ai-message {
     background-color: rgb(30, 30, 32);
     color: rgb(235, 235, 235);
-  }
-  
-  .message {
-    display: inline-block;
-    max-width: 800px;
-    border-radius: 30px;
-    padding: 12px 25px;
-  }
-  
-  .userOption {
-    margin-top: 20px;
+}
+
+.userOption {
+    padding: 20px 0 20px 0;
+    margin: 0 auto;
+}
+
+.search {
     display: flex;
     align-items: center;
-    justify-content: center;
-  }
-  
-  .styled-input {
-    flex-grow: 0;
-    width: 35vw;
-    padding: 10px;
-    margin-right: 12px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  .styled-input:focus {
-    outline: none;
-    border-color: #007bff;
-  }
-  
-  .styled-button {
-    padding: 10px 20px;
-    border: none;
-    color: black;
-    border-radius: 5px;
-    cursor: pointer;
-  }
+    justify-content: space-between;
+    width: 400px;
+    height: 45px;
+    border-radius: 30px;
+    padding: 0 10px;
+    margin: 0 10px;
+    background-color: #f4f4f4;
+    color: #000;
+}
