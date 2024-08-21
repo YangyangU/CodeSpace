@@ -1,0 +1,42 @@
+.notfound-page {
+    width: 600px;
+    height: 600px;
+    margin: 100px auto;
+    text-align: center;
+}
+
+.notfound-img {
+    width: 600px;
+    height: 328.98px;
+    margin-bottom: 20px;
+    margin-left: 30px;
+}
+.oops {
+    font-size: 32px;
+    color: #1482f0;
+    margin-bottom: 20px;
+    margin-left: 30px;
+    font-weight: bold;
+    height: 40px;
+}
+.out {
+    font-size: 20px;
+    color: #1482f0;
+    margin-bottom: 20px;
+    height: 40px;
+}
+
+.right {
+    margin-bottom: 10px;
+    font-size: 13px;
+    color: #808080;
+    height: 42px;
+}
+
+.linkto-home {
+    color: #fff;
+    font-size: 14px;
+    border-radius: 30px;
+    padding: 8px 25px;
+    background-color: #1482f0;
+}

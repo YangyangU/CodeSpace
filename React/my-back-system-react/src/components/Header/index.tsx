@@ -14,6 +14,7 @@ const View: React.FC<{ collapsed: boolean }> = ({ collapsed }) => {
     const logOut = () => {
         navigate('/login');
         localStorage.removeItem('my-back-token');
+        localStorage.removeItem('my-back-menu');
     };
     const goMine = () => {
         navigate('/mine');

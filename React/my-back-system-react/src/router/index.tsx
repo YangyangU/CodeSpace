@@ -8,6 +8,7 @@ import NotFound from '@/pages/404';
 import Login from '@/pages/Login';
 import Car from '@/pages/Car';
 import ChatBot from '@/pages/ChatBot';
+import Mine from '@/pages/Mine';
 
 export type RouterWithTabAuthObject = Omit<RouteObject, 'children'> & {
     label?: string;
@@ -62,25 +63,20 @@ export const routes: RouterWithTabAuthObject[] = [
                 element: <Car />,
             },
             {
-                path: 'other',
-                children: [
-                    {
-                        path: 'pageOne',
-                        meta: {
-                            title: 'Chat Bot',
-                            needLogin: true,
-                        },
-                        element: <ChatBot />,
-                    },
-                    {
-                        path: 'pageTwo',
-                        meta: {
-                            title: '用户列表',
-                            needLogin: true,
-                        },
-                        element: <div>other2</div>,
-                    },
-                ],
+                path: 'bot',
+                meta: {
+                    title: 'Chat Bot',
+                    needLogin: true,
+                },
+                element: <ChatBot />,
+            },
+            {
+                path: 'mine',
+                meta: {
+                    title: '个人中心',
+                    needLogin: true,
+                },
+                element: <Mine />,
             },
         ],
     },

@@ -79,16 +79,16 @@ const Home: React.FC = () => {
                     <div className="user">
                         <img src={userImg} alt="user" />
                         <div className="userinfo">
-                            <p className="name">Admin</p>
+                            <p className="name">YangyangU</p>
                             <p className="access">超级管理员</p>
                         </div>
                     </div>
                     <div className="login-info">
                         <p className="login-time">
-                            上次登录时间：<span>2024-6-1</span>
+                            上次登录时间：<span>2024-5-28</span>
                         </p>
                         <p className="login-ip">
-                            上次登录地点：<span>北京</span>
+                            上次登录地点：<span>北京小米科技园</span>
                         </p>
                     </div>
                 </Card>

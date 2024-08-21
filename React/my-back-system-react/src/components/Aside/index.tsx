@@ -1,7 +1,7 @@
 import { Layout, Menu } from 'antd';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { icon2Element } from '@/utils/icon';
-import { To, useNavigate } from 'react-router-dom';
+import { To, useNavigate, useLocation } from 'react-router-dom';
 import type { AppDispatch } from '@/store';
 import { setTagList, setCurrentTab } from '@/store/reducers/tabs';
 import { flattenMenuList } from '@/utils/tab';
@@ -19,6 +19,14 @@ const View: React.FC<{ collapsed: boolean }> = ({ collapsed }) => {
     const menuList = useSelector((state: RootState) => state.tab.menuList);
     const dispatch: AppDispatch = useDispatch();
     const navigate = useNavigate();
+    const location = useLocation();
+    const [selectedKeys, setSelectedKeys] = useState<string[]>([
+        location.pathname,
+    ]);
+
+    useEffect(() => {
+        setSelectedKeys([location.pathname]);
+    }, [location.pathname]);
 
     const items: MenuItemType[] = menuList.map((item) => {
         const child: MenuItemType = {
@@ -62,12 +70,13 @@ const View: React.FC<{ collapsed: boolean }> = ({ collapsed }) => {
 
     return (
         <Layout.Sider trigger={null} collapsible collapsed={collapsed}>
-            <h3 className="app-name">{collapsed ? '后台' : '后台管理系统'}</h3>
+            <h3 className="app-name">{collapsed ? '后台' : 'YY管理系统'}</h3>
             <Menu
                 theme="dark"
                 mode="inline"
                 defaultSelectedKeys={['/home']}
                 items={items}
+                selectedKeys={selectedKeys}
                 style={{
                     height: '100%',
                 }}
