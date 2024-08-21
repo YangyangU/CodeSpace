@@ -1,5 +1,4 @@
-import { MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons';
-import { Button, Layout, Avatar, Dropdown } from 'antd';
+import { Layout, Avatar, Dropdown } from 'antd';
 import type { MenuProps } from 'antd';
 import './index.css';
 import avatar from '@/assets/images/avatar.jpg';
@@ -8,7 +7,7 @@ import type { AppDispatch } from '@/store';
 import { collapseMenu } from '@/store/reducers/tabs';
 import { useNavigate } from 'react-router-dom';
 
-const View: React.FC<{ collapsed: boolean }> = ({ collapsed }) => {
+const View: React.FC = () => {
     const navigate = useNavigate();
     const dispatch: AppDispatch = useDispatch();
     const logOut = () => {
@@ -48,17 +47,20 @@ const View: React.FC<{ collapsed: boolean }> = ({ collapsed }) => {
 
     return (
         <Layout.Header className="header-container">
-            <Button
-                type="text"
-                icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
-                onClick={() => dispatch(collapseMenu())}
-                style={{
-                    fontSize: '16px',
-                    width: 64,
-                    height: 32,
-                    backgroundColor: '#fff',
-                }}
-            />
+            <div className="collapse-container">
+                <input
+                    className="label-check"
+                    id="label-check"
+                    type="checkbox"
+                    onClick={() => dispatch(collapseMenu())}
+                />
+                <label htmlFor="label-check" className="hamburger-label">
+                    <div className="line1"></div>
+                    <div className="line2"></div>
+                    <div className="line3"></div>
+                    <label></label>
+                </label>
+            </div>
             <Dropdown menu={{ items }}>
                 <Avatar size={32} src={<img src={avatar}></img>}></Avatar>
             </Dropdown>

@@ -1,5 +1,58 @@
-.header-container{
+.header-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.collapse-container{
+    margin-top: 8px;
+    margin-left: -15px;
+}
+
+.label-check {
+    display: none;
+}
+
+.hamburger-label {
+    width: 35px;
+    height: 29px;
+    display: block;
+    cursor: pointer;
+}
+
+.hamburger-label div {
+    width: 35px;
+    height: 3px;
+    background-color: #fff;
+    position: absolute;
+}
+
+.line1 {
+    transition: all 0.3s;
+}
+
+.line2 {
+    margin: 9px 0 0 0;
+    transition: 0.3s;
+}
+
+.line3 {
+    margin: 18px 0 0 0;
+    transition: 0.3s;
+}
+
+#label-check:checked + .hamburger-label .line1 {
+    transform: rotate(35deg) scaleX(0.55) translate(19.5px, -2.25px); /* 原translate(39px, -4.5px)减半 */
+    border-radius: 25px 25px 25px 0;
+}
+
+#label-check:checked + .hamburger-label .line3 {
+    transform: rotate(-35deg) scaleX(0.55) translate(19.5px, 2.25px); /* 原translate(39px, 4.5px)减半 */
+    border-radius: 0 25px 25px 25px;
+}
+
+#label-check:checked + .hamburger-label .line2 {
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    width: 22.5px;
 }

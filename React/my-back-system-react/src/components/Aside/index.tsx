@@ -7,6 +7,7 @@ import { setTagList, setCurrentTab } from '@/store/reducers/tabs';
 import { flattenMenuList } from '@/utils/tab';
 import { useDispatch, useSelector } from 'react-redux';
 import type { RootState } from '@/store';
+import moom from '@/assets/images/moon.png';
 
 type MenuItemType = {
     key: string;
@@ -70,7 +71,22 @@ const View: React.FC<{ collapsed: boolean }> = ({ collapsed }) => {
 
     return (
         <Layout.Sider trigger={null} collapsible collapsed={collapsed}>
-            <h3 className="app-name">{collapsed ? '后台' : 'YY管理系统'}</h3>
+            <h3 className="app-name">
+                {collapsed ? (
+                    <img
+                        src={moom}
+                        style={{
+                            width: '30px',
+                            height: '30px',
+                            marginTop: '10px',
+                            marginBottom: '-10px',
+                        }}
+                        alt=""
+                    />
+                ) : (
+                    '超级管理系统'
+                )}
+            </h3>
             <Menu
                 theme="dark"
                 mode="inline"

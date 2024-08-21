@@ -26,15 +26,14 @@ const View: React.FC = () => {
             <Layout className="main-container" style={{ height: '93vh' }}>
                 <Aside collapsed={collapsed}></Aside>
                 <Layout>
-                    <Header collapsed={collapsed}></Header>
+                    <Header />
                     <Tag />
                     <Layout.Content
                         style={{
                             margin: '16px 16px',
                             padding: 16,
                             width: '98%',
-                            maxHeight: '800px',
-                            overflow: 'auto',
+                            overflowY: 'scroll',
                             background: colorBgContainer,
                             borderRadius: borderRadiusLG,
                         }}
