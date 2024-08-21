@@ -4,13 +4,12 @@ import bodyParser from 'koa-bodyparser';
 import aiChat from './aiChat.js';
 import cors from '@koa/cors';
 import { OpenAI } from 'openai';
-import process from 'process';
 
 const app = new Koa();
 const router = new Router();
 
 const client = new OpenAI({
-    apiKey: process.env.OPENAI_API_KEY,
+    apiKey: 'sk-YLvBFsvusvtmlvgNPmTAQx17cF3PNAwL99zALCxKWIgptYOa',
     baseURL: 'https://api.302.ai/v1/chat/completions',
 });
 
@@ -38,5 +37,5 @@ app.use(router.routes()).use(router.allowedMethods());
 
 const PORT = 3001;
 app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
+    console.log(`服务运行在${PORT}端口`);
 });

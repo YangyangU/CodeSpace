@@ -33,7 +33,7 @@ const View: React.FC = () => {
             const data = await getMessage(inputValue);
             const aiMessage: ChatMessage = {
                 sender: 'ai',
-                content: data.value,
+                content: data.res,
             };
             setMessages((prevMessages) => [...prevMessages, aiMessage]);
         } catch (error) {

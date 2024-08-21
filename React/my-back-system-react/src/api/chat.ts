@@ -1,10 +1,10 @@
 import { request } from './axios';
 
 export const getMessage: (value: string) => Promise<{
-    value: string;
+    res: string;
 }> = async (value) => {
-    const { data } = await request.get(
-        `http://localhost:3001/ai?value=${value}`,
-    );
+    const { data } = await request.post('http://localhost:3001/ai', {
+        value,
+    });
     return data;
 };
