@@ -12,6 +12,8 @@
         "prepare": "husky"
     },
     "dependencies": {
+        "@ant-design/icons-vue": "^7.0.1",
+        "ant-design-vue": "4.x",
         "vue": "^3.4.37"
     },
     "devDependencies": {
