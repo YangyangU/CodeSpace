@@ -7,13 +7,14 @@ import { columns } from './data';
 import { icon2Element } from '@/utils/icon';
 import Echarts from '@/components/Echarts';
 import dayjs from 'dayjs';
+import { useNavigate } from 'react-router-dom';
 
 const Home: React.FC = () => {
     const [tableData, setTableData] = useState<tableType[]>([]);
     const [countData, setCountData] = useState<countType[]>([]);
     const [echartsData, setEchartsData] = useState<dataType>({} as dataType);
     const [area, setArea] = useState<string>('');
-
+    const navigate = useNavigate();
     useEffect(() => {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(
@@ -102,7 +103,7 @@ const Home: React.FC = () => {
     return (
         <Row className="home">
             <Col span={8}>
-                <Card hoverable>
+                <Card hoverable onClick={() => navigate('/area')}>
                     <div className="user">
                         <img src={userImg} alt="user" />
                         <div className="userinfo">

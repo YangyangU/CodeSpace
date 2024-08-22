@@ -15,16 +15,13 @@ const View: React.FC = () => {
         localStorage.removeItem('my-back-token');
         localStorage.removeItem('my-back-menu');
     };
-    const goMine = () => {
-        navigate('/mine');
-    };
     const items: MenuProps['items'] = [
         {
             key: '1',
             label: (
                 <a
                     onClick={() => {
-                        goMine();
+                        navigate('/mine');
                     }}
                 >
                     个人中心
@@ -33,6 +30,18 @@ const View: React.FC = () => {
         },
         {
             key: '2',
+            label: (
+                <a
+                    onClick={() => {
+                        navigate('/area');
+                    }}
+                >
+                    我的位置
+                </a>
+            ),
+        },
+        {
+            key: '3',
             label: (
                 <a
                     onClick={() => {

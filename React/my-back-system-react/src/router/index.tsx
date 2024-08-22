@@ -9,6 +9,7 @@ import Login from '@/pages/Login';
 import Car from '@/pages/Car';
 import ChatBot from '@/pages/ChatBot';
 import Mine from '@/pages/Mine';
+import Area from '@/pages/Area';
 
 export type RouterWithTabAuthObject = Omit<RouteObject, 'children'> & {
     label?: string;
@@ -77,6 +78,14 @@ export const routes: RouterWithTabAuthObject[] = [
                     needLogin: true,
                 },
                 element: <Mine />,
+            },
+            {
+                path: 'area',
+                meta: {
+                    title: '我的地图',
+                    needLogin: true,
+                },
+                element: <Area />,
             },
         ],
     },
