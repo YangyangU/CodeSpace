@@ -1,55 +1,48 @@
 {
-  "name": "vue-context-menu",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "vue-tsc -b && vite build",
-    "preview": "vite preview",
-    "eslint:comment": "使用 ESLint 检查并自动修复 src 目录下所有扩展名为 .js 和 .vue 的文件",
-    "eslint": "eslint --ext .js,.vue --ignore-path .gitignore --fix src",
-    "prettier:comment": "自动格式化当前目录下的所有文件",
-    "prettier": "prettier --write",
-    "commit:comment": "引导设置规范化的提交信息",
-    "commit": "git-cz",
-    "prepare": "husky"
-  },
-  "dependencies": {
-    "vue": "^3.4.37"
-  },
-  "devDependencies": {
-    "@commitlint/cli": "^19.4.0",
-    "@commitlint/config-conventional": "^19.2.2",
-    "@types/node": "^22.4.2",
-    "@typescript-eslint/eslint-plugin": "^8.2.0",
-    "@typescript-eslint/parser": "^8.2.0",
-    "@vitejs/plugin-vue": "^5.1.2",
-    "commitizen": "^4.3.0",
-    "commitlint-config-cz": "^0.13.3",
-    "cz-conventional-changelog": "^3.3.0",
-    "cz-customizable": "^7.2.1",
-    "eslint": "^9.9.0",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-prettier": "^5.2.1",
-    "eslint-plugin-vue": "^9.27.0",
-    "husky": "^9.1.5",
-    "less": "^4.2.0",
-    "lint-staged": "^15.2.9",
-    "prettier": "^3.3.3",
-    "typescript": "^5.5.3",
-    "vite": "^5.4.1",
-    "vue-tsc": "^2.0.29"
-  },
-  "config": {
-    "commitizen": {
-      "path": "node_modules/cz-customizable"
-    }
-  },
-  "lint-staged": {
-    	"*.{js,ts}": [
+    "name": "vue-context-menu",
+    "private": true,
+    "version": "0.0.0",
+    "type": "module",
+    "scripts": {
+        "dev": "vite",
+        "build": "vue-tsc -b && vite build",
+        "preview": "vite preview",
+        "eslint": "eslint --ext .ts,.vue,.js --ignore-path .gitignore --fix src",
+        "prettier": "prettier --write",
+        "prepare": "husky"
+    },
+    "dependencies": {
+        "vue": "^3.4.37"
+    },
+    "devDependencies": {
+        "@commitlint/cli": "^19.4.0",
+        "@commitlint/config-conventional": "^19.2.2",
+        "@types/node": "^22.4.2",
+        "@typescript-eslint/eslint-plugin": "^8.2.0",
+        "@typescript-eslint/parser": "^8.2.0",
+        "@vitejs/plugin-vue": "^5.1.2",
+        "eslint": "^8.57.0",
+        "eslint-config-prettier": "^9.1.0",
+        "eslint-plugin-prettier": "^5.2.1",
+        "eslint-plugin-vue": "^9.27.0",
+        "husky": "^9.1.5",
+        "less": "^4.2.0",
+        "lint-staged": "^15.2.9",
+        "prettier": "^3.3.3",
+        "typescript": "^5.5.3",
+        "vite": "^5.4.1",
+        "vue-eslint-parser": "^9.4.3",
+        "vue-tsc": "^2.0.29"
+    },
+    "config": {
+        "commitizen": {
+            "path": "node_modules/cz-customizable"
+        }
+    },
+    "lint-staged": {
+        "*.{js,ts}": [
             "npm run eslint",
             "npm run prettier"
-    	]
-  }
+        ]
+    }
 }
