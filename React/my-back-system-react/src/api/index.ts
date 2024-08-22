@@ -50,3 +50,6 @@ export const getMenu: (config: LoginType) => Promise<{
     const { data } = await request.post('/permission/getMenu', config);
     return data;
 };
+
+export * from './area';
+export * from './chat';

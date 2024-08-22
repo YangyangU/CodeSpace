@@ -2,17 +2,44 @@ import React, { useEffect, useState } from 'react';
 import { Row, Col, Card, Table } from 'antd';
 import './index.css';
 import userImg from '@/assets/images/avatar.jpg';
-import { getData } from '@/api';
+import { getData, getArea } from '@/api';
 import { columns } from './data';
 import { icon2Element } from '@/utils/icon';
 import Echarts from '@/components/Echarts';
+import dayjs from 'dayjs';
 
 const Home: React.FC = () => {
     const [tableData, setTableData] = useState<tableType[]>([]);
     const [countData, setCountData] = useState<countType[]>([]);
     const [echartsData, setEchartsData] = useState<dataType>({} as dataType);
+    const [area, setArea] = useState<string>('');
 
     useEffect(() => {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+                async function success(position) {
+                    const addr = `${position.coords.longitude.toFixed(6)},${position.coords.latitude.toFixed(6)}`;
+                    const data = await getArea(
+                        '8300c47ce20d888bb05d89f0b869a270',
+                        addr,
+                    );
+                    setArea(data.regeocode.formatted_address);
+                },
+                function error(positionError) {
+                    console.log(
+                        '获取位置失败:',
+                        positionError.code,
+                        positionError.message,
+                    );
+                },
+                {
+                    timeout: 30000,
+                    maximumAge: 0,
+                },
+            );
+        } else {
+            alert('您的浏览器不支持Geolocation!');
+        }
         getData().then(({ data }) => {
             const { tableData, orderData, userData, videoData, countData } =
                 data;
@@ -84,11 +111,14 @@ const Home: React.FC = () => {
                         </div>
                     </div>
                     <div className="login-info">
-                        <p className="login-time">
-                            上次登录时间：<span>2024-5-28</span>
+                        <p>
+                            登录时间：
+                            <span>
+                                {dayjs(new Date()).format('YYYY-MM-DD')}
+                            </span>
                         </p>
-                        <p className="login-ip">
-                            上次登录地点：<span>北京小米科技园</span>
+                        <p>
+                            登录地点：<span>{area}</span>
                         </p>
                     </div>
                 </Card>

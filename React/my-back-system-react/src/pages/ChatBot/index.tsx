@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './index.css';
-import { getMessage } from '@/api/chat';
+import { getMessage } from '@/api';
 import { Input, Button, ConfigProvider, Form } from 'antd';
 import {
     ArrowUpOutlined,
