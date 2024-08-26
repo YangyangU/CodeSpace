@@ -39,6 +39,7 @@
 
 .product-image {
     width: 100%;
-    height: auto;
-    background-color: #f0f0f0; /* 图片加载前的背景色 */
+    height: 300px;
+    background-color: #f0f0f0;
 }
+

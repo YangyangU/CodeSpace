@@ -2,6 +2,7 @@ import React from 'react';
 import './index.css';
 import { Card } from 'antd';
 import LazyImage from '@/components/LazyImage';
+import LoadingImg from '@/assets/images/loading.gif';
 interface ImageType {
     url: string;
     name: string;
@@ -255,6 +256,7 @@ const Mall = () => {
                         alt={item.name}
                         key={item.name}
                         className="product-image"
+                        placeholder={LoadingImg}
                     />
                     <div className="content">
                         <div className="desc">{item.desc}</div>

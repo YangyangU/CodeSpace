@@ -4,9 +4,15 @@ interface LazyImageProps {
     src: string;
     alt: string;
     className?: string;
+    placeholder?: string; // loading图片
 }
 
-const LazyImage: React.FC<LazyImageProps> = ({ src, alt, className }) => {
+const LazyImage: React.FC<LazyImageProps> = ({
+    src,
+    alt,
+    className,
+    placeholder,
+}) => {
     const [isVisible, setIsVisible] = useState(false);
     const imgRef = useRef<HTMLImageElement | null>(null);
 
@@ -37,12 +43,12 @@ const LazyImage: React.FC<LazyImageProps> = ({ src, alt, className }) => {
                 }
             };
         }
-    }, []);
+    }, [alt]);
 
     return (
         <img
             ref={imgRef}
-            src={isVisible ? src : undefined} // 仅在可见时加载图片
+            src={isVisible ? src : placeholder} // 使用占位符图像
             alt={alt}
             className={className}
         />
