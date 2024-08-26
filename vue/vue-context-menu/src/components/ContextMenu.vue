@@ -1,39 +1,70 @@
 <template>
-    <a-menu
-        v-if="visible"
-        id="dddddd"
-        v-model:openKeys="openKeys"
-        v-model:selectedKeys="selectedKeys"
-        style="width: 256px"
-        mode="inline"
-        :items="props.items"
-        theme="dark"
-        @click="handleClick"
-    ></a-menu>
+    <div ref="contextMenu" class="context-menu-container">
+        <slot></slot>
+        <div
+            v-if="showMenu"
+            class="context-menu"
+            :style="{
+                left: x + 'px',
+                top: y + 'px',
+            }"
+        >
+            <div
+                v-for="item in items"
+                :key="item.key"
+                class="context-menu-item"
+                @click="handleItemClick(item)"
+            >
+                {{ item.label }}
+            </div>
+        </div>
+    </div>
 </template>
+
 <script lang="ts" setup>
-import { ref, watch } from 'vue';
-import type { MenuProps } from 'ant-design-vue';
+import { ItemType } from '@/App.vue';
+import { ref, Ref } from 'vue';
+import useContextMenu from '@/hooks/useContextMent';
 
-const selectedKeys = ref<string[]>(['1']);
-const openKeys = ref<string[]>(['sub1']);
+const contextMenu = ref<HTMLDivElement | null>(null);
+const emit = defineEmits(['select']);
+const { showMenu, x, y } = useContextMenu(contextMenu as Ref<HTMLDivElement>);
 
-const handleClick: MenuProps['onClick'] = (e) => {
-    console.log('click', e);
-};
-
-watch(openKeys, (val) => {
-    console.log('openKeys', val);
-});
-
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const props = defineProps({
     items: {
-        type: Array,
+        type: Array as () => ItemType[],
         default: () => [],
     },
-    visible: {
-        type: Boolean,
-        default: false,
-    },
 });
+
+const handleItemClick = (item: ItemType) => {
+    emit('select', item);
+    showMenu.value = false;
+};
 </script>
+
+<style scoped>
+.context-menu-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.context-menu {
+    position: fixed;
+    z-index: 9999;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.context-menu-item {
+    padding: 8px 16px;
+    cursor: pointer;
+}
+
+.context-menu-item:hover {
+    background-color: #f5f5f5;
+}
+</style>
