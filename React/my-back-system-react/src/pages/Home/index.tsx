@@ -8,6 +8,7 @@ import { icon2Element } from '@/utils/icon';
 import Echarts from '@/components/Echarts';
 import dayjs from 'dayjs';
 import { useNavigate } from 'react-router-dom';
+import { useCoordinate } from '@/hooks/useCoordinate';
 
 const Home: React.FC = () => {
     const [tableData, setTableData] = useState<tableType[]>([]);
@@ -15,32 +16,13 @@ const Home: React.FC = () => {
     const [echartsData, setEchartsData] = useState<dataType>({} as dataType);
     const [area, setArea] = useState<string>('');
     const navigate = useNavigate();
+    const { longitude, latitude } = useCoordinate();
+
     useEffect(() => {
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(
-                async function success(position) {
-                    const addr = `${position.coords.longitude.toFixed(6)},${position.coords.latitude.toFixed(6)}`;
-                    const data = await getArea(
-                        '8300c47ce20d888bb05d89f0b869a270',
-                        addr,
-                    );
-                    setArea(data.regeocode.formatted_address);
-                },
-                function error(positionError) {
-                    console.log(
-                        '获取位置失败:',
-                        positionError.code,
-                        positionError.message,
-                    );
-                },
-                {
-                    timeout: 30000,
-                    maximumAge: 0,
-                },
-            );
-        } else {
-            alert('您的浏览器不支持Geolocation!');
-        }
+        const addr = `${longitude},${latitude}`;
+        getArea('8300c47ce20d888bb05d89f0b869a270', addr).then((data) => {
+            setArea(data.regeocode.formatted_address);
+        });
         getData().then(({ data }) => {
             const { tableData, orderData, userData, videoData, countData } =
                 data;
@@ -99,7 +81,7 @@ const Home: React.FC = () => {
                 },
             });
         });
-    }, []);
+    }, [latitude, longitude]);
     return (
         <Row className="home">
             <Col span={8}>

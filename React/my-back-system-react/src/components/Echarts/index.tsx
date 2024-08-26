@@ -22,7 +22,7 @@ const View: React.FC<DataProps> = ({
             options = normalOption as EChartsOption;
         }
         echartObj.current.setOption(options);
-    }, [chartData]);
+    }, [chartData, isAxisChart]);
     return <div style={style} ref={echartRef}></div>;
 };
 
