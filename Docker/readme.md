@@ -111,3 +111,28 @@ docker run -d -p 88:80 -v /app/nghtml:/usr/share/nginx/html -v ngconf:/etc/nginx
 不以`/`或`./`开头的被归为卷
 
 存放地址`/var/lib/docker/volumes/<volume-name>`
+
+## Dockerfile
+
+![alt text](image-1.png)
+
+```bash
+上传tar文件到服务区
+
+- 解压 
+tar -xvf xxxx.tar
+
+- 移除压缩包
+rm -rf xxxx.tar
+
+- 打包镜像
+docker build -f Dockerfile -t xxxxx:1.0.0 .
+
+- 查看镜像
+docker images
+
+- 运行容器
+docker run -d -p 8888:80 xxxxx:1.0.0
+
+
+```
