@@ -1,7 +1,10 @@
-FROM node:18
+FROM hub.atomgit.com/amd64/node
 
-EXPOSE 80
+EXPOSE 3001
 WORKDIR /app
-COPY . /app
+
+COPY . .
+
+RUN npm install
 
 CMD ["node","index.js"]
