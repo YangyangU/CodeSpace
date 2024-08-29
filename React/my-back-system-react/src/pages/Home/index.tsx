@@ -19,8 +19,11 @@ const Home: React.FC = () => {
     const { longitude, latitude } = useCoordinate();
 
     useEffect(() => {
-        const addr = `${longitude},${latitude}`;
-        getArea('8300c47ce20d888bb05d89f0b869a270', addr).then((data) => {
+        console.log(longitude, latitude);
+        getArea(
+            '8300c47ce20d888bb05d89f0b869a270',
+            `${longitude},${latitude}`,
+        ).then((data) => {
             setArea(data.regeocode.formatted_address);
         });
         getData().then(({ data }) => {
