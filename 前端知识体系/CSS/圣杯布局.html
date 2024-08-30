@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body,
+        html,
+        .container {
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+
+        .container {
+            padding: 0 100px 0 100px;
+        }
+
+        .col {
+            float: left;
+            position: relative;
+        }
+
+        .main {
+            width: 100%;
+            height: 100%;
+            background: #659;
+        }
+
+        .left {
+            left:-100px;
+            height: 100%;
+            background-color: #652727;
+            width: 100px;
+            margin-left: -100%;
+        }
+
+        .right {
+            right: -100px;
+            background-color: #652727;
+            width: 100px;
+            height: 100%;
+            margin-left: -100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="main col">Main</div>
+        <div class="left col">Left</div>
+        <div class="right col">Right</div>
+    </div>
+</body>
+
+</html>
