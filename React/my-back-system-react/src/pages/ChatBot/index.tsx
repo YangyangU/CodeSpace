@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './index.css';
 import { getMessage } from '@/api';
 import { Input, Button, ConfigProvider, Form } from 'antd';
@@ -14,11 +14,18 @@ interface ChatMessage {
 }
 
 const View: React.FC = () => {
-    const [messages, setMessages] = useState<ChatMessage[]>([
-        { sender: 'ai', content: '你好！我是聊天助手。' },
-    ]);
+    const [messages, setMessages] = useState<ChatMessage[]>(() => {
+        const savedMessages = localStorage.getItem('chatMessages');
+        return savedMessages
+            ? JSON.parse(savedMessages)
+            : [{ sender: 'ai', content: '你好！我是聊天助手。' }];
+    });
     const [inputValue, setInputValue] = useState('');
     const [loading, setLoading] = useState(false);
+
+    useEffect(() => {
+        localStorage.setItem('chatMessages', JSON.stringify(messages));
+    }, [messages]);
 
     const handleSubmit = async () => {
         if (inputValue.trim() === '') return;
