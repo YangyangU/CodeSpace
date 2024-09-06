@@ -1,30 +1,59 @@
-# React + TypeScript + Vite
+# 超级管理系统
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 作者
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json', './tsconfig.app.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+```
+YangyangU
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## 技术栈
+
+<p align="left">
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=react,ts,nodejs,redux,vite,docker,nginx" />
+  </a>
+</p>
+
+## 项目运行
+
+```
+git clone https://github.com/zhengyuxiang/my-back-system-react.git
+cd my-back-system-react
+npm install
+npm run start
+```
+
+### 账号
+
+```
+admin
+```
+
+### 密码
+
+```
+admin
+```
+
+## 项目截图
+
+**首页**
+![alt text](./public/image.png)
+
+**商品管理**
+![alt text](./public/image1.png)
+
+**用户管理**
+![alt text](./public/image2.png)
+
+**3D看车**
+![alt text](./public/image3.png)
+
+**Chat Bot**
+![alt text](./public/image4.png)
+
+**个人中心**
+![alt text](./public/image5.png)
+
+**我的地图**
+![alt text](./public/image6.png)
