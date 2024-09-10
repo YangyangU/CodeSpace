@@ -12,8 +12,8 @@ export default defineConfig({
     },
     server: {
         proxy: {
-            '/api': {
-                target: 'http://ip-api.com',
+            '/api.php': {
+                target: 'http://api.qingyunke.com',
                 changeOrigin: true,
             },
         },
