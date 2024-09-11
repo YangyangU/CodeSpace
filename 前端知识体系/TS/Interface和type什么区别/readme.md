@@ -1,0 +1,1 @@
+- interface 和 type 都可以用来声明和约束变量类型结构，interface 可以被继承重载，type 要想被继承只能使用联合&，而且 interface 的性能比 type 更好
