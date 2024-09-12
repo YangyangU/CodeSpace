@@ -1,0 +1,1 @@
+vue-loader 通过生成哈希 ID，根据 type 的不同调用不同的 loader ，将哈希 ID分别注入到 DOM 和属性选择器中。实现 CSS 局部作用域的效果。CSS Scoped 可以算作为 Vue 定制的一个处理原生 CSS 作用域的解决方案。

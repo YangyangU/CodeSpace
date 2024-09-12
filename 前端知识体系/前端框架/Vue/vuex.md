@@ -1,0 +1,4 @@
+- 改变状态的唯一途径就是提交mutations
+- 如果是异步的，就派发(dispatch)actions，其本质还是提交mutations
+- 怎样去触发actions呢？可以用组件Vue Components使用dispatch或者后端接口去触发
+- 提交mutations后，可以动态的渲染组件Vue Components
