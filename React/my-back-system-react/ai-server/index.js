@@ -17,6 +17,23 @@ const router = new Router();
 app.use(cors());
 app.use(bodyParser());
 
+router.get('/ip', async (ctx) => {
+    console.log(ctx);
+
+    try {
+        const response = await axios.get('https://api.ipify.org/?format=json');
+        ctx.response.body = {
+            status: 200,
+            data: response.data,
+        };
+    } catch (err) {
+        ctx.response.body = {
+            status: 500,
+            error: err.message,
+        };
+    }
+});
+
 router.post('/ai', async (ctx) => {
     const { value } = ctx.request.body;
 

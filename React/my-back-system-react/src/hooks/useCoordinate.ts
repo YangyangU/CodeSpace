@@ -42,7 +42,7 @@ export const useCoordinate = () => {
                     setLatitude(res.lat);
                 });
             });
-    }, [ip]);
+    }, []);
     return {
         longitude,
         latitude,

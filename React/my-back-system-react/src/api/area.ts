@@ -12,7 +12,7 @@ export const getArea: (key: string, addr: string) => Promise<any> = async (
 };
 
 export const getIp: () => Promise<any> = async () => {
-    const { data } = await request.get('https://api.ipify.org/?format=json');
+    const { data } = await request.get('http://47.96.29.195:3001/ip');
     return data;
 };
 
