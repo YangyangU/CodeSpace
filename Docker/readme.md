@@ -128,11 +128,17 @@ rm -rf xxxx.tar
 - 打包镜像
 docker build -f Dockerfile -t xxxxx:1.0.0 .
 
+docker build -f Dockerfile -t my-back-system-react:1.0.0 .
+
+docker build -f Dockerfile -t ai-server:1.0.0 .
+
 - 查看镜像
 docker images
 
 - 运行容器
 docker run -d -p 8888:80 xxxxx:1.0.0
 
+docker run -d -p 2222:80 my-back-system-react:1.0.0
 
+docker run -d -p 3001:3001 ai-server:1.0.0
 ```
