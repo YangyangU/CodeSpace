@@ -44,4 +44,6 @@ function curry(fn) {
     }
   };
 }
+
+console.log(curry(add)(1)(2)(3)); // 输出 6
 ```
