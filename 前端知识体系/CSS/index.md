@@ -77,8 +77,8 @@ animation（动画）	用于设置动画属性，他是一个简写的属性，�
 6. %
 
 # 隐藏元素的方法
-opacity: 0;
-display: none;
+opacity: 0;             可交互
+display: none;          不占据任何空间
 visibility: hidden;
 position: absolute;
 transform: scale(0);//缩放
