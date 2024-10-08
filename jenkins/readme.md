@@ -6,7 +6,7 @@
 # 自己去github下
 mv docker-compose-linux-x86_64 /usr/local/bin/docker-compose
 # 授予执行权限
-chmod +x /usr/local/bin/docker-compos
+chmod +x /usr/local/bin/docker-compose
 # 检查
 docker-compose --version
 ```
@@ -35,7 +35,7 @@ vim docker-compose.yml
 version: '3'
 services:
   jenkins:
-    image: jenkins/jenkins:latest
+    image: jenkins/jenkins:lts
     container_name: 'jenkins'
     restart: always
     ports:
