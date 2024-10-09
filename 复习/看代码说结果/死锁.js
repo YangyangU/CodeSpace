@@ -12,7 +12,7 @@ var b = new Promise((resolve) => {
     console.log(5);
 })
 a = new Promise(async (resolve) => {
-    console.log(a)
+    console.log(a) // a为赋值
     await b
     console.log(a)
     await a
