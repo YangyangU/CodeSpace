@@ -41,30 +41,15 @@ function deep(tree) {
 }
 
 function deep1(tree){
-    let res = [1]
-    function dfs(tree){
-        for(let i = 0; i < tree.children.length; i++){
-            res.push(tree.children[i].val)
-            if(tree.children[i].children.length > 0){
-                dfs(tree.children[i])
-            }
+    let res = []
+    function dfs(node){
+        res.push({ val: node.val });
+        if (node.children && node.children.length > 0) {
+            node.children.forEach(child => dfs(child));
         }
     }
     dfs(tree)
     return res
 }
 
-function deep3(tree){
-    let res = []
-    let queue = [tree]
-    while(queue.length > 0){
-        let node = queue.shift()
-        res.push(node.val)
-        if(node.children.length > 0){
-            queue.push(...node.children)
-        }
-    }
-    return res
-}
-
-console.log(deep3(tree));
+console.log(deep1(tree));

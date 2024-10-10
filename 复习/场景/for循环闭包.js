@@ -1,8 +1,8 @@
 let arr = []
 
 for (var i = 0; i < 5; i++) {
-    (function a(j){
-        arr[i] = function(){
+    (function a(j) {
+        arr[i] = function () {
             console.log(j)
         }
     })(i)
@@ -19,9 +19,9 @@ for (var j = 0; j < 5; j++) {
 // }
 
 for (var i = 0; i < 5; i++) {
-    (function(index) {
+    (function (index) {
         setTimeout(() => {
             console.log(index);
-        },0);
+        }, 0);
     })(i);
 }

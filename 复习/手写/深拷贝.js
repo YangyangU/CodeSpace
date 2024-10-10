@@ -9,7 +9,7 @@ let obj = {
 //     let newObj = Array.isArray(obj) ? [] : {}
 //     for(let key in obj){
 //         if(obj.hasOnwProperty(key)){
-//             if(typeof key === 'object'){
+//             if(typeof key === 'object' && obj[key] !== null){
 //                 newObj[key] = deepClone(obj[key])
 //             }else{
 //                 newObj[key] = obj[key]
@@ -24,7 +24,7 @@ let obj = {
 //     let newObj = Array.isArray(obj) ? [] : {};//创建一个新对象或数组
 //     for(let key in obj){//遍历这个对象
 //         if(obj.hasOwnProperty(key)){
-//             newObj[key] = typeof obj[key] === 'object' ? deepClone(obj[key]) : obj[key];
+//             newObj[key] = typeof obj[key] === 'object' && obj[key] !== null ? deepClone(obj[key]) : obj[key];
 //         }
 //     }
 //     return newObj;
