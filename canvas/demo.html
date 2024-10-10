@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #canvas {
+            border: 1px solid #ccc;
+        }
+
+        button {
+            margin: 6px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas" width="600" height="340"></canvas>
+    <br />
+    <button onclick="drawLine()">绘制直线</button>
+    <button onclick="drawPolyline()">绘制折线</button>
+    <button onclick="drawRect()">绘制矩形</button>
+    <button onclick="drawCircle()">绘制圆形</button>
+    <button onclick="drawImage()">绘制图片</button>
+    <button onclick="clearCanvas()">清除画布</button>
+</body>
+<script>
+    // 获取画布和画布上下文对象
+    var canvas = document.getElementById('canvas');
+    var ctx = canvas.getContext('2d');
+
+    // 绘制直线
+    function drawLine() {
+        // 随机生成起点和终点坐标
+        var startX = Math.floor(Math.random() * canvas.width);
+        var startY = Math.floor(Math.random() * canvas.height);
+        var endX = Math.floor(Math.random() * canvas.width);
+        var endY = Math.floor(Math.random() * canvas.height);
+
+        // 设置线条样式
+        ctx.strokeStyle = 'red';
+        ctx.lineWidth = 5;
+
+        // 绘制直线
+        ctx.beginPath();
+        ctx.moveTo(startX, startY);
+        ctx.lineTo(endX, endY);
+        ctx.stroke();
+    }
+
+    // 绘制折线
+    function drawPolyline() {
+        // 随机生成折线的点的数量
+        var numPoints = Math.floor(Math.random() * 6) + 2; // 至少需要两个点
+
+        // 随机生成每个点的坐标
+        var points = [];
+        for (var i = 0; i < numPoints; i++) {
+            var x = Math.floor(Math.random() * canvas.width);
+            var y = Math.floor(Math.random() * canvas.height);
+            points.push({ x, y });
+        }
+
+        // 设置线条样式
+        ctx.strokeStyle = 'green';
+        ctx.lineWidth = 3;
+
+        // 绘制折线
+        ctx.beginPath();
+        ctx.moveTo(points[0].x, points[0].y);
+        for (var i = 1; i < points.length; i++) {
+            ctx.lineTo(points[i].x, points[i].y);
+        }
+        ctx.stroke();
+    }
+
+    // 绘制矩形
+    function drawRect() {
+        // 随机生成矩形左上角的坐标和宽高
+        var x = Math.floor(Math.random() * canvas.width / 2) + 20;
+        var y = Math.floor(Math.random() * canvas.height / 2) + 10;
+        var width = Math.floor(Math.random() * (canvas.width - x));
+        var height = Math.floor(Math.random() * (canvas.height - y));
+
+        // 设置填充样式
+        ctx.fillStyle = 'blue';
+
+        // 绘制矩形
+        ctx.fillRect(x, y, width, height);
+    }
+
+    // 绘制圆形
+    function drawCircle() {
+        // 随机生成圆心坐标和半径
+        var x = Math.floor(canvas.width / 2);
+        var y = Math.floor(canvas.height / 2);
+        var radius = Math.floor(Math.random() * Math.min(canvas.width, canvas.height) / 4) + 10;
+
+        // 设置填充样式
+        ctx.fillStyle = 'orange';
+
+        // 绘制圆形
+        ctx.beginPath();
+        ctx.arc(x, y, radius, 0, 2 * Math.PI);
+        ctx.fill();
+    }
+
+    // 绘制图片
+    function drawImage() {
+        // 创建一个Image对象
+        var img = new Image();
+        img.src = './1.jpg';
+        // 在图像加载完成后绘制它
+        img.onload = function () {
+            // 设置最大宽度和高度
+            var maxWidth = 200;
+            var maxHeight = 150;
+
+            // 计算缩放比例
+            var scale = Math.min(maxWidth / img.width, maxHeight / img.height);
+            var width = img.width * scale;
+            var height = img.height * scale;
+
+            // 随机生成图像左上角的坐标
+            var x = Math.floor(Math.random() * (canvas.width - width));
+            var y = Math.floor(Math.random() * (canvas.height - height));
+
+            // 绘制缩放后的图像
+            ctx.drawImage(img, x, y, width, height);
+        };
+    }
+
+    // 清除画布
+    function clearCanvas() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }
+</script>
+
+</html>
