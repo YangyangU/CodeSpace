@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML5 Web Workers</title>
+</head>
+
+<body>
+    <input id="input" />
+    <button id="button">计算</button>&nbsp;
+    <button id="stop_button">停止计算</button>
+    <p>结果是: <span id="result"></span></p>
+</body>
+<script src="./js/worker.js"></script>
+<script>
+    const input = document.getElementById('input');
+    const result = document.getElementById('result');
+    const button = document.getElementById('button');
+    const stopButton = document.getElementById('stop_button');
+
+    // 是否停止 worker
+    var workerTerminate = false;
+
+    const worker = new Worker('./worker.js');
+
+    worker.addEventListener('message', function (e) {
+        result.textContent = e.data;
+    }, false);
+
+    button.addEventListener('click', function () {
+        const n = parseInt(input.value, 10);
+        worker.postMessage(n);
+    }, false);
+
+    stopButton.addEventListener('click', function () {
+        workerTerminate = true;
+        result.textContent = '已停止计算';
+        result.style.color = 'red';
+        worker.terminate();
+    }, false);
+</script>
+
+</html>

@@ -1,0 +1,12 @@
+{
+  "name": "webworker",
+  "version": "1.0.0",
+  "description": "- JavaScript 脚本通常运行在浏览器的主线程中，即 UI 线程中。\r - 如果 JavaScript 脚本执行时间过长，会导致页面卡顿，影响用户体验。",
+  "main": "worker.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
