@@ -1,0 +1,25 @@
+{
+  "name": "pwa-demo-vue",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "vue": "^3.4.26"
+  },
+  "devDependencies": {
+    "@vite-pwa/assets-generator": "^0.2.4",
+    "@vitejs/plugin-vue": "^5.0.4",
+    "vite": "^5.2.10",
+    "vite-plugin-pwa": "^0.20.0",
+    "workbox-window": "^7.1.0"
+  },
+  "resolutions": {
+    "sharp": "0.32.6",
+    "sharp-ico": "0.1.5"
+  }
+}
