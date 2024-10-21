@@ -1,0 +1,21 @@
+{
+  "name": "yy-cloc",
+  "version": "1.0.0",
+  "description": "统计代码行数",
+  "main": "index.js",
+  "bin": {
+    "cloc": "cli.js"
+  },
+  "keywords": [
+    "yy-cloc",
+    "yy",
+    "cloc",
+    "line",
+    "counter"
+  ],
+  "author": "YangyangU",
+  "license": "ISC",
+  "dependencies": {
+    "ignore": "^6.0.2"
+  }
+}
