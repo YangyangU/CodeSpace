@@ -5,7 +5,7 @@
 ## 安装
 
 ```bash
-npm install -g yy-cloc
+npm install yy-cloc
 ```
 
 ## 使用
@@ -19,4 +19,10 @@ cloc
 
 ```bash
 cloc /path/to/dir
+```
+
+### 统计指定文件代码行数
+
+```bash
+cloc 1.js
 ```

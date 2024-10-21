@@ -1,6 +1,6 @@
 {
   "name": "yy-cloc",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "统计代码行数",
   "main": "index.js",
   "bin": {
