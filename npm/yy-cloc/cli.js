@@ -20,7 +20,7 @@ const args = process.argv.slice(2);
     } else {
       // 如果指定的是文件，输出该文件的代码行数
       const lines = await countLinesInFile(targetPath);
-      console.log(`File ${targetPath} has ${lines} lines of code.`);
+      console.log(`文件 ${targetPath} 有 ${lines} 行代码。`);
     }
   }
 })();

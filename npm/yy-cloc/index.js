@@ -7,8 +7,8 @@ function getIgnoreRules(dir) {
     const ig = ignore();
     const gitignorePath = path.join(dir, '.gitignore');
     if (fs.existsSync(gitignorePath)) {
-        const ignoreContent = fs.readFileSync(gitignorePath).toString();
-        ig.add(ignoreContent);
+        const ignoreContent = fs.readFileSync(gitignorePath, 'utf8').trim();
+        ig.add(ignoreContent.split('\n').map(rule => rule.trim()));
     }
     return ig;
 }
@@ -33,7 +33,7 @@ async function countFilesAndLines(dir, stats, ig) {
 
     for (const file of files) {
         const filePath = path.join(dir, file);
-        const relativePath = path.relative(dir, filePath);
+        const relativePath = path.relative(process.cwd(), filePath);
         const stat = fs.statSync(filePath);
 
         // 跳过被忽略的文件和目录
@@ -76,7 +76,7 @@ async function getCodeStats(dir = process.cwd()) {
     // 格式化输出
     console.log(`
 ----------------------------------------
-  Type       File Count      Line Count 
+  类型        文件数量        代码行数 
 ----------------------------------------
   HTML           ${stats['.html'].count}               ${stats['.html'].lines}
   CSS            ${stats['.css'].count}               ${stats['.css'].lines}
