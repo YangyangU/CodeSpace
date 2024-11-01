@@ -20,5 +20,6 @@
     },
     "[markdown]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
-    }
+    },
+    "Codegeex.CompletionDelay": 0.4
 }
