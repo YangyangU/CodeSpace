@@ -1,6 +1,6 @@
 {
     "liveServer.settings.port": 5501,
-    "editor.fontSize": 20,
+    "editor.fontSize": 16,
     "editor.defaultFormatter": "formulahendry.auto-rename-tag",
     "[javascript]": {
         "editor.defaultFormatter": "vscode.typescript-language-features"
