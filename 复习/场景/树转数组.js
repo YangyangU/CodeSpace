@@ -40,10 +40,10 @@ function deep(tree) {
     return max + 1;
 }
 
-function deep1(tree){
+function deep1(tree) {
     let res = []
-    function dfs(node){
-        res.push({ val: node.val });
+    function dfs(node) {
+        res.push(node.val);
         if (node.children && node.children.length > 0) {
             node.children.forEach(child => dfs(child));
         }

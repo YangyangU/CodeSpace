@@ -13,7 +13,7 @@ const myPromiseAllSettled = (arr) => {
             ).finally(() => {
                 len++
                 if (len === arr.length) {
-                    reject(result)
+                    resolve(result)
                 }
             })
         }
