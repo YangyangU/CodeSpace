@@ -11,12 +11,5 @@ const flatArr = (arr) => {
     return newArr
 }
 
-const flat = (arr) => {
-    if (!Array.isArray(arr)) return
-    return arr.reduce((prev, cur) => {
-        return prev.concat(Array.isArray(cur) ? flat(cur) : cur)
-    }, [])
-}
-
 const arr = [1, [1, [1, [1]]]]
-console.log(flat(arr));
+console.log(flatArr(arr));
