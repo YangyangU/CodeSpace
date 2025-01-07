@@ -22,10 +22,24 @@ const deepClone2 =(obj)=>{
     return deepObj
 }
 
+const deepClone3 = (obj)=>{
+    const newObj = Array.isArray(obj) ? [] : {}
+    for(let key in obj){
+        if(obj.hasOwnProperty(key)){
+            if(typeof obj[key] === 'object' && obj[key] !== null){
+                newObj = deepClone3(obj[key])
+            }else {
+                newObj[key] = obj[key]
+            }
+        }
+    }
+    return newObj
+}
+
 let a2 = {
     name: 'xyy'
 }
-let b2 = deepClone(a2)
+let b2 = deepClone3(a2)
 b2.name = 'jyx'
 
 console.log(a2.name);

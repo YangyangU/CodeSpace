@@ -12,10 +12,23 @@ const debounce = (fn, delay) => {
     }
 }
 
+const debounce2 = (fn,delay) =>{
+    let timer = null
+    return function (...args){
+        if(timer){
+            clearTimeout(timer)
+        }
+        timer = setTimeout(()=>{
+            fn.apply(this,args)
+            timer = null
+        },delay)
+    }
+}
+
 const sum = (a, b) => {
     console.log(a + b)
 }
-const sum2 = debounce(sum, 1000)
+const sum2 = debounce2(sum, 1000)
 sum2(1, 2)
 setTimeout(()=>{
     sum2(1, 3)

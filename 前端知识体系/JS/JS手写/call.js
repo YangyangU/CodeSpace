@@ -2,7 +2,7 @@ Function.prototype.myCall = function(ctx,...args){
     const fn = this
     ctx.fn = fn
     let res = ctx.fn(...args)
-    delete ctx.fx
+    delete ctx.fn
     return res
 }
 

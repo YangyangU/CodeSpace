@@ -9,4 +9,4 @@ function sum(a, b) {
     return a + b
 }
 console.log(sum.myBind({ name: 'zs' }, 1, 2))
-console.log(sum.myBind({ name: 'zs' }, 1, 2)());
+console.log(sum.myBind({ name: 'zs' }, 1)(2));

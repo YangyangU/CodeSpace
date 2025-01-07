@@ -1,32 +1,37 @@
-const myPromiseAll = (arr) => {
-    let result = []
-    let len = 0
+const myPromiseAll = (promises) => {
     return new Promise((resolve, reject) => {
-        for (let i = 0; i < arr.length; i++) {
-            arr[i].then(
-                (val) => {
-                    len++
-                    result[i] = val
-                    if (len === arr.length) {
-                        resolve(result)
-                    }
-                },
-                (res) => {
-                    reject(res)
+        let result = [];
+        let count = 0;
+        for (let i = 0; i < promises.length; i++) {
+            promises[i].then((res) => {
+                result[i] = res;
+                count++;
+                if (count === promises.length) {
+                    resolve(result);
                 }
-            )
+            }, (err) => {
+                reject(err)
+            })
         }
     })
 }
 
-let p1 = Promise.resolve(1)
-let p2 = new Promise((resolve, reject) => {
+const p1 = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        resolve(1)
+    }, 1000)
+})
+
+const p2 = new Promise((resolve, reject) => {
     setTimeout(() => {
         resolve(2)
-    }, 1)
+    }, 2000)
 })
-let p3 = Promise.resolve(3)
 
-console.log(myPromiseAll([p1, p2, p3]).then((val) => console.log(val), (res) => console.log(res)));
+const p3 = Promise.reject(3)
 
-
+myPromiseAll([p1, p2, p3]).then((res) => {
+    console.log(res)
+}, (err) => {
+    console.log(err)
+})

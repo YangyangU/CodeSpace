@@ -10,3 +10,6 @@ npm publish
 
 # 删除
 npm unpublish <package>@<version> --force
+
+# 本地测试
+npm link
