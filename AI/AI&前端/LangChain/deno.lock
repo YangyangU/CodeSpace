@@ -1,0 +1,17 @@
+{
+  "version": "4",
+  "remote": {
+    "https://deno.land/std@0.220.0/dotenv/mod.ts": "0180eaeedaaf88647318811cdaa418cc64dc51fb08354f91f5f480d0a1309f7d",
+    "https://deno.land/std@0.220.0/dotenv/parse.ts": "09977ff88dfd1f24f9973a338f0f91bbdb9307eb5ff6085446e7c423e4c7ba0c",
+    "https://deno.land/std@0.220.0/dotenv/stringify.ts": "0047ad7068289735d08964046aea267a750c141b494ca0e38831b89be6c020c2"
+  },
+  "workspace": {
+    "dependencies": [
+      "npm:@langchain/community@*",
+      "npm:@langchain/core@0.1.48",
+      "npm:@langchain/openai@0.0.22",
+      "npm:langchain@0.1.28",
+      "npm:lodash@4.17.21"
+    ]
+  }
+}
