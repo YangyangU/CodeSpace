@@ -8,7 +8,8 @@
     "@langchain/openai/": "npm:/@langchain/openai@0.0.22/",
     "@langchain/core": "npm:/@langchain/core@0.1.48",
     "@langchain/core/": "npm:/@langchain/core@0.1.48/",
-    "@langchain/community/": "npm:/@langchain/community/"
+    "@langchain/community/": "npm:/@langchain/community/",
+    "pdf-parse": "npm:/pdf-parse/lib/pdf-parse.js"
   },
   "deno.enable": true
 }
