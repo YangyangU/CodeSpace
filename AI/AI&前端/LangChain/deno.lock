@@ -479,7 +479,8 @@
       "npm:@langchain/core@0.1.48",
       "npm:@langchain/openai@0.0.22",
       "npm:langchain@0.1.28",
-      "npm:lodash@4.17.21"
+      "npm:lodash@4.17.21",
+      "npm:pdf-parse@*"
     ]
   }
 }
