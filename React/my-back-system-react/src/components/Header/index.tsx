@@ -6,8 +6,10 @@ import { useDispatch } from 'react-redux';
 import type { AppDispatch } from '@/store';
 import { collapseMenu } from '@/store/reducers/tabs';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 const View: React.FC = () => {
+    const { i18n, t } = useTranslation();
     const navigate = useNavigate();
     const dispatch: AppDispatch = useDispatch();
     const logOut = () => {
@@ -24,7 +26,7 @@ const View: React.FC = () => {
                         navigate('/mine');
                     }}
                 >
-                    个人中心
+                    {t('header.mine')}
                 </a>
             ),
         },
@@ -36,7 +38,7 @@ const View: React.FC = () => {
                         navigate('/area');
                     }}
                 >
-                    我的位置
+                    {t('header.area')}
                 </a>
             ),
         },
@@ -48,7 +50,7 @@ const View: React.FC = () => {
                         logOut();
                     }}
                 >
-                    退出登录
+                    {t('header.logout')}
                 </a>
             ),
         },
@@ -70,9 +72,13 @@ const View: React.FC = () => {
                     <label></label>
                 </label>
             </div>
-            <Dropdown menu={{ items }}>
-                <Avatar size={32} src={<img src={avatar}></img>}></Avatar>
-            </Dropdown>
+            <div className="lang">
+                <a onClick={() => i18n.changeLanguage('zh')}>中文</a> |
+                <a onClick={() => i18n.changeLanguage('en')}>English</a>
+                <Dropdown menu={{ items }}>
+                    <Avatar size={32} src={<img src={avatar}></img>}></Avatar>
+                </Dropdown>
+            </div>
         </Layout.Header>
     );
 };

@@ -4,7 +4,7 @@
     align-items: center;
 }
 
-.collapse-container{
+.collapse-container {
     margin-top: 8px;
     margin-left: -15px;
 }
@@ -55,4 +55,12 @@
     border-top-right-radius: 25px;
     border-bottom-right-radius: 25px;
     width: 22.5px;
+}
+
+.lang {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    gap: 15px;
 }
