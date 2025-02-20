@@ -21,3 +21,11 @@
     - React.memo —— 它会使用 Object.is 对前后两个 props 做浅比较
     - useMemo —— 只有当依赖项改变时才会重新计算
     - useCallback —— 只有当依赖项改变时才会重新创建函数
+        ```js
+        const Parent = () => {
+        const handleClick = useCallback(() => {
+            console.log('Button clicked');
+        }, []); // 缓存函数引用
+        return <Child onClick={handleClick} />;
+        };
+        ```
