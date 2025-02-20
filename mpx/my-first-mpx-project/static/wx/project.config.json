@@ -1,0 +1,30 @@
+{
+  "setting": {
+    "newFeature": true,
+    "urlCheck": true,
+    "es6": false,
+    "postcss": true,
+    "minified": false,
+    "checkSiteMap": false,
+    "autoAudits": false,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    }
+  },
+  "appid": "wx2ec594d7b5d80702",
+  "projectname": "my-first-mpx-project",
+  "description": "demo",
+  "condition": {},
+  "compileType": "miniprogram",
+  "libVersion": "3.7.8",
+  "packOptions": {
+    "ignore": [],
+    "include": []
+  },
+  "editorSetting": {
+    "tabIndent": "insertSpaces",
+    "tabSize": 2
+  }
+}
