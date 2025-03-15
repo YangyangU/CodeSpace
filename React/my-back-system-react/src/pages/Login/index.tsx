@@ -57,6 +57,10 @@ const View: React.FC = () => {
                             className="form"
                             layout="vertical"
                             onFinish={handleSubmit}
+                            initialValues={{
+                                username: 'admin',
+                                password: 'admin',
+                            }}
                         >
                             {contextHolder}
                             <Form.Item

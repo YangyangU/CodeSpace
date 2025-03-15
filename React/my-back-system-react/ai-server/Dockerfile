@@ -1,4 +1,4 @@
-FROM hub.atomgit.com/amd64/node
+FROM node:latest
 
 EXPOSE 3001
 WORKDIR /app
