@@ -5,49 +5,50 @@ import areaPng from '@/assets/images/area1.png';
 import './index.css';
 import { useCoordinate } from '@/hooks/useCoordinate';
 
-const View = () => {
+const View: React.FC = () => {
     const mapRef = useRef<any>(null);
     const { longitude, latitude } = useCoordinate();
 
     useEffect(() => {
-        (window as any)._AMapSecurityConfig = {
-            securityJsCode: '1d8f95f07e818ecf68f14af9fc9db215',
-        };
-
-        const markerContent = `<div class="custom-content-marker">
-                                <img src=${areaPng}>
-                                </div>`;
-
         AMapLoader.load({
             key: 'b4ba9fe27d65399e63b39660e9f80f66',
-            version: '1.4.15',
+            version: '2.0',
+            plugins: ['AMap.Marker'],
         })
             .then((AMap) => {
-                mapRef.current = new AMap.Map('map', {
+                if (!longitude || !latitude) return;
+
+                // 创建地图实例
+                const map = new AMap.Map('map', {
                     viewMode: '2D',
                     zoom: 16,
                     center: [longitude, latitude],
                 });
-                const position = new AMap.LngLat(longitude, latitude);
+                mapRef.current = map;
+
+                // 创建标记点
                 const marker = new AMap.Marker({
-                    position: position,
-                    content: markerContent,
+                    position: new AMap.LngLat(longitude, latitude),
+                    icon: new AMap.Icon({
+                        image: areaPng,
+                        size: new AMap.Size(26, 30),
+                        imageSize: new AMap.Size(26, 30),
+                    }),
                     offset: new AMap.Pixel(-13, -30),
                 });
-                mapRef.current.add(marker);
+
+                map.add(marker);
             })
             .catch((e) => {
-                console.error(e);
+                console.error('高德地图加载失败:', e);
             });
 
         return () => {
-            if (mapRef.current) {
-                mapRef.current.destroy();
-            }
+            mapRef.current?.destroy();
         };
-    }, [latitude, longitude]);
+    }, [longitude, latitude]);
 
-    return <div id="map" style={{ width: '100%', height: '100%' }}></div>;
+    return <div id="map" style={{ width: '100%', height: '100%' }} />;
 };
 
 export default View;

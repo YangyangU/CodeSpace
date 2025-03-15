@@ -18,8 +18,6 @@ app.use(cors());
 app.use(bodyParser());
 
 router.get('/ip', async (ctx) => {
-    console.log(ctx);
-
     try {
         const response = await axios.get('https://api.ipify.org/?format=json');
         ctx.response.body = {
