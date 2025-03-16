@@ -1,0 +1,101 @@
+<template>
+  <view class="container">
+    <view class="btn-group">
+      <button class="btn" bindtap="reset">重置</button>
+      <button class="btn" bindtap="animateY">animateY</button>
+      <button class="btn" bindtap="animateX">animateX</button>
+      <button class="btn" bindtap="rotate">rotate</button>
+      <button class="btn" bindtap="scale">scale</button>
+      <button class="btn" bindtap="matrix">matrix</button>
+    </view>
+    <view class="item-container">
+      <view class="item" animation="{{animationData}}" />
+    </view>
+  </view>
+</template>
+
+<script setup>
+  import mpx, { ref } from '@mpxjs/core'
+  const animation = mpx.createAnimation({
+    duration: 1000, // 动画时长
+    timingFunction: 'ease' // 动画速度曲线
+  })
+  const animationData = ref({})
+
+  const reset = () => {
+    animation.translateX(0).translateY(0).rotate(0).scale(1, 1).step()
+    animationData.value = animation.export()
+  }
+
+  const animateX = () => {
+    animation.translateX(50).step() // 水平移动 100px
+    animationData.value = animation.export()
+  }
+
+  const animateY = () => {
+    animation.translateY(50).step() // 垂直移动 50px
+    animationData.value = animation.export()
+  }
+
+  const rotate = () => {
+    animation.rotate(360).step()
+    animationData.value = animation.export()
+  }
+
+  const scale = () => {
+    animation.scale(2).step()
+    animationData.value = animation.export()
+  }
+
+  const matrix = () => {
+    animation.matrix(1, 0, 0, 1, 100, 100).reset().step()
+    animationData.value = animation.export()
+  }
+
+  defineExpose({
+    animationData,
+    reset,
+    animateX,
+    animateY,
+    rotate,
+    scale,
+    matrix
+  })
+</script>
+
+<style lang="stylus">
+  .container
+    width 100vw
+    height 100vh
+    display flex
+    flex-direction column
+  .item-container
+    border 1px dashed #ccc
+    margin 10px
+    height 200px
+    .item
+      width 60px
+      height 60px
+      background-color #b58df1
+      border-radius 20px
+  .btn-group
+    margin 10px
+    display grid
+    grid-template-columns repeat(4, 1fr)
+    grid-gap 10px
+    .btn
+      width 70px
+      height 30px
+      background-color #b58df1
+      border-radius 10px
+      font-size 10px
+      align-items center
+      display flex
+      justify-content center
+</style>
+
+<script type="application/json">
+  {
+    "component": true
+  }
+</script>
