@@ -1,12 +1,12 @@
 <template>
   <view class="container">
     <view class="btn-group">
-      <button class="btn" bindtap="reset">重置</button>
-      <button class="btn" bindtap="animateY">animateY</button>
-      <button class="btn" bindtap="animateX">animateX</button>
-      <button class="btn" bindtap="rotate">rotate</button>
-      <button class="btn" bindtap="scale">scale</button>
-      <button class="btn" bindtap="matrix">matrix</button>
+      <!-- <button class="btn" bindtap="reset">重置</button> -->
+      <button class="btn" bindtap="translateX">translateX</button>
+      <!-- <button class="btn" bindtap="translateY">translateY</button> -->
+      <!-- <button class="btn" bindtap="rotate">rotate</button> -->
+      <!-- <button class="btn" bindtap="scale">scale</button> -->
+      <!-- <button class="btn" bindtap="matrix">matrix</button> -->
     </view>
     <view class="item-container">
       <view class="item" animation="{{animationData}}" />
@@ -27,13 +27,13 @@
     animationData.value = animation.export()
   }
 
-  const animateX = () => {
-    animation.translateX(50).step() // 水平移动 100px
-    animationData.value = animation.export()
+  const translateX = () => {
+     // 水平移动 100px
+    animationData.value = animation.translateX(100).step().export()
   }
 
-  const animateY = () => {
-    animation.translateY(50).step() // 垂直移动 50px
+  const translateY = () => {
+    animation.translateY(100).step() // 垂直移动 50px
     animationData.value = animation.export()
   }
 
@@ -55,8 +55,8 @@
   defineExpose({
     animationData,
     reset,
-    animateX,
-    animateY,
+    translateY,
+    translateX,
     rotate,
     scale,
     matrix
