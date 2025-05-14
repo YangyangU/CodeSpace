@@ -132,6 +132,10 @@ docker build -f Dockerfile -t my-back-system-react:1.0.0 .
 
 docker build -f Dockerfile -t ai-server:1.0.0 .
 
+docker build -f Dockerfile -t rag-system:1.0.0 .
+
+docker build -f Dockerfile -t rag-backend:1.0.0 .
+
 - 查看镜像
 docker images
 
@@ -141,4 +145,8 @@ docker run -d -p 8888:80 xxxxx:1.0.0
 docker run -d -p 2222:80 my-back-system-react:1.0.0
 
 docker run -d -p 3001:3001 ai-server:1.0.0
+
+docker run -d -p 3333:81 rag-system:1.0.0
+
+docker run -d -p 3002:3002 rag-backend:1.0.0
 ```
